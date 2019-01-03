@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/phone/phone"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#f5f5f5",
+    "navigationBarTextStyle": "#ffffff",
+    "navigationBarTitleText": "小程序",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "plugins": {
+    "myPlugin": {
+      "version": "dev",
+      "provider": "wxbad323de8169436d"
+    }
+  }
+}

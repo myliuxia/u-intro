@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="tab-placeholder">
+    <view class="tab-box"> 
+      <text class="tab-title">优简历</text>
+      <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+    </view>
+  </view>
+  <view class="step-box">
+    <view class="step-item">
+      <view class="step-pic">
+        <image src='../../images/v-icon.jpg'></image>
+      </view>
+      <view class="step-con">
+        <text>asdfasdfasdf</text>
+      </view>
+    </view>
+  </view>
+  <view class="fixed-box">
+    <button class="btn" bindtap='goPage'>好</button>
+  </view>
+
+</view>
+
