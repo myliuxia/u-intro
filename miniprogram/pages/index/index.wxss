@@ -18,18 +18,22 @@
 }
 .tab-box .tab-title{
   color: #ffffff;
-  font-size: 48rpx;
+  font-size:60rpx;
+  font-family:'幼圆';
+
 }
 .tab-box .tab-des{
   color: #ffffff;
   font-size: 28rpx;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
 }
 
 .step-box{
   width: 100%;
   box-sizing: border-box;
   padding: 20rpx;
+  position: relative;
+  padding-bottom: 100rpx;
 
 }
 .step-item{
@@ -75,7 +79,7 @@
 
 
 .fixed-box{
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -101,6 +105,58 @@
   transform:translate(0px, 0px);
   box-shadow: 3px 3px 4px rgba(48, 156, 63, 0.2) ;
 }
+.fixed-box .btn.bg-blue{
+  background-color: #0081ff;
+  box-shadow: 3px 3px 4px rgba(0, 102, 204, 0.2);
+}
 .fixed-box .btn.button-hover{
   transform:translate(1px, 1px);
+}
+
+.swiper-box{
+  width: 100%;
+}
+.step-form{
+  background-color: #ffffff;
+  box-sizing: border-box;
+  width: 700rpx;
+  margin: 40rpx auto;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-shadow: 0 0 10rpx 0 #dddddd;
+}
+.step-form .form-row{
+  display: flex;
+  font-size: 28rpx;
+  justify-content: center;
+  align-items: center;
+  height: 70rpx;
+  border-bottom: 1rpx solid #dddddd;
+  margin-top: 10rpx;
+}
+.step-form .form-row:last-child{
+  border: none;
+}
+.step-form .form-row:first-child{
+  margin-top: 0;
+}
+.step-form .form-row .row-label{
+  margin-right: 20rpx;
+}
+.step-form .form-row input{
+  flex: 1;
+}
+.step-form .form-row .input{
+  flex: 1;
+  height: 50rpx;
+  line-height: 50rpx;
+  display: flex;
+  align-items: center;
+}
+.step-form .form-row .input .picker{
+  flex: 1;
+}
+.placeholder-class{
+  flex: 1;
+  color: #999999;
 }

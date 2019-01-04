@@ -5,7 +5,31 @@
       <text class="tab-des">如何轻松得到一份漂亮的简历</text>
     </view>
   </view>
-  <view class="step-box">
+  <view id="stepId" class="swiper-box" style="height:{{swiperHeight}}px;"> 
+    <swiper current="{{swiperCurrent}}" style="height:{{swiperHeight}}px;">
+      <swiper-item  catchtouchmove="stopSwiper">
+        <template is="swiper1" data="{{height:swiperHeight}}"></template>
+      </swiper-item>
+      <swiper-item  catchtouchmove="stopSwiper">
+        <template is="swiper2" data="{{height:swiperHeight}}"></template>
+      </swiper-item>
+      <swiper-item  catchtouchmove="stopSwiper">
+        <template is="swiper3" data="{{height:swiperHeight}}"></template>
+      </swiper-item>
+      <swiper-item  catchtouchmove="stopSwiper">
+        <template is="swiper4" data="{{height:swiperHeight,myBirthday:myBirthday}}"></template>
+      </swiper-item>
+      <swiper-item  catchtouchmove="stopSwiper">
+        <template is="swiper5" data="{{height:swiperHeight,myAddress:myAddress}}"></template>
+      </swiper-item>
+    </swiper>
+  </view>
+
+</view>
+
+<!-- 下面是一个模块 -->
+<template name="swiper1">
+  <view class="step-box" style="height:{{height}}px;">
     <view class="step-item">
       <view class="step-pic">
         <image src='../../images/v-icon.jpg'></image>
@@ -14,10 +38,110 @@
         <text>少年，我看你骨骼清奇。有兴趣加入很多有名的门派吗？首先，让我们给你准备一份简历。你准备好了吗？</text>
       </view>
     </view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='nextSwiper'>好</button>
+    </view>
   </view>
-  <view class="fixed-box">
-    <button class="btn" bindtap='goPage'>好</button>
+</template>
+<template name="swiper2">
+  <view class="step-box" style="height:{{height}}px;">
+    <view class="step-item">
+      <view class="step-pic">
+        <image src='../../images/v-icon.jpg'></image>
+      </view>
+      <view class="step-con">
+        <text>少年，你的电话号码是多少？</text>
+      </view>
+    </view>
+    <view class="step-form">
+      <view class="form-row">
+        <view class="row-label">手机号码</view>
+        <input type="number" bindinput='phoneInput' placeholder='请输入手机号'></input>
+      </view>
+    </view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
   </view>
+</template>
 
-</view>
+
+<template name="swiper3">
+  <view class="step-box" style="height:{{height}}px;">
+    <view class="step-item">
+      <view class="step-pic">
+        <image src='../../images/v-icon.jpg'></image>
+      </view>
+      <view class="step-con">
+        <text>少年，你的姓名是什么？</text>
+      </view>
+    </view>
+    <view class="step-form">
+      <view class="form-row">
+        <view class="row-label">姓名</view>
+        <input type="text" bindinput='nameInput' placeholder='请输入姓名'></input>
+      </view>
+    </view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
+
+<template name="swiper4">
+  <view class="step-box" style="height:{{height}}px;">
+    <view class="step-item">
+      <view class="step-pic">
+        <image src='../../images/v-icon.jpg'></image>
+      </view>
+      <view class="step-con">
+        <text>少年，你的出生日期是多少？</text>
+      </view>
+    </view>
+    <view class="step-form">
+      <view class="form-row">
+        <view class="row-label">出生日期：</view>
+        <picker class="input" mode="date" value="{{myBirthday}}" start="1900-01-01" end="2019-01-01" bindchange="birthdayInput">
+          <view wx:if="{{myBirthday}}" class="picker">{{myBirthday}}</view>
+          <view wx:else class="placeholder-class">请选择出生年月日</view>
+          
+        </picker>
+      </view>
+    </view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
+
+
+<template name="swiper5">
+  <view class="step-box" style="height:{{height}}px;">
+    <view class="step-item">
+      <view class="step-pic">
+        <image src='../../images/v-icon.jpg'></image>
+      </view>
+      <view class="step-con">
+        <text>少年，你的户口所在地在哪？</text>
+      </view>
+    </view>
+    <view class="step-form">
+      <view class="form-row">
+        <view class="row-label">户口地址：</view>
+        <picker class="input" mode="region" value="{{myAddress}}" bindchange="addressInput">
+          <view wx:if="{{myAddress[0]}}" class="picker">{{myAddress[0]}} {{myAddress[1]}} {{myAddress[2]}}</view>
+          <view wx:else class="placeholder-class">请选择地址</view>
+          
+        </picker>
+      </view>
+    </view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='submitIntro'>完成</button>
+    </view>
+  </view>
+</template>
 
