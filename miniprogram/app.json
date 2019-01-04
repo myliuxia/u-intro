@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/phone/phone",
     "pages/intro/intro"
+    "pages/login/login"
   ],
   "window": {
     "navigationStyle": "custom",
@@ -16,7 +17,7 @@
   "plugins": {
     "myPlugin": {
       "version": "dev",
-      "provider": "wxbad323de8169436d"
+      "provider": "wxb4c6e8f26944a0fe"
     }
   }
 }

@@ -5,7 +5,34 @@
 	"setting": {
 		"newFeature": true
 	},
-	"appid": "wxbad323de8169436d",
-	"projectname": "u-intro",
-	"condition": {}
+	"appid": "wxb4c6e8f26944a0fe",
+	"projectname": "w-intro",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/index/index",
+					"query": "name=2&pawd=2"
+				}
+			]
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": []
+		}
+	}
 }

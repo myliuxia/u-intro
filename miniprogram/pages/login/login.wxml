@@ -1,0 +1,10 @@
+<!--miniprogram/pages/login/login.wxml-->
+<view class="login_page">
+  <view class="tab_container">
+    <view class="tab">
+      <text class="tab-title">优简历</text>
+      <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+    </view>
+  </view>
+  <button class="auth" open-type='getUserInfo' bindgetuserinfo='login'>授权登录</button>
+</view>
