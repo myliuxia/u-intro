@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/phone/phone"
+    "pages/phone/phone",
+    "pages/intro/intro"
   ],
   "window": {
     "navigationStyle": "custom",

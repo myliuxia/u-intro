@@ -1,0 +1,8 @@
+/* miniprogram/pages/intro/intro.wxss */
+.intro-box{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+}

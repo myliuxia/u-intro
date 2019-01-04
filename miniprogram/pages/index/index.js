@@ -78,10 +78,21 @@ Page({
   },
   /** 提交填写信息 */
   submitIntro:function(){
-    console.log('姓名：' + this.data.myName)
-    console.log('手机号码：' + this.data.myPhone)
-    console.log('出生日期：' + this.data.myBirthday)
-    console.log('户口所在地：' + this.data.myAddress.join(' '))
+    try {
+      let introInfo = { 
+        name: this.data.myName,
+        birthday: this.data.myBirthday,
+        address: this.data.myAddress.join(' '),
+      }
+
+      wx.setStorageSync('phone', this.data.myPhone);
+      wx.setStorageSync('introInfo', introInfo);
+      wx.navigateTo({ url: '../../pages/intro/intro'})
+
+    } catch (e) { 
+
+    }
+    
   }
 
 })

@@ -1,0 +1,11 @@
+<!--miniprogram/pages/intro/intro.wxml-->
+<view class="header-box">
+
+</view>
+
+<view class="intro-box">
+  <text>姓名：{{introInfo.name}}</text>
+  <text>电话：{{introInfo.phone}}</text>
+  <text>出生日期：{{introInfo.birthday}}</text>
+  <text>户口所在地：{{introInfo.address}}</text>
+</view>

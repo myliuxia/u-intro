@@ -42,8 +42,8 @@
   margin-bottom: 20rpx;
 }
 .step-item .step-pic{
-  width: 80rpx;
-  height: 80rpx;
+  width: 70rpx;
+  height: 70rpx;
   overflow: hidden;
   font-size: 0;
   line-height: 0;
@@ -58,11 +58,15 @@
   position: relative;
   max-width: 500rpx;
   min-width: 200rpx;
-  font-size: 28rpx;
+  font-size: 32rpx;
   padding: 20rpx;
   background-color: #ffffff;
   border-radius: 10rpx;
   box-shadow: 0 0 10rpx 0 #cccccc;
+}
+.step-con image{
+  max-width: 200rpx;
+  max-height: 200rpx;
 }
 .step-item .step-con::before{
   position: absolute;
