@@ -145,6 +145,8 @@
   margin-top: 0;
 }
 .step-form .form-row .row-label{
+  width: 140rpx;
+  text-align: right;
   margin-right: 20rpx;
 }
 .step-form .form-row input{
@@ -157,10 +159,25 @@
   display: flex;
   align-items: center;
 }
+.step-form .form-row .img-code{
+  width: 160rpx;
+  height: 60rpx;
+}
+.step-form .form-row .code-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 180rpx;
+  height: 60rpx;
+  padding: 5rpx 20rpx;
+  font-size: 24rpx;
+}
 .step-form .form-row .input .picker{
   flex: 1;
+  min-width:400rpx;
 }
 .placeholder-class{
   flex: 1;
   color: #999999;
+  min-width:400rpx;
 }

@@ -23,7 +23,7 @@ App({
             data: {
               code: res.code
             },
-            success:(result)=>{
+            success: (result) => {
               let cookie = 'JSESSIONID=' + result.data.msg;
               this.globalData.header.Cookie = cookie;
             }
@@ -34,10 +34,11 @@ App({
       }
     })
     wx.getSetting({
-      success:res=> {
+      success: res => {
         if (res.authSetting['scope.userInfo'] && path.path !== 'pages/login/login'){
           wx.getUserInfo({
             success: res => {
+              console.log(res)
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo;
             }
