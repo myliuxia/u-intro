@@ -1,11 +1,15 @@
 <!--miniprogram/pages/intro/intro.wxml-->
-<view class="header-box">
-
-</view>
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      返回
+    </navigator>
+  </bar>
+</custom>
 
 <view class="intro-box">
   <text>姓名：{{introInfo.name}}</text>
-  <text>电话：{{introInfo.phone}}</text>
+  <text>电话：{{phone}}</text>
   <text>出生日期：{{introInfo.birthday}}</text>
-  <text>户口所在地：{{introInfo.address}}</text>
+  <text>居住地址：{{introInfo.address}}</text>
 </view>

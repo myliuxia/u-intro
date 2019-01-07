@@ -10,18 +10,30 @@ Page({
     myAddress: ['','',''],
     seniorHighSchool: {//高中信息
       beginDate:'',
-      endDate:'',
+      //endDate:'',
       schoolName:'',
-      hasAward:0,//是否获得奖励0:否；1:是
-      awardes:[],
+      award:{},
     },
     university: {//大学信息
       beginDate: '',
-      endDate: '',
+      //endDate: '',
       schoolName: '',
-      hasAward: 0,//是否获得奖励0:否；1:是
-      awardes: [],
+      award: {},
     },
+    graduate: {//研究生
+      beginDate: '',
+      //endDate: '',
+      schoolName: '',
+      award: {},
+    },
+    otherAward:[],//其他奖励
+    hasWork: 0,// 是否有工作经验0:否；1:是
+    work:[{
+      beginDate:'',
+      endDate:'',
+      companyName: '',
+      post: '',//岗位
+    }],
     motto:'',
     imgCode:''
 
@@ -96,21 +108,34 @@ Page({
   /** 提交填写信息 */
   submitIntro:function(){
     try {
+      let _this = this;
       let introInfo = { 
         name: this.data.myName,
         birthday: this.data.myBirthday,
         address: this.data.myAddress.join(' '),
         seniorHighSchool: this.data.seniorHighSchool,
         university: this.data.university,
+        graduate: this.data.graduate,
+        otherAward: this.data.otherAward,
+        hasWork: this.data.hsWork,
+        work: this.data.work,
         motto: this.data.motto,
       }
-
-      wx.setStorageSync('phone', this.data.myPhone);
-      wx.setStorageSync('introInfo', introInfo);
-      wx.navigateTo({ url: '../../pages/intro/intro'})
-
-    } catch (e) { 
-
+      wx.request({
+        url: 'https://www.kklei.com/submit',
+        header: app.globalData.header, 
+        method:"POST",
+        data: { 
+          phone: _this.data.myPhone, 
+          introInfo: JSON.stringify(introInfo) 
+        },
+        success: (result) => {
+          console.log(result)
+          wx.navigateTo({ url: '../../pages/success/success' })
+        }
+      })
+    } catch (err) { 
+      console.log(err)
     }
     
   }

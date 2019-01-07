@@ -1,4 +1,35 @@
 /* miniprogram/pages/intro/intro.wxss */
+
+custom{
+  display:block;
+  position:relative;
+
+}
+custom bar{
+  padding-right:110px;
+  box-shadow:0px 0px 0px !important;
+}
+.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1024;
+  box-sizing: border-box;
+}
+.gradual-blue{
+  background-image:linear-gradient(45deg, #0081ff, #1cbbb4) !important;
+  color:#fff !important; 
+}
+.action{
+  display:flex;
+  align-items:center;
+  height:100%;
+  max-width:100%;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+}
+
 .intro-box{
   display: flex;
   flex-direction: column;

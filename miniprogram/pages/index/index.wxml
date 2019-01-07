@@ -22,56 +22,75 @@
       <swiper-item  catchtouchmove="stopSwiper">
         <template is="swiper5" data="{{height:swiperHeight,myAddress:myAddress}}"></template>
       </swiper-item>
+      <!-- 高中信息 -->
       <swiper-item  catchtouchmove="stopSwiper">
         <template is="swiper6" 
           data="{{height:swiperHeight,beginDate:seniorHighSchool.beginDate,endDate:seniorHighSchool.endDate}}"></template>
       </swiper-item>
-      <swiper-item wx:if="{{seniorHighSchool.beginDate&&seniorHighSchool.endDate}}" catchtouchmove="stopSwiper">
+      <swiper-item wx:if="{{seniorHighSchool.beginDate}}" catchtouchmove="stopSwiper">
         <template is="swiper7" 
           data="{{height:swiperHeight}}"></template>
       </swiper-item>
-      <swiper-item wx:if="{{seniorHighSchool.beginDate&&seniorHighSchool.endDate}}" catchtouchmove="stopSwiper">
+      <swiper-item wx:if="{{seniorHighSchool.beginDate}}" catchtouchmove="stopSwiper">
         <template is="swiper8" 
-          data="{{height:swiperHeight,hasAward:seniorHighSchool.hasAward}}"></template>
-      </swiper-item>
-      
-      <swiper-item 
-        wx:if="{{seniorHighSchool.hasAward}}" 
-        wx:for="{{seniorHighSchool.awardes.length+1}}" 
-        wx:for-index="idx"
-        wx:key="{{idx}}"
-        catchtouchmove="stopSwiper">
-        <template is="swiper9" 
-          data="{{height:swiperHeight,award:seniorHighSchool.awardes[idx],index:idx}}"></template>
+          data="{{height:swiperHeight}}"></template>
       </swiper-item>
 
-      <block wx:if="{{seniorHighSchool.beginDate&&seniorHighSchool.endDate}}">
+      <!-- 大学信息 -->
+      <block wx:if="{{seniorHighSchool.beginDate}}">
         <swiper-item  catchtouchmove="stopSwiper">
-          <template is="swiper10" 
+          <template is="swiper9" 
             data="{{height:swiperHeight,beginDate:university.beginDate,endDate:university.endDate}}"></template>
         </swiper-item>
-        <swiper-item wx:if="{{university.beginDate&&university.endDate}}" catchtouchmove="stopSwiper">
-          <template is="swiper11" 
+        <swiper-item wx:if="{{university.beginDate}}" catchtouchmove="stopSwiper">
+          <template is="swiper10" 
             data="{{height:swiperHeight}}"></template>
         </swiper-item>
-        <swiper-item wx:if="{{university.beginDate&&university.endDate}}" catchtouchmove="stopSwiper">
-          <template is="swiper12" 
-            data="{{height:swiperHeight,hasAward:university.hasAward}}"></template>
+        <swiper-item wx:if="{{university.beginDate}}" catchtouchmove="stopSwiper">
+          <template is="swiper11"data="{{height:swiperHeight}}"></template>
         </swiper-item>
-        
-        <swiper-item 
-          wx:if="{{university.hasAward}}" 
-          wx:for="{{university.awardes.length+1}}" 
-          wx:for-index="idx"
-          wx:key="{{idx}}"
-          catchtouchmove="stopSwiper">
+      </block>
+
+      <!-- 研究生信息 -->
+      <block wx:if="{{university.beginDate}}">
+        <swiper-item  catchtouchmove="stopSwiper">
+          <template is="swiper12" 
+            data="{{height:swiperHeight,beginDate:graduate.beginDate}}"></template>
+        </swiper-item>
+        <swiper-item wx:if="{{graduate.beginDate}}" catchtouchmove="stopSwiper">
           <template is="swiper13" 
-            data="{{height:swiperHeight,award:university.awardes[idx],index:idx}}"></template>
+            data="{{height:swiperHeight}}"></template>
+        </swiper-item>
+        <swiper-item wx:if="{{graduate.beginDate}}" catchtouchmove="stopSwiper">
+          <template is="swiper14"data="{{height:swiperHeight}}"></template>
         </swiper-item>
       </block>
       
+      <swiper-item catchtouchmove="stopSwiper">
+        <template is="swiper15" data="{{height:swiperHeight,index:0,awardDate:otherAward[0].awardDate}}"></template>
+      </swiper-item>
+
       <swiper-item  catchtouchmove="stopSwiper">
-        <template is="swiper14" data="{{height:swiperHeight}}"></template>
+        <template is="swiper16" data="{{height:swiperHeight,hasWork:hasWork}}"></template>
+      </swiper-item>
+
+      <block
+        wx:if="{{hasWork==1&&(idx==0||work[0].beginDate)}}"
+        wx:for="{{2}}" 
+        wx:for-index="idx"
+        wx:key="{{idx}}">
+
+        <swiper-item catchtouchmove="stopSwiper">
+          <template is="swiper17" data="{{height:swiperHeight,workItem:work[idx],index:idx}}"></template>
+        </swiper-item>
+        <swiper-item wx:if="{{work[idx].beginDate}}" catchtouchmove="stopSwiper">
+          <template is="swiper18" data="{{height:swiperHeight,index:idx}}"></template>
+        </swiper-item>
+
+      </block>
+      
+      <swiper-item catchtouchmove="stopSwiper">
+        <template is="swiper19" data="{{height:swiperHeight,motto:motto}}"></template>
       </swiper-item>
 
     </swiper>
@@ -277,7 +296,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <text>少年，你上的高中哪一年，不想填的话，不填也是可以的。</text>
+          <text>少年，你的高中哪一年开始的，不想填的话，不填也是可以的。</text>
         </view>
       </view>
       <view class="step-item">
@@ -300,20 +319,6 @@
             bindchange="bindInputByKey">
             <view wx:if="{{beginDate}}" class="picker">{{beginDate}}</view>
             <view wx:else class="placeholder-class"><text>请选择出入学时间</text></view>
-          </picker>
-        </view>
-        <view class="form-row">
-          <view class="row-label">毕业时间：</view>
-          <picker class="input" mode="date" 
-            fields="month" 
-            value="{{endDate}}" 
-            start="1900-01" 
-            end="2019-01" 
-            data-key="seniorHighSchool.endDate"
-            bindchange="bindInputByKey">
-            <view wx:if="{{endDate}}" class="picker">{{endDate}}</view>
-            <view wx:else class="placeholder-class"><text>请选择出毕业时间</text></view>
-            
           </picker>
         </view>
       </view>
@@ -372,7 +377,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <text>少年，你的高中得到过什么奖励吗？</text>
+          <text>少年，你在高中获得的最大奖励是什么？</text>
         </view>
       </view>
       <view class="step-item">
@@ -384,18 +389,12 @@
         </view>
       </view>
       <view class="step-form">
-        <view class="">
-          <radio-group class="form-row" 
-            data-key="seniorHighSchool.hasAward"
-            bindchange="bindInputByKey" >
-            <label class="input">
-              <radio value="1" class="radio sm" checked="{{hasAward==1}}" /><text class="mar-l-2">是</text>
-            </label>
-            <label class="input">
-              <radio value="0" class="radio sm" checked="{{hasAward==0}}" /><text class="mar-l-2">否</text>
-            </label>
-          </radio-group>
-         
+        <view class="form-row">
+          <view class="row-label">奖励名称：</view>
+          <input type="text" 
+            data-key="seniorHighSchool.award.awardName"
+            bindinput="bindInputByKey" 
+            placeholder='请输入奖励名称'></input>
         </view>
       </view>
     </scroll-view>
@@ -407,7 +406,7 @@
 </template>
 
 <!-- 高中获得的奖励内容 -->
-<template name="swiper9">
+<!-- <template name="swiper9">
   <view class="step-box" style="height:{{height}}px;">
     <scroll-view style='height:100%' scroll-y="true" >
       <view class="step-item">
@@ -435,19 +434,7 @@
             bindinput="bindInputByKey" 
             placeholder='请输入奖励名称'></input>
         </view>
-        <view class="form-row">
-          <view class="row-label">获奖时间：</view>
-          <picker class="input" mode="date" 
-            fields="month" 
-            value="{{beginDate}}" 
-            start="1900-01" 
-            end="2019-01" 
-            data-key="seniorHighSchool.awardes[{{index}}].awardDate"
-            bindchange="bindInputByKey">
-            <view wx:if="{{award.awardDate}}" class="picker">{{award.awardDate}}</view>
-            <view wx:else class="placeholder-class"><text>请选择获奖时间</text></view>
-          </picker>
-        </view>
+        
       </view>
         
     </scroll-view>
@@ -456,11 +443,11 @@
       <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
     </view>
   </view>
-</template>
+</template> -->
 
 
 <!-- 大学就读时间 -->
-<template name="swiper10">
+<template name="swiper9">
   <view class="step-box" style="height:{{height}}px;">
     <scroll-view style='height:100%' scroll-y="true" >
       <view class="step-item">
@@ -468,7 +455,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <text>少年，你上的大学哪一年，不想填的话，不填也是可以的。</text>
+          <text>少年，你的大学哪一年开始的，不想填的话，不填也是可以的。</text>
         </view>
       </view>
       <view class="step-item">
@@ -490,21 +477,7 @@
             data-key="university.beginDate"
             bindchange="bindInputByKey">
             <view wx:if="{{beginDate}}" class="picker">{{beginDate}}</view>
-            <view wx:else class="placeholder-class"><text>请选择出入学时间</text></view>
-          </picker>
-        </view>
-        <view class="form-row">
-          <view class="row-label">毕业时间：</view>
-          <picker class="input" mode="date" 
-            fields="month" 
-            value="{{endDate}}" 
-            start="1900-01" 
-            end="2019-01" 
-            data-key="university.endDate"
-            bindchange="bindInputByKey">
-            <view wx:if="{{endDate}}" class="picker">{{endDate}}</view>
-            <view wx:else class="placeholder-class"><text>请选择出毕业时间</text></view>
-            
+            <view wx:else class="placeholder-class"><text>请选择入学时间</text></view>
           </picker>
         </view>
       </view>
@@ -517,7 +490,7 @@
 </template>
 
 <!-- 大学就读学校 -->
-<template name="swiper11">
+<template name="swiper10">
   <view class="step-box" style="height:{{height}}px;">
     <scroll-view style='height:100%' scroll-y="true" >
       <view class="step-item">
@@ -555,7 +528,7 @@
 </template>
 
 <!-- 大学是否得到奖励 -->
-<template name="swiper12">
+<template name="swiper11">
   <view class="step-box" style="height:{{height}}px;">
     <scroll-view style='height:100%' scroll-y="true" >
       <view class="step-item">
@@ -563,51 +536,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <text>少年，你的高中得到过什么奖励吗？</text>
-        </view>
-      </view>
-      <view class="step-item">
-        <view class="step-pic">
-          <image src='../../images/v-icon.jpg'></image>
-        </view>
-        <view class="step-con">
-          <image src='../../images/icon.gif'></image>
-        </view>
-      </view>
-      <view class="step-form">
-        <view class="">
-          <radio-group class="form-row" 
-            data-key="university.hasAward"
-            bindchange="bindInputByKey" >
-            <label class="input">
-              <radio value="1" class="radio sm" checked="{{hasAward==1}}" /><text class="mar-l-2">是</text>
-            </label>
-            <label class="input">
-              <radio value="0" class="radio sm" checked="{{hasAward==0}}" /><text class="mar-l-2">否</text>
-            </label>
-          </radio-group>
-         
-        </view>
-      </view>
-    </scroll-view>
-    <view class="fixed-box">
-      <button class="btn" bindtap='previousSwiper'>上一步</button>
-      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
-    </view>
-  </view>
-</template>
-
-<!-- 大学获得的奖励内容 -->
-<template name="swiper13">
-  <view class="step-box" style="height:{{height}}px;">
-    <scroll-view style='height:100%' scroll-y="true" >
-      <view class="step-item">
-        <view class="step-pic">
-          <image src='../../images/v-icon.jpg'></image>
-        </view>
-        <view class="step-con">
-          <text wx:if="{{index>0}}">少年，除了这些之外，还有别的奖励吗？</text>
-          <text wx:else>少年，你的大学获得的奖励是什么？</text>
+          <text>少年，你在大学获得的最大奖励是什么？</text>
         </view>
       </view>
       <view class="step-item">
@@ -622,21 +551,179 @@
         <view class="form-row">
           <view class="row-label">奖励名称：</view>
           <input type="text" 
-            data-key="university.awardes[{{index}}].awardName"
+            data-key="university.award.awardName"
             bindinput="bindInputByKey" 
             placeholder='请输入奖励名称'></input>
         </view>
+      </view>
+    </scroll-view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
+
+
+<!-- 研究生就读时间 -->
+<template name="swiper12">
+  <view class="step-box" style="height:{{height}}px;">
+    <scroll-view style='height:100%' scroll-y="true" >
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text>少年，你的研究生哪一年开始的，不想填的话，不填也是可以的。</text>
+        </view>
+      </view>
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <image src='../../images/icon.gif'></image>
+        </view>
+      </view>
+      <view class="step-form">
         <view class="form-row">
-          <view class="row-label">获奖时间：</view>
+          <view class="row-label">入学时间：</view>
           <picker class="input" mode="date" 
             fields="month" 
             value="{{beginDate}}" 
             start="1900-01" 
             end="2019-01" 
-            data-key="university.awardes[{{index}}].awardDate"
+            data-key="graduate.beginDate"
             bindchange="bindInputByKey">
-            <view wx:if="{{award.awardDate}}" class="picker">{{award.awardDate}}</view>
-            <view wx:else class="placeholder-class"><text>请选择获奖时间</text></view>
+            <view wx:if="{{beginDate}}" class="picker">{{beginDate}}</view>
+            <view wx:else class="placeholder-class"><text>请选择入学时间</text></view>
+          </picker>
+        </view>
+       
+      </view>
+    </scroll-view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
+
+<!-- 研究生就读学校 -->
+<template name="swiper13">
+  <view class="step-box" style="height:{{height}}px;">
+    <scroll-view style='height:100%' scroll-y="true" >
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text>少年，你的研究生就读学校叫什么名字。</text>
+        </view>
+      </view>
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <image src='../../images/icon.gif'></image>
+        </view>
+      </view>
+      <view class="step-form">
+        <view class="form-row">
+          <view class="row-label">学校名称：</view>
+          <input type="text" 
+            data-key="graduate.schoolName"
+            bindinput="bindInputByKey" 
+            placeholder='请输入学校名称'></input>
+        </view>
+      </view>
+        
+    </scroll-view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
+
+<!-- 研究生获得的奖励 -->
+<template name="swiper14">
+  <view class="step-box" style="height:{{height}}px;">
+    <scroll-view style='height:100%' scroll-y="true" >
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text>少年，你在就是研究生获得的最大奖励是什么？</text>
+        </view>
+      </view>
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <image src='../../images/icon.gif'></image>
+        </view>
+      </view>
+      <view class="step-form">
+        <view class="form-row">
+          <view class="row-label">奖励名称：</view>
+          <input type="text" 
+            data-key="graduate.award.awardName"
+            bindinput="bindInputByKey" 
+            placeholder='请输入奖励名称'></input>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
+
+
+<!-- 其他奖励内容 -->
+<template name="swiper15">
+  <view class="step-box" style="height:{{height}}px;">
+    <scroll-view style='height:100%' scroll-y="true" >
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text>少年，除了这些之外，还有别的奖励吗？</text>
+        </view>
+      </view>
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <image src='../../images/icon.gif'></image>
+        </view>
+      </view>
+      <view class="step-form">
+        <view class="form-row">
+          <view class="row-label">奖励名称：</view>
+          <input type="text" 
+            data-key="otherAward[{{index}}].awardName"
+            bindinput="bindInputByKey" 
+            placeholder='请输入奖励名称'></input>
+        </view>
+        <view class="form-row">
+          <view class="row-label">奖励时间：</view>
+          <picker class="input" mode="date" 
+            fields="month" 
+            value="{{beginDate}}" 
+            start="1900-01" 
+            end="2019-01" 
+            data-key="otherAward[{{index}}].awardDate"
+            bindchange="bindInputByKey">
+            <view wx:if="{{awardDate}}" class="picker">{{awardDate}}</view>
+            <view wx:else class="placeholder-class"><text>请选择奖励时间</text></view>
           </picker>
         </view>
       </view>
@@ -649,8 +736,161 @@
   </view>
 </template>
 
+
+
+<!-- 你有工作经验吗 -->
+<template name="swiper16">
+  <view class="step-box" style="height:{{height}}px;">
+    <scroll-view style='height:100%' scroll-y="true" >
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text>少年，你有工作经验吗？</text>
+        </view>
+      </view>
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <image src='../../images/icon.gif'></image>
+        </view>
+      </view>
+     <view class="step-form">
+        <radio-group class="form-row" 
+          data-key="hasWork"
+          bindchange="bindInputByKey" >
+          <label class="input">
+            <radio value="1" class="radio sm" checked="{{hasWork==1}}" /><text class="mar-l-2">是</text>
+          </label>
+          <label class="input">
+            <radio value="0" class="radio sm" checked="{{hasWork==0}}" /><text class="mar-l-2">否</text>
+          </label>
+        </radio-group>
+      </view>
+    </scroll-view>
+
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
+
+<!-- 工作经验内容 -->
+<template name="swiper17">
+  <view class="step-box" style="height:{{height}}px;">
+    <scroll-view style='height:100%' scroll-y="true" >
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text wx:if="{{index==0}}">少年，你的工作经历是怎么样的？</text>
+          <text wx:else>少年，你还有其他工作经验吗，若有请继续添加，若无则下一步？</text>
+        </view>
+      </view>
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <image src='../../images/icon.gif'></image>
+        </view>
+      </view>
+      <view class="step-form">
+        <view class="form-row">
+          <view class="row-label">入职时间：</view>
+          <picker class="input" mode="date" 
+            fields="month" 
+            value="{{beginDate}}" 
+            start="1900-01" 
+            end="2019-01" 
+            data-key="work[{{index}}].beginDate"
+            bindchange="bindInputByKey">
+            <view wx:if="{{workItem.beginDate}}" class="picker">{{workItem.beginDate}}</view>
+            <view wx:else class="placeholder-class"><text>请选择入职时间</text></view>
+          </picker>
+        </view>
+        <view class="form-row">
+          <view class="row-label">离职时间：</view>
+          <picker class="input" mode="date" 
+            fields="month" 
+            value="{{endDate}}" 
+            start="1900-01" 
+            end="2019-01" 
+            data-key="work[{{index}}].endDate"
+            bindchange="bindInputByKey">
+            <view wx:if="{{workItem.endDate}}" class="picker">{{workItem.endDate}}</view>
+            <view wx:else class="placeholder-class"><text>请选择离职时间</text></view>
+            
+          </picker>
+        </view>
+        <view class="form-row">
+          <view class="row-label">公司名称：</view>
+          <input type="text" 
+            data-key="work[{{index}}].companyName"
+            bindinput="bindInputByKey" 
+            placeholder='请输入就职公司名称'></input>
+        </view>
+        <view class="form-row">
+          <view class="row-label">担任职务：</view>
+          <input type="text" 
+            data-key="work[{{index}}].post"
+            bindinput="bindInputByKey" 
+            placeholder='请输入公司担任的职务'></input>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
+
+<!-- 工作内容 -->
+<template name="swiper18">
+  <view class="step-box" style="height:{{height}}px;">
+    <scroll-view style='height:100%' scroll-y="true" >
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text>少年，你这段时间主要负责的工作内容是啥？</text>
+        </view>
+      </view>
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <image src='../../images/icon.gif'></image>
+        </view>
+      </view>
+      <view class="step-form">
+        <view class="form-row start">
+          <view class="row-label">工作内容：</view>
+          <textarea 
+            class="textarea"
+            data-key="work[{{index}}].workContent"
+            bindinput="bindInputByKey" 
+            placeholder='请输入工作内容描述' />
+        </view>
+      </view>
+    </scroll-view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
+
 <!-- 座右铭 -->
-<template name="swiper14">
+<template name="swiper19">
   <view class="step-box" style="height:{{height}}px;">
     <scroll-view style='height:100%' scroll-y="true" >
       <view class="step-item">

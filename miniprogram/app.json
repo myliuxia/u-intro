@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/phone/phone",
     "pages/intro/intro",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/success/success",
+    "pages/mine/mine"
   ],
   "window": {
     "navigationStyle": "custom",

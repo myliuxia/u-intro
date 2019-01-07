@@ -1,4 +1,4 @@
-// miniprogram/pages/phone/phone.js
+// miniprogram/pages/mine/mine.js
 Page({
 
   /**

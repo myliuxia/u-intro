@@ -1,0 +1,41 @@
+<!--miniprogram/pages/success/success.wxml-->
+<view class="container">
+  <view class="tab-placeholder">
+    <view class="tab-box"> 
+      <text class="tab-title">优简历</text>
+      <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+    </view>
+  </view>
+  <view id="stepId" class="step-box" style="height:{{swiperHeight}}px;"> 
+    <scroll-view style='height:100%' scroll-y="true" >
+
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text>少年，恭喜你获得一份简历，你可以直接查看它！</text>
+        </view>
+      </view>
+
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text>可以分享给好友，也可以将简历发送到邮箱哦</text>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>分享</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>我的简历</button>
+    </view>
+  </view>
+</view>
+
+<!-- 出生年月 -->
+<template name="swiper4">
+  
+</template>
+

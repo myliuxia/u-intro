@@ -6,7 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
     introInfo:null,
+    phone:'',
     userInfo: app.globalData.userInfo
   },
 
@@ -22,6 +25,7 @@ Page({
       this.setData({
         introInfo: { phone: phone, ...otherInfo}
       })
+      this.getIntro()
      
     } catch (e) {
       // Do something when catch error
@@ -75,5 +79,21 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getIntro:function(){
+    let _this = this;
+    wx.request({
+      url: 'https://www.kklei.com/intro_info',
+      header: app.globalData.header,
+      success: (result) => {
+        console.log(result)
+        _this.setData({
+          phone: result.data.obj.phone,
+          introInfo: JSON.parse(result.data.obj.introInfo),
+        })
+      }
+    })
+
   }
+ 
 })

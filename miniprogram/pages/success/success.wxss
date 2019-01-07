@@ -1,3 +1,4 @@
+/* miniprogram/pages/success/success.wxss */
 /* pages/index/index.wxss */
 
 .tab-placeholder{
@@ -117,82 +118,4 @@
   transform:translate(1px, 1px);
 }
 
-.swiper-box{
-  width: 100%;
-}
-.step-form{
-  background-color: #ffffff;
-  box-sizing: border-box;
-  width: 700rpx;
-  margin: 40rpx auto;
-  border-radius: 10rpx;
-  padding: 20rpx;
-  box-shadow: 0 0 10rpx 0 #dddddd;
-}
-.step-form .form-row{
-  display: flex;
-  font-size: 28rpx;
-  justify-content: center;
-  align-items: center;
-  min-height: 70rpx;
-  border-bottom: 1rpx solid #dddddd;
-  margin-top: 10rpx;
-}
-.step-form .form-row.start{
-  align-items: flex-start;
-}
-.step-form .form-row.start .row-label{
-  line-height: 70rpx;
-}
 
-.step-form .form-row:last-child{
-  border: none;
-}
-.step-form .form-row:first-child{
-  margin-top: 0;
-}
-.step-form .form-row .row-label{
-  width: 140rpx;
-  text-align: right;
-  margin-right: 20rpx;
-}
-.step-form .form-row input{
-  flex: 1;
-}
-.step-form .form-row .input{
-  flex: 1;
-  height: 50rpx;
-  line-height: 50rpx;
-  display: flex;
-  align-items: center;
-}
-.step-form .form-row .textarea{
-  flex: 1;
-  padding: 20rpx;
-  box-sizing: border-box;
-  border: 1rpx solid #eeeeee;
-  box-shadow: 0 0 10rpx 0 #eeeeee;
-  border-radius: 10rpx;
-}
-.step-form .form-row .img-code{
-  width: 160rpx;
-  height: 60rpx;
-}
-.step-form .form-row .code-btn{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 180rpx;
-  height: 60rpx;
-  padding: 5rpx 20rpx;
-  font-size: 24rpx;
-}
-.step-form .form-row .input .picker{
-  flex: 1;
-  min-width:400rpx;
-}
-.placeholder-class{
-  flex: 1;
-  color: #999999;
-  min-width:400rpx;
-}
