@@ -131,7 +131,7 @@ Page({
         },
         success: (result) => {
           //console.log(result)
-          wx.navigateTo({ url: '../../pages/success/success' })
+          wx.navigateTo({ url: '../../pages/success/success?introId=' + result.data.obj})
         }
       })
     } catch (err) { 

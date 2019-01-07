@@ -10,14 +10,21 @@ Page({
     CustomBar: app.globalData.CustomBar,
     introInfo:null,
     phone:'',
-    userInfo: app.globalData.userInfo
+    userInfo: app.globalData.userInfo,
+    introId:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(this.data.userInfo)
+    //console.log(this.data.userInfo)
+
+    /**接收参数 */
+    this.setData({
+      introId: options.introId
+    })
+
     try {
       const phone = wx.getStorageSync('phone')
       const otherInfo = wx.getStorageSync('introInfo')
@@ -84,6 +91,9 @@ Page({
     let _this = this;
     wx.request({
       url: 'https://www.kklei.com/intro_info',
+      data:{
+        id: _this.data.introId
+      },
       header: app.globalData.header,
       success: (result) => {
         console.log(result)

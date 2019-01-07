@@ -5,13 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperHeight:0
+    swiperHeight:0,
+    introId:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    /**接收参数 */
+    this.setData({
+      introId: options.introId
+    })
+
     var _this = this;
     //创建节点选择器
     var query = wx.createSelectorQuery();

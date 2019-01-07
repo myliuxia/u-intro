@@ -28,7 +28,7 @@
       </view>
     </scroll-view>
     <view class="fixed-box">
-      <navigator class="btn" bindtap='previousSwiper'>分享</navigator>
+      <navigator class="btn" url='../../pages/intro/intro?introId={{introId}}'>打开简历</navigator>
       <navigator class="btn bg-blue" url='../../pages/mine/mine'>我的简历</navigator>
     </view>
   </view>

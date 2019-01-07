@@ -34,6 +34,7 @@ App({
             success: (result) => {
               let cookie = 'JSESSIONID=' + result.data.msg;
               this.globalData.header.Cookie = cookie;
+              this.globalData.header["Content-Type"] = "application/json;charset=UTF-8"
             }
           })
         } else {
