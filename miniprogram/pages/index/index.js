@@ -130,7 +130,7 @@ Page({
           introInfo: JSON.stringify(introInfo) 
         },
         success: (result) => {
-          console.log(result)
+          //console.log(result)
           wx.navigateTo({ url: '../../pages/success/success' })
         }
       })

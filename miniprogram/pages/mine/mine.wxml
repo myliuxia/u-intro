@@ -1,2 +1,22 @@
 <!--miniprogram/pages/mine/mine.wxml-->
-<text>miniprogram/pages/mine/mine.wxml</text>
+<!--miniprogram/pages/success/success.wxml-->
+<view class="container">
+  <view class="tab-placeholder">
+    <view class="tab-box"> 
+      <text class="tab-title">优简历</text>
+      <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+    </view>
+  </view>
+  <view class="mine-content"> 
+    <view>我的简历</view>
+    <view class="list-intro">
+      <view class="intro-item">
+        <view class="item-name">第一份简历</view>
+        <view class="item-star"></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+

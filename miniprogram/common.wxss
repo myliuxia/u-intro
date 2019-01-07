@@ -1,3 +1,206 @@
+/* ==================
+         页面公共样式
+ ==================== */
+.tab-placeholder{
+  height: 400rpx;
+  width: 100%;
+}
+.tab-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 400rpx;
+  width: 100%;
+  background: linear-gradient(to top right, #0081ff , #1cbbb4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tab-box .tab-title{
+  color: #ffffff;
+  font-size:60rpx;
+  font-family:'幼圆';
+
+}
+.tab-box .tab-des{
+  color: #ffffff;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+/* 对话样式 */
+.step-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  position: relative;
+  padding-bottom: 100rpx;
+
+}
+.step-item{
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+.step-item .step-pic{
+  width: 70rpx;
+  height: 70rpx;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.step-pic image{
+  width: 100%;
+  height: 100%;
+}
+.step-item .step-con{
+  position: relative;
+  max-width: 500rpx;
+  min-width: 200rpx;
+  font-size: 32rpx;
+  padding: 20rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10rpx 0 #cccccc;
+}
+.step-con image{
+  max-width: 200rpx;
+  max-height: 200rpx;
+}
+.step-item .step-con::before{
+  position: absolute;
+  top: 20rpx;
+  left: -8rpx;
+  display: block;
+  content: "";
+  width: 20rpx;
+  height: 20rpx;
+  transform: rotate(45deg);
+  box-shadow: -5rpx 5rpx 10rpx 0 #dddddd;
+  background-color: #ffffff;
+}
+.swiper-box{
+  width: 100%;
+}
+
+/* 底部按钮样式 */
+.fixed-box{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100rpx;
+  background-color: #ffffff;
+  border-top: 2rpx solid #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed-box .btn{
+  flex:1;
+  margin:0 10px;
+  max-width:50%;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  line-height: 1;
+  border-radius: 5000px;
+  background-color: #39b54a;
+  color: #ffffff;
+  transform:translate(0px, 0px);
+  box-shadow: 3px 3px 4px rgba(48, 156, 63, 0.2) ;
+  text-align: center;
+}
+.fixed-box .btn.bg-blue{
+  background-color: #0081ff;
+  box-shadow: 3px 3px 4px rgba(0, 102, 204, 0.2);
+}
+.fixed-box .btn.button-hover{
+  transform:translate(1px, 1px);
+}
+
+
+/* 输入信息栏样式 */
+.step-form{
+  background-color: #ffffff;
+  box-sizing: border-box;
+  width: 700rpx;
+  margin: 40rpx auto;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-shadow: 0 0 10rpx 0 #dddddd;
+}
+.step-form .form-row{
+  display: flex;
+  font-size: 28rpx;
+  justify-content: center;
+  align-items: center;
+  min-height: 70rpx;
+  border-bottom: 1rpx solid #dddddd;
+  margin-top: 10rpx;
+}
+.step-form .form-row.start{
+  align-items: flex-start;
+}
+.step-form .form-row.start .row-label{
+  line-height: 70rpx;
+}
+
+.step-form .form-row:last-child{
+  border: none;
+}
+.step-form .form-row:first-child{
+  margin-top: 0;
+}
+.step-form .form-row .row-label{
+  width: 140rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}
+.step-form .form-row input{
+  flex: 1;
+}
+.step-form .form-row .input{
+  flex: 1;
+  height: 50rpx;
+  line-height: 50rpx;
+  display: flex;
+  align-items: center;
+}
+.step-form .form-row .textarea{
+  flex: 1;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #eeeeee;
+  box-shadow: 0 0 10rpx 0 #eeeeee;
+  border-radius: 10rpx;
+}
+.step-form .form-row .img-code{
+  width: 160rpx;
+  height: 60rpx;
+}
+.step-form .form-row .code-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 180rpx;
+  height: 60rpx;
+  padding: 5rpx 20rpx;
+  font-size: 24rpx;
+}
+.step-form .form-row .input .picker{
+  flex: 1;
+  min-width:400rpx;
+}
+.placeholder-class{
+  flex: 1;
+  color: #999999;
+  min-width:400rpx;
+}
 
 /* ==================
          外边距

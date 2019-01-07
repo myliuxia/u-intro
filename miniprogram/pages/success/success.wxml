@@ -28,14 +28,10 @@
       </view>
     </scroll-view>
     <view class="fixed-box">
-      <button class="btn" bindtap='previousSwiper'>分享</button>
-      <button class="btn bg-blue" bindtap='nextSwiper'>我的简历</button>
+      <navigator class="btn" bindtap='previousSwiper'>分享</navigator>
+      <navigator class="btn bg-blue" url='../../pages/mine/mine'>我的简历</navigator>
     </view>
   </view>
 </view>
 
-<!-- 出生年月 -->
-<template name="swiper4">
-  
-</template>
 
