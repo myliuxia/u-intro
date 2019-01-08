@@ -28,7 +28,20 @@
   font-size: 28rpx;
   margin-top: 20rpx;
 }
-
+.tab-box .back-btn{
+  position: absolute;
+  left: 20rpx;
+  top: 40rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #ffffff;
+}
+.tab-box .back-btn .iconfont{
+  font-size: 34rpx;
+}
 /* 对话样式 */
 .step-box{
   width: 100%;

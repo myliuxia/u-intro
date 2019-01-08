@@ -1,5 +1,4 @@
-var plugin = requirePlugin("myPlugin")
-const app = getApp();
+const app = getApp()
 Page({
   data:{
     swiperHeight:0,
@@ -39,7 +38,6 @@ Page({
 
   },
   onLoad: function() {
-    plugin.getData();
     var _this = this;
     //创建节点选择器
     var query = wx.createSelectorQuery();
@@ -131,7 +129,7 @@ Page({
         },
         success: (result) => {
           //console.log(result)
-          wx.navigateTo({ url: '../../pages/success/success?introId=' + result.data.obj})
+          wx.redirectTo({ url: '../../pages/success/success?introId=' + result.data.obj})
         }
       })
     } catch (err) { 

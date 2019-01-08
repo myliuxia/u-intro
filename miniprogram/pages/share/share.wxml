@@ -1,0 +1,9 @@
+<!--miniprogram/pages/share/share.wxml-->
+
+  <view class="tab-placeholder">
+    <view class="tab-box"> 
+      <text class="tab-title">优简历</text>
+      <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+    </view>
+  </view>
+  <text>简历id:{{introId}}</text>

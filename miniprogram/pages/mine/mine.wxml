@@ -1,5 +1,4 @@
 <!--miniprogram/pages/mine/mine.wxml-->
-<!--miniprogram/pages/success/success.wxml-->
 <view class="container">
   <view class="tab-placeholder">
     <view class="tab-box"> 
@@ -8,13 +7,20 @@
     </view>
   </view>
   <view class="mine-content"> 
-    <view>我的简历</view>
+    <!-- <view>我的简历</view> -->
     <view class="list-intro">
-      <view class="intro-item">
-        <view class="item-name">第一份简历</view>
-        <view class="item-star"></view>
-      </view>
+      <navigator url="../../pages/intro/intro?introId={{item.id}}" class="intro-item" wx:key="{{index}}" wx:for="{{introList}}">
+        <view class="item-name">第{{index==0?'一':index==1?'二':'三'}}份简历</view>
+        <view class="item-star">
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill"></text>
+        </view>
+      </navigator>
     </view>
+    <navigator wx:if="{{introList.length<3}}" url="../../pages/index/index" class="add-intro-ntn" >添加简历</navigator>
   </view>
 </view>
 

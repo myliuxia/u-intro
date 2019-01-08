@@ -1,1 +1,41 @@
 /* miniprogram/pages/mine/mine.wxss */
+.list-intro{
+  width: 100%;
+}
+.list-intro .intro-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120rpx;
+  width: 700rpx;
+  background-color: #ffffff;
+  border: 1rpx solid #eeeeee;
+  box-shadow: 0 0 10rpx 0 #eeeeee;
+  border-radius: 10rpx;
+  margin: 20rpx auto;
+  box-sizing: border-box;
+  padding: 20rpx;
+  font-size: 34rpx;
+}
+.list-intro .intro-item .item-star{
+  color: #cccccc;
+}
+.list-intro .intro-item .item-star .active{
+  color: #ff9700;
+}
+.add-intro-ntn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+  width: 700rpx;
+  background-color: #cce6ff;
+  color:#0081ff;
+  border: 1rpx solid #cce6ff;
+  box-shadow: 0 0 10rpx 0 #eeeeee;
+  border-radius: 10rpx;
+  margin: 20rpx auto;
+  box-sizing: border-box;
+  padding: 20rpx;
+  font-size: 34rpx;
+}

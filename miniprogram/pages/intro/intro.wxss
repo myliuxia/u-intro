@@ -29,6 +29,9 @@ custom bar{
   margin-left: 20rpx;
   font-size: 28rpx;
 }
+.action .iconfont{
+  font-size: 34rpx;
+}
 
 .intro-box{
   display: flex;

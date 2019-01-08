@@ -1,6 +1,10 @@
 <view class="container">
   <view class="tab-placeholder">
     <view class="tab-box"> 
+      <navigator class="back-btn" open-type="navigateBack" delta="1" hover-class="none">
+        <text class="iconfont icon-xiangzuo"></text>
+        <text>返回</text> 
+      </navigator>
       <text class="tab-title">优简历</text>
       <text class="tab-des">如何轻松得到一份漂亮的简历</text>
     </view>

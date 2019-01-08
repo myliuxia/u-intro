@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/mine/mine",
     "pages/index/index",
     "pages/intro/intro",
-    "pages/login/login",
     "pages/success/success",
-    "pages/mine/mine"
+    "pages/share/share"
   ],
   "window": {
     "navigationStyle": "custom",
@@ -14,11 +15,5 @@
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false
-  },
-  "plugins": {
-    "myPlugin": {
-      "version": "dev",
-      "provider": "wxb4c6e8f26944a0fe"
-    }
   }
 }

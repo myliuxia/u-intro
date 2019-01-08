@@ -16,12 +16,13 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      redirect_url: decodeURIComponent(options.redirec_url)
+      redirect_url: options.redirec_url?decodeURIComponent(options.redirec_url):'pages/mine/mine'
     })
   },
   login:function(e){
     let that = this;
     if (e.detail.userInfo){
+      
       wx.navigateTo({
         url: '/'+that.data.redirect_url,
       })

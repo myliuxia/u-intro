@@ -2,7 +2,8 @@
 <custom style="height:{{CustomBar}}px;">
   <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
     <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
-      返回
+      <text class="iconfont icon-xiangzuo"></text>
+      <text>返回</text> 
     </navigator>
   </bar>
 </custom>
@@ -13,3 +14,9 @@
   <text>出生日期：{{introInfo.birthday}}</text>
   <text>居住地址：{{introInfo.address}}</text>
 </view>
+<view class="btn-box">
+  <button bindtap='deleteIntro'>删除</button>
+  <button type="warn" open-type="share" data-id="{{introId}}">发送微信给好友</button>
+</view>
+
+

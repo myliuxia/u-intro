@@ -1,11 +1,16 @@
 {
 	"miniprogramRoot": "miniprogram/",
-	"pluginRoot": "plugin/",
-	"compileType": "plugin",
 	"setting": {
-		"newFeature": true
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
 	},
-	"appid": "wxb4c6e8f26944a0fe",
+	"compileType": "miniprogram",
+	"libVersion": "2.4.2",
+	"appid": "wxbad323de8169436d",
 	"projectname": "u-intro",
 	"condition": {
 		"search": {
@@ -17,7 +22,7 @@
 			"list": []
 		},
 		"plugin": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -28,11 +33,19 @@
 			]
 		},
 		"game": {
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "分享进入",
+					"pathName": "pages/share/share",
+					"scene": "1001"
+				}
+			]
 		}
 	}
 }

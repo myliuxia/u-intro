@@ -34,7 +34,7 @@ App({
             success: (result) => {
               let cookie = 'JSESSIONID=' + result.data.msg;
               this.globalData.header.Cookie = cookie;
-              this.globalData.header["Content-Type"] = "application/json;charset=UTF-8"
+              //this.globalData.header["Content-Type"] = "application/json;charset=UTF-8"
             }
           })
         } else {
@@ -42,25 +42,25 @@ App({
         }
       }
     })
+
     wx.getSetting({
       success: res => {
-        if (res.authSetting['scope.userInfo'] && path.path !== 'pages/login/login'){
+        if (res.authSetting['scope.userInfo'] ){
           wx.getUserInfo({
             success: res => {
-              console.log(res)
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo;
+              wx.navigateTo({
+                url: '/pages/mine/mine',
+              })
             }
-          })
-        }else{
-          //未授权
-          wx.navigateTo({
-            url: '/pages/login/login?redirec_url=' + encodeURIComponent(redirec_url),
           })
         }
       }
     })
+    
   },
+
   globalData: {
     userInfo: null,
     header:{

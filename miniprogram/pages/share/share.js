@@ -1,20 +1,21 @@
-// miniprogram/pages/mine/mine.js
-const app = getApp()
+// miniprogram/pages/share/share.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    introList:[]
+    introId:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getIntroList()
-    
+    /**接收参数 */
+    this.setData({
+      introId: options.introId
+    })
   },
 
   /**
@@ -64,23 +65,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  /**
-   * 获得简历列表
-   */
-  getIntroList:function(){
-    let _this = this
-    wx.request({
-      url: 'https://www.kklei.com/intro_list', 
-      header: app.globalData.header,
-      success: (result) => {
-        let list = result.data.obj.map((item)=>{
-          return { id: item.id, phone: item.phone}
-        })
-        _this.setData({
-          introList: list,
-        })
-      }
-    })
   }
 })
