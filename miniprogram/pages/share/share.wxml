@@ -7,3 +7,5 @@
     </view>
   </view>
   <text>简历id:{{introId}}</text>
+  <text>点赞数:{{likeNum}}</text>
+  <button bindtap='likeIntro'>点赞</button>

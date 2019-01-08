@@ -1,4 +1,5 @@
 // miniprogram/pages/share/share.js
+const app = getApp()
 Page({
 
   /**
@@ -6,6 +7,7 @@ Page({
    */
   data: {
     introId:'',
+    likeNum:0,
   },
 
   /**
@@ -16,6 +18,8 @@ Page({
     this.setData({
       introId: options.introId
     })
+    //加载数据
+    this.getIntro()
   },
 
   /**
@@ -65,5 +69,44 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 根据id查询简历
+   */
+  getIntro: function () {
+    let _this = this;
+    wx.request({
+      url: 'https://www.kklei.com/intro_info',
+      data: {
+        id: _this.data.introId
+      },
+      header: app.globalData.header,
+      success: (result) => {
+        //console.log(result)
+        _this.setData({
+          likeNum: result.data.obj.likeNum,
+        })
+      }
+    })
+  },
+
+  /*点赞 */
+  likeIntro:function(){
+    let _this = this;
+    wx.request({
+      url: 'https://www.kklei.com/like',
+      header: app.globalData.header,
+      data: {
+        id: _this.data.introId
+      },
+      success: (result) => {
+        console.log(result)
+        _this.getIntro()
+       
+      }
+    })
   }
+  
+  
 })
