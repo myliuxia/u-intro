@@ -1,5 +1,6 @@
 /* miniprogram/pages/intro/intro.wxss */
 
+/* 头部样式 */
 custom{
   display:block;
   position:relative;
@@ -33,13 +34,6 @@ custom bar{
   font-size: 34rpx;
 }
 
-.intro-box{
-  display: flex;
-  flex-direction: column;
-  padding: 20rpx;
-  font-size: 28rpx;
-  line-height: 1.5;
-}
 
 /*分享对话弹框*/
 .share-dialog{
@@ -59,6 +53,17 @@ custom bar{
 .share-explain .explain{
   font-size: 24rpx;
 }
+.share-explain .hint{
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  color: #a2fbff; 
+}
+.share-explain .big-txt{
+  font-size: 34rpx;
+  color: #ffffff;
+  margin: 0 10rpx;
+}
+
 .share-dialog .share-btn{
   height: 60rpx;
   width: 350rpx;
@@ -86,4 +91,158 @@ custom bar{
   border: 1px solid #1cbbb4;
   border-radius: 500px;
   margin: 30rpx auto;
+}
+
+/* 等级展示栏 */
+.unit-container{
+  background-color: #ffffff;
+  margin: 20rpx 0;
+  width: 100%;
+}
+.unit-title{
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+}
+.unit-title .left-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  height: 80rpx;
+}
+.unit-title .left-box .title{
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+.unit-title .left-box .explain{
+  font-size: 22rpx;
+  color: #999999;
+  line-height: 1.5;
+}
+.unit-title .right-box{
+  font-size: 28rpx;
+
+}
+.grade-bar{
+ padding: 0 30rpx 20rpx; 
+}
+.grade-bar .bar-box{
+  height: 20rpx;
+  background-color: #dddddd;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.grade-bar .bar-bg{
+  height: 20rpx;
+  background: linear-gradient(to right, #fbed18 ,#ff9700);
+}
+.grade-name-box{
+  position: relative;
+  z-index: 1;
+  font-size: 22rpx;
+  color: #888888;
+  height: 30rpx;
+}
+.grade-name-box .name{
+  position: absolute;
+  top: 5rpx;
+  color: #888888;
+}
+
+.buy-box{
+  padding: 10rpx 30rpx 20rpx;
+  display: flex;
+  align-items: center;
+}
+.buy-box .box-left{
+  flex:1;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+.box-left .number-box{
+  display: flex;
+  width: 170rpx;
+  height: 50rpx;
+  justify-items: center;
+  border: 1rpx solid #dddddd;
+  border-radius: 5rpx;
+  box-sizing: content-box;
+  margin: 0 15rpx;
+  overflow: hidden;
+}
+.box-left .number-box .iconfont{
+  display: block;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 50rpx;
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #888888;
+  font-size: 30rpx;
+}
+.box-left .number-box .iconfont.icon-minus{
+  border-right: 1rpx solid #dddddd;
+}
+.box-left .number-box .iconfont.icon-add{
+  border-left: 1rpx solid #dddddd;
+}
+.box-left .number-box .num-input{
+  flex: 1;
+  height: 50rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.buy-box .buy-btn{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  background-color: #ff9700;
+  color:#ffffff;
+  padding: 0 10rpx;
+  min-width: 180rpx;
+}
+
+/* 简历内容样式 */
+.intro-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  background-color: #ffffff;
+  margin: 20rpx 0; 
+}
+
+/* 底部操作栏 */
+.fixed-btn-outer{
+  height: 120rpx;
+  width: 100%;
+}
+.fixed-btn-box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-top: 1rpx solid #dddddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.fixed-btn-box .btn{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  background-color: #ff9700;
+  color:#ffffff;
+  padding: 0 20rpx;
+  width: 280rpx;
+}
+.fixed-btn-box .btn.bg-blue{
+  background-color: #1cbbb4;
 }

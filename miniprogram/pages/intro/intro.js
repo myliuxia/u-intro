@@ -9,8 +9,11 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     introInfo:null,
+    likeNum:0,
     phone:'',
     introId:'',
+
+
     showShareDialog:false,//控制对话框显示的开关
     grade:[
       { name: '普通', auth: '' },
@@ -18,7 +21,9 @@ Page({
       { name: '天才', auth: '平台帮助加推简历50次' },
       { name: '名宿', auth: '平台帮助内top500强' },
     ],
-    gradeIndex:0
+    gradeIndex:0,
+
+    buyLikeNum:10,//购买的升级包个数
   },
 
   /**
@@ -43,48 +48,6 @@ Page({
     } catch (e) {
       // Do something when catch error
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
   },
 
   /**
@@ -135,15 +98,16 @@ Page({
         _this.setData({
           phone: result.data.obj.phone,
           introInfo: JSON.parse(result.data.obj.introInfo),
+          likeNum: result.data.obj.likeNum,
         })
         let grade = 0
-        if (_this.data.introInfo.likeNum<10){
+        if (_this.data.likeNum<10){
           grade=0
-        } else if (_this.data.introInfo.likeNum >= 10 && _this.data.introInfo.likeNum < 50) {
+        } else if (_this.data.likeNum >= 10 && _this.data.likeNum < 50) {
           grade = 1
-        } else if (_this.data.introInfo.likeNum >= 50 && _this.data.introInfo.likeNum < 100) {
+        } else if (_this.data.likeNum >= 50 && _this.data.likeNum < 100) {
           grade = 2
-        } else if (_this.data.introInfo.likeNum >= 100) {
+        } else if (_this.data.likeNum >= 100) {
           grade = 3
         }
         if(grade<3){
@@ -194,6 +158,25 @@ Page({
   closeDialog:function(){
     this.setData({
       showShareDialog:false,
+    })
+  },
+
+  /**
+   * 减少购买的升级包个数
+   */
+  minusBuyNum:function(){
+    if(this.data.buyLikeNum>0){
+      this.setData({
+        buyLikeNum: this.data.buyLikeNum - 1
+      })
+    }
+  },
+  /**
+   * 增加购买的升级包个数
+   */
+  addBuyNum: function () {
+    this.setData({
+      buyLikeNum: this.data.buyLikeNum + 1
     })
   }
  

@@ -43,7 +43,7 @@
 					"id": 0,
 					"name": "分享进入",
 					"pathName": "pages/share/share",
-					"query": "id=30",
+					"query": "introId=29",
 					"scene": "1001"
 				}
 			]

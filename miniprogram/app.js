@@ -34,7 +34,6 @@ App({
             success: (result) => {
               let cookie = 'JSESSIONID=' + result.data.msg;
               this.globalData.header.Cookie = cookie;
-              //this.globalData.header["Content-Type"] = "application/json;charset=UTF-8"
             }
           })
         } else {
@@ -50,9 +49,9 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo;
-              wx.redirectTo({
-                url: '/pages/mine/mine',
-              })
+              // wx.redirectTo({
+              //   url: '/pages/mine/mine',
+              // })
             }
           })
         }
