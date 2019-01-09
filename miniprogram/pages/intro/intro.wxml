@@ -20,3 +20,19 @@
 </view>
 
 
+<template is="dialog"  data="{{show:showShareDialog,introId:introId,likeNum:introInfo.likeNum}}"></template>
+
+<modal-box class="{{showShareDialog?'show':''}}">
+  <dialog>
+    <text bindtap='closeDialog' class="close iconfont icon-close"></text>
+    <view class='share-dialog'>
+      <view class="share-explain">
+        <view class="title"><text>您现在还是{{grade[gradeIndex].name}}等级！</text></view>
+        <view class="explain"><text>升到精英等级</text></view>
+        <view class="explain"><text>可以获得{{grade[gradeIndex+1].auth}}</text></view>
+      </view>
+      <button class="share-btn" open-type="share" data-id="{{introId}}">分享好友升级</button>
+      <button class="pay-btn" data-id="{{introId}}">购买升级包</button>
+    </view>
+  </dialog>
+</modal-box>

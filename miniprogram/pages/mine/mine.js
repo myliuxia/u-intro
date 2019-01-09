@@ -70,16 +70,25 @@ Page({
    */
   getIntroList:function(){
     let _this = this
+    wx.showLoading({title:"加载中"})
     wx.request({
       url: 'https://www.kklei.com/intro_list', 
       header: app.globalData.header,
       success: (result) => {
-        let list = result.data.obj.map((item)=>{
-          return { id: item.id, phone: item.phone}
-        })
-        _this.setData({
-          introList: list,
-        })
+        if (result.data.obj && result.data.obj.length>0){
+          let list = result.data.obj.map((item) => {
+            return { id: item.id, phone: item.phone }
+          })
+          _this.setData({
+            introList: list,
+          })
+        }else{
+          wx/wx.redirectTo({
+            url: '../../pages/index/index',
+          })
+        }
+
+        wx.hideLoading()
       }
     })
   }

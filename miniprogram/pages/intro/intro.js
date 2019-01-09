@@ -10,15 +10,21 @@ Page({
     CustomBar: app.globalData.CustomBar,
     introInfo:null,
     phone:'',
-    userInfo: app.globalData.userInfo,
     introId:'',
+    showShareDialog:false,//控制对话框显示的开关
+    grade:[
+      { name: '普通', auth: '' },
+      { name: '精英', auth: '一次人工帮助优化简历的服务' },
+      { name: '天才', auth: '平台帮助加推简历50次' },
+      { name: '名宿', auth: '平台帮助内top500强' },
+    ],
+    gradeIndex:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //console.log(this.data.userInfo)
 
     /**接收参数 */
     this.setData({
@@ -114,6 +120,9 @@ Page({
    * 根据id查询简历
    */
   getIntro:function(){
+    wx.showLoading({
+      title: '加载中',
+    })
     let _this = this;
     wx.request({
       url: 'https://www.kklei.com/intro_info',
@@ -127,6 +136,28 @@ Page({
           phone: result.data.obj.phone,
           introInfo: JSON.parse(result.data.obj.introInfo),
         })
+        let grade = 0
+        if (_this.data.introInfo.likeNum<10){
+          grade=0
+        } else if (_this.data.introInfo.likeNum >= 10 && _this.data.introInfo.likeNum < 50) {
+          grade = 1
+        } else if (_this.data.introInfo.likeNum >= 50 && _this.data.introInfo.likeNum < 100) {
+          grade = 2
+        } else if (_this.data.introInfo.likeNum >= 100) {
+          grade = 3
+        }
+        if(grade<3){
+          _this.setData({
+            showShareDialog: true,
+            gradeIndex: grade,
+          })
+        }else{
+          _this.setData({
+            showShareDialog: false,
+            gradeIndex: grade,
+          })
+        }
+        wx.hideLoading()
       }
     })
   },
@@ -154,7 +185,16 @@ Page({
    */
   shareIntro:function(){
 
-  }
+  },
 
+  /**
+   * 关闭对话框
+   */
+
+  closeDialog:function(){
+    this.setData({
+      showShareDialog:false,
+    })
+  }
  
 })

@@ -40,3 +40,50 @@ custom bar{
   font-size: 28rpx;
   line-height: 1.5;
 }
+
+/*分享对话弹框*/
+.share-dialog{
+  font-size: 28rpx;
+}
+.share-explain{
+  padding: 40rpx 20rpx;
+  background: linear-gradient(to top right, #0081ff , #1cbbb4);
+  color: #ffffff;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.share-explain .title{
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.share-explain .explain{
+  font-size: 24rpx;
+}
+.share-dialog .share-btn{
+  height: 60rpx;
+  width: 350rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #ffffff;
+  background-color: #1cbbb4;
+  box-sizing: border-box;
+  border: 1px solid #1cbbb4;
+  border-radius: 500px;
+  margin: 30rpx auto;
+}
+.share-dialog .pay-btn{
+  height: 60rpx;
+  width: 350rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #1cbbb4;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border: 1px solid #1cbbb4;
+  border-radius: 500px;
+  margin: 30rpx auto;
+}
