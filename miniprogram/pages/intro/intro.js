@@ -145,6 +145,14 @@ Page({
     })
   },
   /**
+   * 修改简历
+   */
+  editIntro:function(){
+    wx.navigateTo({
+      url: '../../pages/index/index?introId=' + this.data.introId,
+    })
+  },
+  /**
    * 分享加速
    */
   shareIntro:function(){

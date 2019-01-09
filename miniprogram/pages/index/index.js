@@ -3,19 +3,18 @@ Page({
   data:{
     swiperHeight:0,
     swiperCurrent:0,
+    introId:'',
     myPhone:'',
     myName:'',
     myBirthday:'',
     myAddress: ['','',''],
     seniorHighSchool: {//高中信息
       beginDate:'',
-      //endDate:'',
       schoolName:'',
       award:{},
     },
     university: {//大学信息
       beginDate: '',
-      //endDate: '',
       schoolName: '',
       award: {},
     },
@@ -34,11 +33,21 @@ Page({
       post: '',//岗位
     }],
     motto:'',
+
     imgCode:''
 
   },
-  onLoad: function() {
+  onLoad: function (options) {
     var _this = this;
+
+    /**接收参数 */
+    this.setData({
+      introId: options.introId
+    })
+
+    if (this.data.introId){
+      this.getIntro();
+    }
     //创建节点选择器
     var query = wx.createSelectorQuery();
     //选择id
@@ -57,8 +66,6 @@ Page({
     })
 
     this.getImgCode()
-    
-    
 
   },
   /** 获取验证码图片 */
@@ -115,7 +122,7 @@ Page({
         university: this.data.university,
         graduate: this.data.graduate,
         otherAward: this.data.otherAward,
-        hasWork: this.data.hsWork,
+        hasWork: this.data.hasWork,
         work: this.data.work,
         motto: this.data.motto,
       }
@@ -124,6 +131,7 @@ Page({
         header: app.globalData.header, 
         method:"POST",
         data: { 
+          id: _this.data.introId,
           phone: _this.data.myPhone, 
           introInfo: JSON.stringify(introInfo) 
         },
@@ -136,6 +144,40 @@ Page({
       console.log(err)
     }
     
-  }
+  },
+  /**
+   * 根据id查询简历
+   */
+  getIntro: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
+    let _this = this;
+    wx.request({
+      url: 'https://www.kklei.com/intro_info',
+      data: {
+        id: _this.data.introId
+      },
+      header: app.globalData.header,
+      success: (result) => {
+        let introInfo = JSON.parse(result.data.obj.introInfo);
+        _this.setData({
+          myPhone: result.data.obj.phone, 
+          myName: introInfo.name,
+          myBirthday: introInfo.birthday,
+          myAddress: introInfo.address.split(' '), 
+          seniorHighSchool: introInfo.seniorHighSchool,
+          university: introInfo.university,
+          graduate: introInfo.graduate,
+          otherAward: introInfo.otherAward,
+          hasWork: introInfo.hasWork,
+          work: introInfo.work,
+          motto: introInfo.motto,
+          likeNum: result.data.obj.likeNum,
+        })
+        wx.hideLoading()
+      }
+    })
+  },
 
 })
