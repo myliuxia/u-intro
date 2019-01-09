@@ -2,8 +2,30 @@
 
   <view class="tab-placeholder">
     <view class="tab-box"> 
+      <navigator class="back-btn" open-type="navigateBack" delta="1" hover-class="none">
+        <text class="iconfont icon-xiangzuo"></text>
+        <text>返回</text> 
+      </navigator>
       <text class="tab-title">优简历</text>
       <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+    </view>
+  </view>
+
+  <view class="share-container">
+    <view class="title-tag">
+      <text>该简历已获得升级包</text>
+      <text>{{likeNum}}个</text>
+    </view>
+    <view class="grade-bar">
+      <view class="bar-box">
+        <view class="bar-bg" style="width:{{likeNum>100?100:likeNum}}%"></view>
+      </view>
+      <view class="grade-name-box">
+        <text class="name" style="left:0%">普通</text>
+        <text class="name" style="left:10%">精英</text>
+        <text class="name" style="left:48%">天才</text>
+        <text class="name" style="right:0%">名宿</text>
+      </view>
     </view>
   </view>
   <text>简历id:{{introId}}</text>

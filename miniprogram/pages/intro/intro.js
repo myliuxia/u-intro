@@ -65,7 +65,7 @@ Page({
       //## 此为转发页面的描述性文字
       desc: '江湖救急，还请贵人伸手相助啊!',
       //## 此为转发给微信好友或微信群后，对方点击后进入的页面链接，可以根据自己的需求添加参数
-      path: 'pages/share/share?introId=' + options.target.dataset.id,
+      path: 'pages/share/share?introId=' + options.target.dataset.id+'&type=share',
       imageUrl: 'https://www.kklei.com/logo.jpg',
       //## 转发操作成功后的回调函数，用于对发起者的提示语句或其他逻辑处理
       success: function (res) {
