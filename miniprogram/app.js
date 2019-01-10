@@ -4,7 +4,7 @@ App({
     let redirec_url = '';
     let query = '';
     let hasRedirec=false;
-    console.log(path)
+    //console.log(path)
     for(let i in path.query){
       if (i != 'redirec_url'){
         query = query + i + '=' + path.query[i]+ '&'
@@ -42,11 +42,16 @@ App({
             success: (result) => {
               let cookie = 'JSESSIONID=' + result.data.msg;
               this.globalData.header.Cookie = cookie;
+              //console.log(redirec_url)
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
               if (redirec_url){
                 wx.navigateTo({
                   url: redirec_url,
                 })
               }
+              
               // wx.getSetting({
               //   success: res => {
               //     if (res.authSetting['scope.userInfo']) {

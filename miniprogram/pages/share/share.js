@@ -8,6 +8,7 @@ Page({
   data: {
     introId:'',
     likeNum:0,
+    btnDisable:false,
   },
 
   /**
@@ -84,12 +85,15 @@ Page({
       imageUrl: 'https://www.kklei.com/logo.jpg',
       //## 转发操作成功后的回调函数，用于对发起者的提示语句或其他逻辑处理
       success: function (res) {
-        //这是我自定义的函数，可替换自己的操作
-        util.showToast(1, '转发成功');
+        wx.showToast({
+          title: '转发成功',
+        });
       },
-      //## 转发操作失败/取消 后的回调处理，一般是个提示语句即可
       fail: function () {
-        util.showToast(0, '转发失败...');
+        wx.showToast({
+          title: '转发失败',
+          icon: 'none',
+        });
       }
     }
 
@@ -117,6 +121,10 @@ Page({
   /*点赞 */
   likeIntro:function(){
     let _this = this;
+
+    _this.setData({
+      btnDisable: true,
+    })
     wx.request({
       url: 'https://www.kklei.com/like',
       header: app.globalData.header,
@@ -125,10 +133,26 @@ Page({
       },
       success: (result) => {
         console.log(result)
-        if (result.data.code){}
-        _this.getIntro()
+        if (result.data.errorcode == 1){
+          wx.showToast({title: '升级成功！'});
+          
+          _this.getIntro()
+        }else{
+          wx.showToast({
+            title: '请求失败！',
+            icon: 'none',
+          });
+        }
        
+      },
+      fail:(err) =>{
+        wx.showToast({
+          title: '网路请求失败！',
+          icon: 'none',
+        });
+        
       }
+
     })
   }
   

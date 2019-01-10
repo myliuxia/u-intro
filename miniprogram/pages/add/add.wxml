@@ -153,16 +153,7 @@
         <view class="form-row">
           <view class="row-label">手机号码</view>
           <input type="number" bindinput='bindInputByKey' value='{{myPhone}}' data-key="myPhone" placeholder='请输入手机号'></input>
-        </view>
-        <view class="form-row">
-          <view class="row-label">验证码</view>
-          <input type="number" placeholder='请输入验证码'></input>
-          <image class="img-code" bindtap='getImgCode' src="{{imgCode}}"></image>
-        </view>
-        <view class="form-row">
-          <view class="row-label">手机验证码</view>
-          <input type="number" placeholder='请输入验证码'></input>
-          <button class="code-btn">获取手机验证码</button>
+          <button class="code-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机验证码</button>
         </view>
       </view>
     </scroll-view>
@@ -765,15 +756,18 @@
         </view>
       </view>
      <view class="step-form">
-        <radio-group class="form-row" 
+        <radio-group
+        style="display:block"
           data-key="hasWork"
           bindchange="bindInputByKey" >
-          <label class="input">
-            <radio value="1" class="radio sm" checked="{{hasWork==1}}" /><text class="mar-l-2">是</text>
-          </label>
-          <label class="input">
-            <radio value="0" class="radio sm" checked="{{hasWork==0}}" /><text class="mar-l-2">否</text>
-          </label>
+          <view class="form-row">
+            <label class="input">
+              <radio value="1" class="radio sm" checked="{{hasWork==1}}" /><text class="mar-l-2">是</text>
+            </label>
+            <label class="input">
+              <radio value="0" class="radio sm" checked="{{hasWork==0}}" /><text class="mar-l-2">否</text>
+            </label>
+          </view>
         </radio-group>
       </view>
     </scroll-view>

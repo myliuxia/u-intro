@@ -29,6 +29,8 @@
     </view>
     <view class="text-row">再获得<text class="blue-text">{{8}}</text>升级包就可达到精英等级</view>
 
-    <button class="btn-default .btn-fill" bindtap='likeIntro'>帮TA升级</button>
+    <button class="btn-default .btn-fill" bindtap='likeIntro' disabled='{{btnDisable}}'>
+    {{btnDisable?"已帮TA升级":"帮TA升级"}}
+    </button>
     <button class="btn-default"  open-type="share" data-id="{{introId}}" >分享好友帮TA升级</button>
   </view>

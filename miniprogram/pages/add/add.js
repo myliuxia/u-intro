@@ -179,5 +179,7 @@ Page({
       }
     })
   },
-
+  getPhoneNumber:function(e){
+    console.log(e)
+  }
 })

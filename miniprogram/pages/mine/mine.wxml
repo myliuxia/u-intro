@@ -20,7 +20,7 @@
         </view>
       </navigator>
     </view>
-    <navigator wx:if="{{introList.length<3}}" url="../../pages/index/index" class="add-intro-ntn" >添加简历</navigator>
+    <navigator wx:if="{{introList.length<3}}" url="../../pages/add/add" class="add-intro-ntn" >添加简历</navigator>
   </view>
 </view>
 

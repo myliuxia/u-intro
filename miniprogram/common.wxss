@@ -122,7 +122,7 @@
   padding: 20rpx;
   line-height: 1;
   border-radius: 5000px;
-  background-color: #39b54a;
+  background-color: #1cbbb4;
   color: #ffffff;
   transform:translate(0px, 0px);
   box-shadow: 3px 3px 4px rgba(48, 156, 63, 0.2) ;
@@ -148,7 +148,7 @@
   box-shadow: 0 0 10rpx 0 #dddddd;
 }
 .step-form .form-row{
-  display: flex;
+  display: flex !important;
   font-size: 28rpx;
   justify-content: center;
   align-items: center;
@@ -204,6 +204,8 @@
   height: 60rpx;
   padding: 5rpx 20rpx;
   font-size: 24rpx;
+  background-color: #1cbbb4;
+  color: #ffffff;
 }
 .step-form .form-row .input .picker{
   flex: 1;

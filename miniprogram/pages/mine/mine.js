@@ -15,7 +15,12 @@ Page({
   onLoad: function (options) {
     if (app.globalData.header.Cookie){
       this.getIntroList()
+    }else{
+      app.userInfoReadyCallback = () => {
+        this.getIntroList()
+      };
     }
+
   },
 
   /**
@@ -42,9 +47,9 @@ Page({
             introList: list,
           })
         }else{
-          wx/wx.redirectTo({
-            url: '../../pages/index/index',
-          })
+          // wx/wx.redirectTo({
+          //   url: '../../pages/add/add',
+          // })
         }
 
         wx.hideLoading()

@@ -39,3 +39,7 @@
   background-color: #12a7ce;
   color: #ffffff;
 }
+.share-container .btn-fill[disabled]{
+  border: 1rpx solid #acc5ca!important;
+  background-color: #acc5ca !important;
+}
