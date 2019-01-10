@@ -215,6 +215,34 @@
   min-width:400rpx;
 }
 
+/* 等级条样式 */
+.grade-bar{
+ padding: 0 30rpx 20rpx; 
+}
+.grade-bar .bar-box{
+  height: 20rpx;
+  background-color: #dddddd;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.grade-bar .bar-bg{
+  height: 20rpx;
+  background: linear-gradient(to right, #fbed18 ,#ff9700);
+}
+.grade-name-box{
+  position: relative;
+  z-index: 1;
+  font-size: 22rpx;
+  color: #888888;
+  height: 30rpx;
+}
+.grade-name-box .name{
+  position: absolute;
+  top: 5rpx;
+  color: #888888;
+}
+
+
 /* ==================
          外边距
  ==================== */

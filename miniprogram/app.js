@@ -3,18 +3,26 @@ App({
   onLaunch: function (path) {
     let redirec_url = '';
     let query = '';
-
+    let hasRedirec=false;
+    console.log(path)
     for(let i in path.query){
-      if(i){
+      if (i != 'redirec_url'){
         query = query + i + '=' + path.query[i]+ '&'
+      }else{
+        redirec_url = decodeURIComponent(path.query[i]);
+        hasRedirec = true;
       }
     }
-    if(query){
-      redirec_url = path.path + '?' + query;
-    }else{
-      redirec_url = path.path;
+
+    if (hasRedirec){
+      if (query) {
+        redirec_url = redirec_url + '?' + query;
+      } else {
+        redirec_url = redirec_url;
+      }
     }
     
+
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;
@@ -34,6 +42,27 @@ App({
             success: (result) => {
               let cookie = 'JSESSIONID=' + result.data.msg;
               this.globalData.header.Cookie = cookie;
+              if (redirec_url){
+                wx.navigateTo({
+                  url: redirec_url,
+                })
+              }
+              // wx.getSetting({
+              //   success: res => {
+              //     if (res.authSetting['scope.userInfo']) {
+              //       wx.getUserInfo({
+              //         success: res => {
+              //           this.globalData.userInfo = res.userInfo;
+              //           wx.redirectTo({
+              //             url: redirec_url,
+              //           })
+              //         }
+              //       })
+              //     }else{
+
+              //     }
+              //   }
+              // })
             }
           })
         } else {
@@ -42,22 +71,6 @@ App({
       }
     })
 
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo'] ){
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo;
-              // wx.redirectTo({
-              //   url: '/pages/mine/mine',
-              // })
-            }
-          })
-        }
-      }
-    })
-    
   },
 
   globalData: {

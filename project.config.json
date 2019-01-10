@@ -42,8 +42,8 @@
 				{
 					"id": 0,
 					"name": "分享进入",
-					"pathName": "pages/share/share",
-					"query": "introId=29",
+					"pathName": "pages/mine/mine",
+					"query": "introId=29&redirec_url=/pages/share/share",
 					"scene": "1001"
 				}
 			]

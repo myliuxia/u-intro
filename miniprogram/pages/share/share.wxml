@@ -27,7 +27,8 @@
         <text class="name" style="right:0%">名宿</text>
       </view>
     </view>
+    <view class="text-row">再获得<text class="blue-text">{{8}}</text>升级包就可达到精英等级</view>
+
+    <button class="btn-default .btn-fill" bindtap='likeIntro'>帮TA升级</button>
+    <button class="btn-default"  open-type="share" data-id="{{introId}}" >分享好友帮TA升级</button>
   </view>
-  <text>简历id:{{introId}}</text>
-  <text>点赞数:{{likeNum}}</text>
-  <button bindtap='likeIntro'>点赞</button>

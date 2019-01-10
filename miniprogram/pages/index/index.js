@@ -42,10 +42,10 @@ Page({
 
     /**接收参数 */
     this.setData({
-      introId: options.introId
+      introId: options.introId ? options.introId : '',
     })
 
-    if (this.data.introId){
+    if (this.data.introId && !options.redirec_url){
       this.getIntro();
     }
     //创建节点选择器

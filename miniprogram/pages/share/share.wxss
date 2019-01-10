@@ -1,1 +1,41 @@
 /* miniprogram/pages/share/share.wxss */
+.share-container{
+  background-color: #ffffff;
+  width: 100%;
+  padding: 20rpx 0;
+}
+.title-tag{
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #12a7ce;
+  padding: 0 30rpx 20rpx;
+}
+.text-row{
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  color: #444444;
+}
+.text-row .blue-text{
+  color: #12a7ce;
+  font-size: 32rpx;
+  margin: 0 5rpx;
+}
+.share-container .btn-default{
+  background-color: #ffffff;
+  color: #12a7ce;
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 640rpx;
+  margin: 40rpx auto;
+  padding: 0 50rpx;
+  font-size: 34rpx;
+  border-radius: 500px;
+  border: 1rpx solid #12a7ce;
+  box-sizing: border-box;
+}
+.share-container .btn-default.btn-fill{
+  background-color: #12a7ce;
+  color: #ffffff;
+}
