@@ -17,6 +17,11 @@
       <swiper-item  catchtouchmove="stopSwiper">
         <template is="swiper2" data="{{height:swiperHeight,imgCode:imgCode,myPhone:myPhone}}"></template>
       </swiper-item>
+      
+      <swiper-item  catchtouchmove="stopSwiper">
+        <template is="swiperUpdateImg" data="{{height:swiperHeight,introImage:introImage}}"></template>
+      </swiper-item>
+      
       <swiper-item  catchtouchmove="stopSwiper">
         <template is="swiper3" data="{{height:swiperHeight,myName:myName}}"></template>
       </swiper-item>
@@ -164,6 +169,39 @@
   </view>
 </template>
 
+<!-- 上传图片 -->
+<template name="swiperUpdateImg">
+  <view class="step-box" style="height:{{height}}px;">
+    <scroll-view style='height:100%' scroll-y="true" >
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <text>少年，让我们上传一张图片吧！</text>
+        </view>
+      </view>
+      <view class="step-item">
+        <view class="step-pic">
+          <image src='../../images/v-icon.jpg'></image>
+        </view>
+        <view class="step-con">
+          <image src='../../images/icon.gif'></image>
+        </view>
+      </view>
+      <view class="step-form">
+        <view class="form-row">
+          <image wx:if="{{introImage}}" mode='widthFix' src='{{introImage}}'></image>
+          <button wx:else class="code-btn" bindtap="chooseImage" >添加图片</button>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="fixed-box">
+      <button class="btn" bindtap='previousSwiper'>上一步</button>
+      <button class="btn bg-blue" bindtap='nextSwiper'>下一步</button>
+    </view>
+  </view>
+</template>
 <!-- 姓名 -->
 <template name="swiper3">
   <view class="step-box" style="height:{{height}}px;">

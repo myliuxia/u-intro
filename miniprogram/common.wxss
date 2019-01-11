@@ -177,6 +177,10 @@
 .step-form .form-row input{
   flex: 1;
 }
+.step-form .form-row image{
+  max-width:50%;
+}
+
 .step-form .form-row .input{
   flex: 1;
   height: 50rpx;

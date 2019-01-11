@@ -33,9 +33,8 @@ Page({
       post: '',//岗位
     }],
     motto:'',
-
-    imgCode:''
-
+    imgCode:'',
+    introImage:'',
   },
   onLoad: function (options) {
     var _this = this;
@@ -125,6 +124,7 @@ Page({
         hasWork: this.data.hasWork,
         work: this.data.work,
         motto: this.data.motto,
+        introImage: this.data.introImage
       }
       wx.request({
         url: 'https://www.kklei.com/submit',
@@ -133,7 +133,7 @@ Page({
         data: { 
           id: _this.data.introId,
           phone: _this.data.myPhone, 
-          introInfo: JSON.stringify(introInfo) 
+          introInfo: JSON.stringify(introInfo) ,
         },
         success: (result) => {
           //console.log(result)
@@ -174,12 +174,38 @@ Page({
           work: introInfo.work,
           motto: introInfo.motto,
           likeNum: result.data.obj.likeNum,
+          introImage: introInfo.introImage,
         })
         wx.hideLoading()
       }
     })
   },
+  /**获得手机号回调 */
   getPhoneNumber:function(e){
     console.log(e)
+  },
+  chooseImage:function(){
+    wx.chooseImage({
+      count:1,
+      success:(res)=>{
+        wx.uploadFile({
+          url: 'https://www.kklei.com/save_img',
+          filePath: res.tempFilePaths[0],
+          name: 'introImage',
+          header: app.globalData.header,
+          success:(result)=>{
+            console.log(result)
+            let resData = JSON.parse(result.data)
+            this.setData({
+              introImage: 'https://www.kklei.com/' + resData.obj
+            })
+          }                                                                                 
+        })
+
+      },
+      fail:(err)=>{
+
+      }
+    })
   }
 })
