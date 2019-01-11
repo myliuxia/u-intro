@@ -7,8 +7,16 @@ Page({
    */
   data: {
     introId:'',
-    likeNum:0,
-    btnDisable:false,
+    likeNum: 0,
+    gapNum: 0,//距离升级差距的升级包数量
+    btnDisable: false,
+    grade: [
+      { name: '普通', auth: '' },
+      { name: '精英', auth: '一次人工帮助优化简历的服务' },
+      { name: '天才', auth: '平台帮助加推简历50次' },
+      { name: '名宿', auth: '平台帮助内top500强' },
+    ],
+    gradeIndex: 0,
   },
 
   /**
@@ -20,54 +28,9 @@ Page({
       introId: options.introId
     })
     //加载数据
-    this.getIntro()
+    this.getIntro();
+    this.hasLike();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
 
 
   /**
@@ -97,11 +60,13 @@ Page({
       }
     }
 
-  },
-  /**
+  }, /**
    * 根据id查询简历
    */
   getIntro: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
     let _this = this;
     wx.request({
       url: 'https://www.kklei.com/intro_info',
@@ -114,6 +79,22 @@ Page({
         _this.setData({
           likeNum: result.data.obj.likeNum,
         })
+        let grade = 0
+        if (_this.data.likeNum < 10) {
+          grade = 0
+        } else if (_this.data.likeNum >= 10 && _this.data.likeNum < 50) {
+          grade = 1
+        } else if (_this.data.likeNum >= 50 && _this.data.likeNum < 100) {
+          grade = 2
+        } else if (_this.data.likeNum >= 100) {
+          grade = 3
+        }
+        _this.setData({
+          showShareDialog: false,
+          gradeIndex: grade,
+        })
+        _this.countGap();
+        wx.hideLoading()
       }
     })
   },
@@ -121,7 +102,6 @@ Page({
   /*点赞 */
   likeIntro:function(){
     let _this = this;
-
     _this.setData({
       btnDisable: true,
     })
@@ -135,26 +115,51 @@ Page({
         console.log(result)
         if (result.data.errorcode == 1){
           wx.showToast({title: '升级成功！'});
-          
           _this.getIntro()
         }else{
-          wx.showToast({
-            title: '请求失败！',
-            icon: 'none',
-          });
+          wx.showToast({title: '请求失败！',icon: 'none',});
         }
-       
       },
       fail:(err) =>{
-        wx.showToast({
-          title: '网路请求失败！',
-          icon: 'none',
-        });
-        
+        wx.showToast({ title: '网路请求失败！',icon: 'none',});
       }
 
     })
+  },
+  /**
+   * 计算距离上一级的差距
+   */
+  countGap: function () {
+    let gap = 0;
+    if (this.data.likeNum < 10) {
+      gap = 10 - this.data.likeNum
+    } else if (this.data.likeNum < 50) {
+      gap = 50 - this.data.likeNum
+    } else if (this.data.likeNum < 100) {
+      gap = 100 - this.data.likeNum
+    }
+    this.setData({
+      gapNum: gap,
+    })
+  },
+  /**
+   * 查询是否已点赞
+   */
+  hasLike: function () {
+    let _this = this;
+    wx.request({
+      url: 'https://www.kklei.com/has_like',
+      header: app.globalData.header,
+      data: {
+        id: _this.data.introId
+      },
+      success: (result) => {
+        _this.setData({
+          btnDisable: result.data.obj,
+        })
+      },
+      fail: (err) => {console.log(err)}
+    })
   }
-  
   
 })

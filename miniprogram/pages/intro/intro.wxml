@@ -12,7 +12,7 @@
   <view class="unit-title">
     <view class="left-box">
       <text class="title">简历等级</text>
-      <text class="explain">再获得{{0}}个升级包，可达到{{'精英'}}等级</text>
+      <text class="explain">再获得{{gapNum}}个升级包，可达到{{grade[gradeIndex+1].name}}等级</text>
     </view>
     <view class="right-box">等级包{{likeNum}}</view>
   </view>
@@ -63,7 +63,7 @@
     <view class='share-dialog'>
       <view class="share-explain">
         <view class="title"><text>您现在还是{{grade[gradeIndex].name}}等级！</text></view>
-        <view class="explain"><text>升到精英等级</text></view>
+        <view class="explain"><text>升到{{grade[gradeIndex+1].name}}等级</text></view>
         <view class="explain"><text>可以获得{{grade[gradeIndex+1].auth}}</text></view>
         <view class="hint">你现在已有<text class="big-txt">{{likeNum}}</text>升级包</view>
       </view>

@@ -10,6 +10,7 @@ Page({
     CustomBar: app.globalData.CustomBar,
     introInfo:null,
     likeNum:0,
+    gapNum:0,//距离升级差距的升级包数量
     phone:'',
     introId:'',
 
@@ -124,6 +125,7 @@ Page({
             gradeIndex: grade,
           })
         }
+        _this.countGap();
         wx.hideLoading()
       }
     })
@@ -204,6 +206,22 @@ Page({
   addBuyNum: function () {
     this.setData({
       buyLikeNum: this.data.buyLikeNum + 1
+    })
+  },
+  /**
+   * 计算距离上一级的差距
+   */
+  countGap:function(){
+    let gap = 0;
+    if (this.data.likeNum<10){
+      gap = 10 - this.data.likeNum
+    } else if (this.data.likeNum < 50){
+      gap = 50 - this.data.likeNum
+    } else if (this.data.likeNum < 100) {
+      gap = 100 - this.data.likeNum
+    }
+    this.setData({
+      gapNum:gap,
     })
   }
  
