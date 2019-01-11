@@ -13,7 +13,7 @@ Page({
     phone:'',
     introId:'',
 
-
+    showPayDialog:false,//控制付款对话框
     showShareDialog:false,//控制对话框显示的开关
     grade:[
       { name: '普通', auth: '' },
@@ -165,10 +165,26 @@ Page({
   /**
    * 关闭对话框
    */
-
-  closeDialog:function(){
+  closeShareDialog:function(){
     this.setData({
       showShareDialog:false,
+    })
+  },
+
+  /**
+   * 显示支付弹框
+   */
+  showPayDialogFun:function(){
+    this.setData({
+      showPayDialog: true,
+    })
+  },
+  /**
+   * 关闭支付话框
+   */
+  closePayDialog: function () {
+    this.setData({
+      showPayDialog: false,
     })
   },
 

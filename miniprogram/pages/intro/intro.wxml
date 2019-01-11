@@ -37,7 +37,7 @@
       </view>
       <text class="price">￥{{buyLikeNum}}</text>
     </view>
-    <button class="buy-btn">购买加速包</button>
+    <button class="buy-btn" bindtap='showPayDialogFun'>购买加速包</button>
   </view>
 </view>
 
@@ -59,7 +59,7 @@
 
 <modal-box class="{{showShareDialog?'show':''}}">
   <dialog>
-    <text bindtap='closeDialog' class="close iconfont icon-close"></text>
+    <text bindtap='closeShareDialog' class="close iconfont icon-close"></text>
     <view class='share-dialog'>
       <view class="share-explain">
         <view class="title"><text>您现在还是{{grade[gradeIndex].name}}等级！</text></view>
@@ -69,6 +69,29 @@
       </view>
       <button class="share-btn" open-type="share" data-id="{{introId}}">分享好友升级</button>
       <!-- <button class="pay-btn" data-id="{{introId}}">购买升级包</button> -->
+    </view>
+  </dialog>
+</modal-box>
+
+
+<modal-box class="bottom-modal {{showPayDialog?'show':''}}">
+  <dialog>
+    <view class="pay-container">
+      <view class="head-title">
+        <text bindtap='closePayDialog' class="iconfont icon-close1" ></text>
+        <text>订单支付</text>
+      </view>
+      <view class="row">
+        <text class="name">付款方式</text>
+        <text class="gray">微信支付</text>
+      </view>
+      
+      <view class="row marB">
+        <text class="name">需付款</text>
+        <text class="big-txt">￥{{buyLikeNum}}</text>
+      </view>
+
+      <button class="pay-btn">立即支付</button>
     </view>
   </dialog>
 </modal-box>

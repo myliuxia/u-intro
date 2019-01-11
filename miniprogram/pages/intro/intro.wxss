@@ -221,3 +221,60 @@ custom bar{
 .fixed-btn-box .btn.bg-blue{
   background-color: #1cbbb4;
 }
+
+/* 支付弹框 */
+.pay-container{
+  width: 100%;
+}
+.pay-container .head-title{
+  position: relative;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 34rpx;
+}
+.pay-container .head-title .iconfont{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 48rpx;
+  display: block;
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 90rpx;
+  text-align: center;
+  color: #888888;
+}
+
+.pay-container .row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 90rpx;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  border-top: 1rpx solid #eeeeee;
+}
+.pay-container .row .gray{
+  color: #888888;
+}
+.pay-container .row .big-txt{
+  font-size: 36rpx;
+}
+
+.pay-container .row.marB{
+  margin-bottom: 200rpx;
+}
+
+.pay-container .pay-btn{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 36rpx;
+  background-color: #ff9700;
+  color:#ffffff;
+  padding: 0 20rpx;
+  width: 700rpx;
+  margin: 20rpx auto;
+}
