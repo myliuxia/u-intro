@@ -226,6 +226,35 @@ Page({
     this.setData({
       gapNum:gap,
     })
+  },
+  /**
+   * 发送邮件
+   */
+  sendmail:function(){
+    let _this = this;
+    wx.showLoading({
+      title: '发送中',
+    })
+    wx.request({
+      url: 'https://www.kklei.com/send_mail',
+      data: {
+        id: _this.data.introId,
+        email:'1285370080@qq.com'
+      },
+      header: app.globalData.header,
+      success: (result) => {
+        wx.showToast({
+          title: '邮件发送成功',
+        });
+      },
+      fail: function () {
+        wx.showToast({
+          title: '发送失败失败',
+          icon: 'none',
+        });
+
+      }
+    })
   }
  
 })

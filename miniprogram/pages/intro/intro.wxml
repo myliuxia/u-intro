@@ -43,7 +43,9 @@
 
 <view class="intro-container">
   <view class="intro-unit">
-    <view class="title">基础信息</view>
+    <view class="title">
+      <text>基础信息</text>
+    </view>
     <view class="unit-con">
       <view class="row">
         <text class="col">姓名：{{introInfo.name}}</text>
@@ -93,6 +95,8 @@
       <text>{{introInfo.motto}}</text>
     </view>
   </view>
+  
+  <button class="btn" bindtap='sendmail'>发送邮件</button>
 
 </view>
 

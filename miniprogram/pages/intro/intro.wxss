@@ -190,9 +190,19 @@ custom bar{
   background-color: #ffffff;
   margin: 20rpx 0; 
 }
+
 .intro-unit .title{
   font-size: 32rpx;
   line-height: 1.5;
+}
+.intro-container .btn{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  background-color: #ff9700;
+  color:#ffffff;
+  padding: 0 10rpx;
+  min-width: 180rpx;
 }
 .intro-unit .unit-con{
   font-size: 24rpx;
@@ -220,6 +230,7 @@ custom bar{
   font-size: 28rpx;
   color: #444444;
 }
+
 
 
 /* 底部操作栏 */
