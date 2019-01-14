@@ -190,6 +190,36 @@ custom bar{
   background-color: #ffffff;
   margin: 20rpx 0; 
 }
+.intro-unit .title{
+  font-size: 32rpx;
+  line-height: 1.5;
+}
+.intro-unit .unit-con{
+  font-size: 24rpx;
+  color: #888888;
+  display: flex;
+  flex-direction: column;
+  margin: 10rpx auto;
+}
+.intro-unit .unit-con .row{
+  display: flex;
+  align-items: center;
+}
+.intro-unit .unit-con .row.space-between{
+  justify-content: space-between;
+}
+.intro-unit .unit-con .row .col{
+  flex: 1;
+}
+.intro-unit .unit-con .row .mar-col{
+  margin-right: 10rpx;
+}
+
+.intro-unit .unit-con .con-title{
+  font-size: 28rpx;
+  color: #444444;
+}
+
 
 /* 底部操作栏 */
 .fixed-btn-outer{

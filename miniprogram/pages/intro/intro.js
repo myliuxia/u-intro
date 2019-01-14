@@ -127,6 +127,9 @@ Page({
         }
         _this.countGap();
         wx.hideLoading()
+      },
+      fail: (err)=>{
+        wx.hideLoading()
       }
     })
   },

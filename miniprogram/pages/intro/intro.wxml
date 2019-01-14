@@ -42,11 +42,61 @@
 </view>
 
 <view class="intro-container">
-  <text>姓名：{{introInfo.name}}</text>
-  <text>电话：{{phone}}</text>
-  <text>出生日期：{{introInfo.birthday}}</text>
-  <text>居住地址：{{introInfo.address}}</text>
+  <view class="intro-unit">
+    <view class="title">基础信息</view>
+    <view class="unit-con">
+      <view class="row">
+        <text class="col">姓名：{{introInfo.name}}</text>
+        <text class="col">电话：{{phone}}</text>
+      </view>
+      <text>出生日期：{{introInfo.birthday}}</text>
+      <text>居住地址：{{introInfo.address}}</text>
+    </view>
+  </view>
+  <view class="intro-unit">
+    <view class="title">教育背景</view>
+    <view class="unit-con" wx:if="{{introInfo.seniorHighSchool&&introInfo.seniorHighSchool.beginDate}}">
+      <text class="con-title">高中</text>
+      <view class="row ">
+        <text class="mar-col">{{introInfo.seniorHighSchool.beginDate}}</text>
+        <text class="col">{{introInfo.seniorHighSchool.schoolName}}</text>
+      </view>
+    </view>
+    <view class="unit-con" wx:if="{{introInfo.university&&introInfo.university.beginDate}}">
+      <text class="con-title">大学</text>
+      <view class="row ">
+        <text class="mar-col">{{introInfo.university.beginDate}}</text>
+        <text class="col">{{introInfo.university.schoolName}}</text>
+      </view>
+    </view>
+    <view class="unit-con" wx:if="{{introInfo.graduate&&introInfo.graduate.beginDate}}">
+      <text class="con-title">研究生</text>
+      <view class="row ">
+        <text class="mar-col">{{introInfo.graduate.beginDate}}</text>
+        <text class="col">{{introInfo.graduate.schoolName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="intro-unit">
+    <view class="title">工作经历</view>
+    <view class="unit-con" wx:for="{{introInfo.work}}" wx:if="{{item.beginDate&&item.endDate}}" wx:key="{{index}}">
+      <text class="con-title">{{item.beginDate}}~{{item.endDate}}</text>
+      <text>公司：{{item.companyName}}</text>
+      <text>职位：{{item.post}}</text>
+      <text>工作内容：{{item.workContent}}</text>
+    </view>
+  </view>
+
+  <view class="intro-unit">
+    <view class="title">座右铭</view>
+    <view class="unit-con">
+      <text>{{introInfo.motto}}</text>
+    </view>
+  </view>
+
 </view>
+
+<!-- <web-view src="https://www.kklei.com/preview?id=32"></web-view> -->
 
 <view class="fixed-btn-outer">
   <view class="fixed-btn-box">
