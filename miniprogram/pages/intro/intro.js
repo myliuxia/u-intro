@@ -15,15 +15,15 @@ Page({
     introId:'',
 
     showPayDialog:false,//控制付款对话框
-    showShareDialog:false,//控制对话框显示的开关
+    showShareDialog: false,//控制对话框显示的开关
+    sendMailDialog: false,// 发送邮件弹框显示开关
     grade:[
-      { name: '普通', auth: '' },
+      { name: '普通', auth: '查看简历' },
       { name: '精英', auth: '一次人工帮助优化简历的服务' },
       { name: '天才', auth: '平台帮助加推简历50次' },
       { name: '名宿', auth: '平台帮助内top500强' },
     ],
     gradeIndex:0,
-
     buyLikeNum:10,//购买的升级包个数
   },
 
@@ -31,6 +31,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // for(var i=0;i<10;i++){
+
+    //   wx.request({
+    //     url: 'https://www.kklei.com/need_ad',
+    //     header: app.globalData.header,
+    //     success: (result) => {
+
+    //     }
+    //   })
+    // }
 
     /**接收参数 */
     this.setData({
@@ -129,7 +139,11 @@ Page({
         wx.hideLoading()
       },
       fail: (err)=>{
-        wx.hideLoading()
+
+        wx.showToast({
+          title: '加载失败',
+          icon: 'none',
+        });
       }
     })
   },
@@ -194,6 +208,23 @@ Page({
   },
 
   /**
+   * 显示发送邮件弹框
+   */
+  showSendMail: function () {
+    this.setData({
+      sendMailDialog:true
+    })
+  },
+  /**
+   * 关闭发送邮件弹框
+   */
+  closeSendMail: function () {
+    this.setData({
+      sendMailDialog: false,
+    })
+  },
+
+  /**
    * 减少购买的升级包个数
    */
   minusBuyNum:function(){
@@ -227,6 +258,17 @@ Page({
       gapNum:gap,
     })
   },
+
+  /**
+   * 跳转到简历预览页面
+   */
+  goToDetail:function(){
+    wx.navigateTo({
+      url: '/pages/introDetail/introDetail?introId=' + this.data.introId,
+    })
+  },
+
+
   /**
    * 发送邮件
    */

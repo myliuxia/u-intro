@@ -1,0 +1,55 @@
+/* miniprogram/pages/introDetail/introDetail.wxss */
+
+
+/* 简历内容样式 */
+.intro-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  background-color: #ffffff;
+  margin: 20rpx 0; 
+}
+
+.intro-unit .title{
+  font-size: 32rpx;
+  line-height: 1.5;
+}
+.intro-container .btn{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  background-color: #ff9700;
+  color:#ffffff;
+  padding: 0 10rpx;
+  min-width: 180rpx;
+}
+.intro-unit .unit-con{
+  font-size: 24rpx;
+  color: #888888;
+  display: flex;
+  flex-direction: column;
+  margin: 10rpx auto;
+  line-height: 1.5;
+}
+.intro-unit .unit-con .row{
+  display: flex;
+  align-items: center;
+}
+.intro-unit .unit-con .row.space-between{
+  justify-content: space-between;
+}
+.intro-unit .unit-con .row .col{
+  flex: 1;
+}
+.intro-unit .unit-con .row .mar-col{
+  margin-right: 10rpx;
+}
+
+.intro-unit .unit-con .con-title{
+  font-size: 28rpx;
+  color: #444444;
+}
+
+

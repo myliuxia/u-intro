@@ -41,66 +41,85 @@
   </view>
 </view>
 
-<view class="intro-container">
-  <view class="intro-unit">
-    <view class="title">
-      <text>基础信息</text>
-    </view>
-    <view class="unit-con">
-      <view class="row">
-        <text class="col">姓名：{{introInfo.name}}</text>
-        <text class="col">电话：{{phone}}</text>
+<view class="grade-container">
+
+  <view class="grade-item">
+    <view class="grade-name">
+      <view class="name-box">
+        <text class="iconfont icon-dengji color-grade-1"></text>
+        <text>新人</text>
       </view>
-      <text>出生日期：{{introInfo.birthday}}</text>
-      <text>居住地址：{{introInfo.address}}</text>
-    </view>
-  </view>
-  <view class="intro-unit">
-    <view class="title">教育背景</view>
-    <view class="unit-con" wx:if="{{introInfo.seniorHighSchool&&introInfo.seniorHighSchool.beginDate}}">
-      <text class="con-title">高中</text>
-      <view class="row ">
-        <text class="mar-col">{{introInfo.seniorHighSchool.beginDate}}</text>
-        <text class="col">{{introInfo.seniorHighSchool.schoolName}}</text>
+      <view class="status">
       </view>
     </view>
-    <view class="unit-con" wx:if="{{introInfo.university&&introInfo.university.beginDate}}">
-      <text class="con-title">大学</text>
-      <view class="row ">
-        <text class="mar-col">{{introInfo.university.beginDate}}</text>
-        <text class="col">{{introInfo.university.schoolName}}</text>
-      </view>
-    </view>
-    <view class="unit-con" wx:if="{{introInfo.graduate&&introInfo.graduate.beginDate}}">
-      <text class="con-title">研究生</text>
-      <view class="row ">
-        <text class="mar-col">{{introInfo.graduate.beginDate}}</text>
-        <text class="col">{{introInfo.graduate.schoolName}}</text>
-      </view>
-    </view>
-  </view>
-  <view class="intro-unit">
-    <view class="title">工作经历</view>
-    <view class="unit-con" wx:for="{{introInfo.work}}" wx:if="{{item.beginDate&&item.endDate}}" wx:key="{{index}}">
-      <text class="con-title">{{item.beginDate}}~{{item.endDate}}</text>
-      <text>公司：{{item.companyName}}</text>
-      <text>职位：{{item.post}}</text>
-      <text>工作内容：{{item.workContent}}</text>
+    <view class="grade-explain">
+      <text class="explain">可以查看简历</text>
+      <button class="btn" bindtap='goToDetail'>查看简历</button>
     </view>
   </view>
 
-  <view class="intro-unit">
-    <view class="title">座右铭</view>
-    <view class="unit-con">
-      <text>{{introInfo.motto}}</text>
+  <view class="grade-item">
+    <view class="grade-name">
+      <view class="name-box">
+        <text class="iconfont icon-dengji color-grade-2"></text>
+        <text>普通</text>
+      </view>
+      <view class="status">
+      </view>
+    </view>
+    <view class="grade-explain">
+      <text class="explain">输入邮箱后能再电脑上打开简历</text>
+      <button class="btn" bindtap='showSendMail' disabled='{{gradeIndex<0}}'>获得简历</button>
     </view>
   </view>
   
-  <button class="btn" bindtap='sendmail'>发送邮件</button>
+  <view class="grade-item {{gradeIndex<0?'disabled':''}}">
+    <view class="grade-name">
+      <view class="name-box">
+        <text class="iconfont icon-dengji color-grade-3"></text>
+        <text>精英</text>
+      </view>
+      <view class="status">
+      </view>
+    </view>
+    <view class="grade-explain">
+      <text class="explain">可以得到行业专家人工帮助优化简历</text>
+      <button class="btn" bindtap='sendmail' disabled='{{gradeIndex<1}}'>获得帮助</button>
+    </view>
+  </view>
+
+  <view class="grade-item {{gradeIndex<1?'disabled':''}}">
+    <view class="grade-name">
+      <view class="name-box">
+        <text class="iconfont icon-dengji color-grade-4"></text>
+        <text>天才</text>
+      </view>
+      <view class="status">
+      </view>
+    </view>
+    <view class="grade-explain">
+      <text class="explain">可以得到专业人力资源渠道，加推简历给各大招聘平台</text>
+      <button class="btn" bindtap='sendmail' disabled='{{gradeIndex<2}}'>获得加推</button>
+    </view>
+  </view>
+
+  <view class="grade-item {{gradeIndex<2?'disabled':''}}">
+    <view class="grade-name">
+      <view class="name-box">
+        <text class="iconfont icon-dengji color-grade-5"></text>
+        <text>名宿</text>
+      </view>
+      <view class="status">
+      </view>
+    </view>
+    <view class="grade-explain">
+      <text class="explain">可以获得直接内推top500强机会</text>
+      <button class="btn" bindtap='sendmail' disabled='{{gradeIndex<3}}'>获得内推</button>
+    </view>
+  </view>
 
 </view>
 
-<!-- <web-view src="https://www.kklei.com/preview?id=32"></web-view> -->
 
 <view class="fixed-btn-outer">
   <view class="fixed-btn-box">
@@ -146,6 +165,18 @@
       </view>
 
       <button class="pay-btn">立即支付</button>
+    </view>
+  </dialog>
+</modal-box>
+
+
+
+<modal-box class="{{sendMailDialog?'show':''}}">
+  <dialog>
+    <text bindtap='closeSendMail' class="close iconfont icon-close"></text>
+    <view class='mail-dialog'>
+      
+      <button class="share-btn" open-type="share" data-id="{{introId}}">分享好友升级</button>
     </view>
   </dialog>
 </modal-box>

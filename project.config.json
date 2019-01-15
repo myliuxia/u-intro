@@ -21,19 +21,36 @@
 			"current": -1,
 			"list": []
 		},
-		
+		"plugin": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/index/index",
+					"query": "name=2&pawd=2"
+				}
+			]
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "分享进入",
 					"pathName": "pages/mine/mine",
 					"query": "introId=32&redirec_url=/pages/share/share",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "简历等级",
+					"pathName": "pages/intro/intro",
+					"query": "introId=32",
 					"scene": "1001"
 				}
 			]

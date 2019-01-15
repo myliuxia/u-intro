@@ -1,40 +1,5 @@
 /* miniprogram/pages/intro/intro.wxss */
 
-/* 头部样式 */
-custom{
-  display:block;
-  position:relative;
-
-}
-custom bar{
-  padding-right:110px;
-  box-shadow:0px 0px 0px !important;
-}
-.fixed{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1024;
-  box-sizing: border-box;
-}
-.gradual-blue{
-  background-image:linear-gradient(45deg, #0081ff, #1cbbb4) !important;
-  color:#fff !important; 
-}
-.action{
-  display:flex;
-  align-items:center;
-  height:100%;
-  max-width:100%;
-  margin-left: 20rpx;
-  font-size: 28rpx;
-}
-.action .iconfont{
-  font-size: 34rpx;
-}
-
-
 /*分享对话弹框*/
 .share-dialog{
   font-size: 28rpx;
@@ -180,59 +145,6 @@ custom bar{
   min-width: 180rpx;
 }
 
-/* 简历内容样式 */
-.intro-container{
-  display: flex;
-  flex-direction: column;
-  padding: 20rpx 30rpx;
-  font-size: 28rpx;
-  line-height: 1.5;
-  background-color: #ffffff;
-  margin: 20rpx 0; 
-}
-
-.intro-unit .title{
-  font-size: 32rpx;
-  line-height: 1.5;
-}
-.intro-container .btn{
-  height: 60rpx;
-  line-height: 60rpx;
-  font-size: 24rpx;
-  background-color: #ff9700;
-  color:#ffffff;
-  padding: 0 10rpx;
-  min-width: 180rpx;
-}
-.intro-unit .unit-con{
-  font-size: 24rpx;
-  color: #888888;
-  display: flex;
-  flex-direction: column;
-  margin: 10rpx auto;
-  line-height: 1.5;
-}
-.intro-unit .unit-con .row{
-  display: flex;
-  align-items: center;
-}
-.intro-unit .unit-con .row.space-between{
-  justify-content: space-between;
-}
-.intro-unit .unit-con .row .col{
-  flex: 1;
-}
-.intro-unit .unit-con .row .mar-col{
-  margin-right: 10rpx;
-}
-
-.intro-unit .unit-con .con-title{
-  font-size: 28rpx;
-  color: #444444;
-}
-
-
-
 /* 底部操作栏 */
 .fixed-btn-outer{
   height: 120rpx;
@@ -319,4 +231,79 @@ custom bar{
   padding: 0 20rpx;
   width: 700rpx;
   margin: 20rpx auto;
+}
+
+/* 等级规则说明 */
+.grade-container{
+  background-color: #ffffff;
+  margin: 20rpx 0;
+  width: 100%;
+  color: #333333;
+}
+
+.grade-item{
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+}
+.grade-item .grade-name{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;margin-bottom: 10rpx;
+}
+.grade-item .grade-name .name-box{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+}
+.grade-item .grade-name .iconfont{
+  font-size: 36rpx;
+  margin-right: 10rpx;
+}
+.color-grade-1{
+  color: #dda061;
+}
+.color-grade-2{
+  color: #d5e8f6;
+}
+.color-grade-3{
+  color: #f9ce31;
+}
+.color-grade-4{
+  color: #acefe5;
+}
+.color-grade-5{
+  color: #89a0fd;
+}
+
+.grade-item .grade-explain{
+  display: flex;
+  justify-content: space-between;
+}
+.grade-item .grade-explain .explain{
+  flex: 1;
+  padding-left: 40rpx;
+  padding-right: 20rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #666666;
+}
+
+.grade-item .btn{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  background-color: #ff9700;
+  color:#ffffff;
+  padding: 0 10rpx;
+  min-width: 150rpx;
+}
+.grade-item .btn[disabled]{
+  background-color: #cccccc!important;
+  color: #ffffff!important;
+}
+.grade-item.disabled{
+  color: #999999;
+}
+.grade-item.disabled .grade-explain .explain{
+  color: #bbbbbb;
 }

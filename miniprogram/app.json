@@ -5,7 +5,8 @@
     "pages/login/login",
     "pages/intro/intro",
     "pages/success/success",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/introDetail/introDetail"
   ],
   "window": {
     "navigationStyle": "custom",
