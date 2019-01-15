@@ -493,6 +493,14 @@ dialog .close{
   color: #ffffff;
   font-size: 40rpx;
 }
+
+dialog .close1{
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  color: #999999;
+  font-size: 40rpx;
+}
 modal-box.bottom-modal::before {
   vertical-align: bottom;
 }

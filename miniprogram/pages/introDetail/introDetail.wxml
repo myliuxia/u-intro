@@ -9,6 +9,11 @@
   </bar>
 </custom>
 <view class="intro-container">
+  <view class="pic-box">
+    <view class="pic">
+      <image src='{{introInfo.introImage}}'></image>
+    </view>
+  </view>
   <view class="intro-unit">
     <view class="title">
       <text>基础信息</text>

@@ -1,6 +1,5 @@
 /* miniprogram/pages/introDetail/introDetail.wxss */
 
-
 /* 简历内容样式 */
 .intro-container{
   display: flex;
@@ -9,12 +8,43 @@
   font-size: 28rpx;
   line-height: 1.5;
   background-color: #ffffff;
-  margin: 20rpx 0; 
+  margin: 0; 
+}
+.intro-container .pic-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160rpx;
+  border-bottom: 1rpx dashed #cccccc;
+} 
+.intro-container .pic-box .pic{
+  width: 130rpx;
+  height: 130rpx;
+  overflow: hidden;
+  border-radius: 100%;
+  background-color: #cccccc;
+}
+.intro-container .pic-box .pic image{
+  width: 100%;
+  height: 100%;
 }
 
 .intro-unit .title{
+  display: flex;
+  align-items: center;
   font-size: 32rpx;
-  line-height: 1.5;
+  height: 50rpx;
+  margin-top: 20rpx;
+}
+.intro-unit .title::before{
+  display: block;
+  content: "";
+  line-height: 0;
+  font-size: 0;
+  height: 35rpx;
+  width: 8rpx;
+  background-color: #0081ff;
+  margin-right: 10rpx;
 }
 .intro-container .btn{
   height: 60rpx;

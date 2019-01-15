@@ -25,6 +25,7 @@ Page({
     ],
     gradeIndex:0,
     buyLikeNum:10,//购买的升级包个数
+    email:'',// 发送简历的邮箱
   },
 
   /**
@@ -274,6 +275,10 @@ Page({
    */
   sendmail:function(){
     let _this = this;
+    
+    this.setData({
+      sendMailDialog: false,
+    })
     wx.showLoading({
       title: '发送中',
     })
@@ -281,7 +286,7 @@ Page({
       url: 'https://www.kklei.com/send_mail',
       data: {
         id: _this.data.introId,
-        email:'1285370080@qq.com'
+        email: _this.data.email,
       },
       header: app.globalData.header,
       success: (result) => {
@@ -297,6 +302,14 @@ Page({
 
       }
     })
-  }
+  },
+
+  /** 绑定输入的信息 */
+  bindInputByKey: function (e) {
+    let key = e.currentTarget.dataset.key // 对应字段
+    this.setData({
+      [key]: e.detail.value,
+    })
+  },
  
 })

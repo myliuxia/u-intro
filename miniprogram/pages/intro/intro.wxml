@@ -173,10 +173,12 @@
 
 <modal-box class="{{sendMailDialog?'show':''}}">
   <dialog>
-    <text bindtap='closeSendMail' class="close iconfont icon-close"></text>
+    <text bindtap='closeSendMail' class="close1 iconfont icon-close1"></text>
     <view class='mail-dialog'>
-      
-      <button class="share-btn" open-type="share" data-id="{{introId}}">分享好友升级</button>
+      <view class="row">
+        <input type='text' class="mail-input" bindinput="bindInputByKey" data-key="email" placeholder='请输入邮箱'></input>
+      </view>
+      <button class="send-btn" bindtap='sendmail'>发送邮件</button>
     </view>
   </dialog>
 </modal-box>
