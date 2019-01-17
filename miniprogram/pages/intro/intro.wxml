@@ -27,7 +27,7 @@
       <text class="name" style="right:0%">名宿</text>
     </view>
   </view>
-  <view class="buy-box">
+  <!-- <view class="buy-box">
     <view class="box-left">
       <text>等级包</text>
       <view class="number-box">
@@ -38,7 +38,7 @@
       <text class="price">￥{{buyLikeNum}}</text>
     </view>
     <button class="buy-btn" bindtap='showPayDialogFun'>购买加速包</button>
-  </view>
+  </view> -->
 </view>
 
 <view class="grade-container">

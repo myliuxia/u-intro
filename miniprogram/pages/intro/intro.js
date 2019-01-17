@@ -26,23 +26,23 @@ Page({
     gradeIndex:0,
     buyLikeNum:10,//购买的升级包个数
     email:'',// 发送简历的邮箱
+    needAd:false,// 是否弹出广告
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // for(var i=0;i<10;i++){
-
-    //   wx.request({
-    //     url: 'https://www.kklei.com/need_ad',
-    //     header: app.globalData.header,
-    //     success: (result) => {
-
-    //     }
-    //   })
-    // }
-
+    let _this = this
+    wx.request({
+      url: 'https://www.kklei.com/need_ad',
+      header: app.globalData.header,
+      success: (result) => {
+        _this.setData({
+          needAd : result.data.obj
+        })
+      }
+    })
     /**接收参数 */
     this.setData({
       introId: options.introId
@@ -265,7 +265,7 @@ Page({
    */
   goToDetail:function(){
     wx.navigateTo({
-      url: '/pages/introDetail/introDetail?introId=' + this.data.introId,
+      url: '/pages/introDetail/introDetail?introId=' + this.data.introId + '&needAd=' + this.data.needAd,
     })
   },
 

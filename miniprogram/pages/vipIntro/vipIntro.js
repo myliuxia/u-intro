@@ -1,4 +1,4 @@
-// miniprogram/pages/introDetail/introDetail.js
+// miniprogram/pages/vipIntro/vipIntro.js
 const app = getApp()
 Page({
 
@@ -9,31 +9,25 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     introInfo: null,
-    likeNum: 0,
     phone: '',
-    introId: '',
-    needAd:false,//是否弹出广告
-
+    introId: '', 
+    email:'',
+    sendMailDialog: false,// 发送邮件弹框显示开关
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let needAdv = false
-    if (options.needAd && options.needAd == 'true'){
-      needAdv = true
-    }
     /**接收参数 */
     this.setData({
       introId: options.introId,
-      needAd: needAdv
     })
     this.getIntro()
   },
   /**
-   * 根据id查询简历
-   */
+     * 根据id查询简历
+     */
   getIntro: function () {
     wx.showLoading({
       title: '加载中',
@@ -50,9 +44,7 @@ Page({
         _this.setData({
           phone: result.data.obj.phone,
           introInfo: JSON.parse(result.data.obj.introInfo),
-          likeNum: result.data.obj.likeNum,
         })
-        
         wx.hideLoading()
       },
       fail: (err) => {
@@ -63,9 +55,55 @@ Page({
       }
     })
   },
-  closeAdvDialog:function(){
+  /**
+   * 显示发送邮件弹框
+   */
+  showSendMail: function () {
     this.setData({
-      needAd:false,
+      sendMailDialog: true
     })
-  }
+  },
+  /**
+   * 关闭发送邮件弹框
+   */
+  closeSendMail: function () {
+    this.setData({
+      sendMailDialog: false,
+    })
+  },
+
+  /**
+   * 发送邮件
+   */
+  sendmail: function () {
+    let _this = this;
+
+    this.setData({
+      sendMailDialog: false,
+    })
+    wx.showLoading({
+      title: '发送中',
+    })
+    wx.request({
+      url: 'https://www.kklei.com/send_mail',
+      data: {
+        id: _this.data.introId,
+        email: _this.data.email,
+      },
+      header: app.globalData.header,
+      success: (result) => {
+        wx.showToast({
+          title: '邮件发送成功',
+        });
+      },
+      fail: function () {
+        wx.showToast({
+          title: '发送失败失败',
+          icon: 'none',
+        });
+
+      }
+    })
+  },
+
 })

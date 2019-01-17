@@ -1,0 +1,155 @@
+<!--miniprogram/pages/vipIntro/vipIntro.wxml-->
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed intro-bg" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class="iconfont icon-xiangzuo"></text>
+      <text>返回</text> 
+    </navigator>
+  </bar>
+</custom>
+
+<view class="intro-container">
+
+  <view class="intro-head">
+    <view class="pic-box">
+      <view class="box-bg"></view>
+      <view class="pic">
+        <image src='{{introInfo.introImage}}'></image>
+      </view>
+    </view>
+    <text class="big-text">{{introInfo.name}}</text>
+    <text>求职意向：{{introInfo.name}}</text>
+  </view>
+
+  <view class="intro-unit">
+    <view class="title">
+      <text>自我评价</text>
+      <text class="iconfont icon-yonghu"></text>
+    </view>
+    <view class="description">
+      <text>1、本人性格开朗，外向大方。综合能力强，思维敏捷，富创造力，善于沟通，有主见，心理素质较好，能承受压力，虚心好学，为人诚恳。是一个责任心强、积极主动、善于团队工作的人，具有较强的策划管理能力和组织协调能力。</text>
+      <text>2、勤勉上进,认真细致,踏实肯干,对工作认真负责；热情大方,待人热忱,善于与人沟通协调,亲和力强；具有能胜任工作的专业素质和技能 ；具有良好的写作和文字功底,论文写作及应用文写作都得到广泛好评。</text>
+    </view>
+  </view>
+
+  <view class="intro-unit">
+    <view class="title">
+      <text>个人资料</text>
+      <text class="iconfont icon-gerenziliao1"></text>
+    </view>
+    <view class="row">
+      <text class='iconfont icon-phone'></text>
+      <text>18982068701</text>
+    </view>
+    <view class="row">
+      <text class='iconfont icon-email'></text>
+      <text>1898255465@qq.com</text>
+    </view>
+    <view class="row">
+      <text class='iconfont icon-address'></text>
+      <text>广东省广州市海珠区滨江东路880号</text>
+    </view>
+  </view>
+  
+  <view class="intro-unit">
+    <view class="title">
+      <text>奖励荣誉</text>
+      <text class="iconfont icon-rongyu1"></text>
+    </view>
+    <view class="row">
+      <text>XXXX专项二等奖奖学金 （综合成绩排名3%）</text>
+    </view>
+    <view class="row">
+      <text>XXXX专项二等奖奖学金 （综合成绩排名3%）</text>
+    </view>
+    <view class="row">
+      <text>XXXX专项二等奖奖学金 （综合成绩排名3%）</text>
+    </view>
+  </view>
+
+  
+  <view class="intro-unit">
+    <view class="title">
+      <text>教育背景</text>
+      <text class="iconfont icon-jiaoyu"></text>
+    </view>
+    <view class="info-item">
+      <view class="head-row">
+        <text>2018-2019</text>
+        <text>暨南大学</text>
+        <text>计算机科学与技术</text>
+      </view>
+      <view class="description">
+        <text>主修课程</text>
+        <text>项目管理、公共经济学、经济法、公司法、培训管理、行政法与行政诉讼法、现代企业管理学、人力资源开发与管理、公共管理学</text>
+      </view>
+    </view>
+    <view class="info-item">
+      <view class="head-row">
+        <text>2018-2019</text>
+        <text>西南民族科技大学</text>
+        <text>计算机科学与技术</text>
+      </view>
+      <view class="description">
+        <text>主修课程</text>
+        <text>项目管理、公共经济学、经济法、公司法、培训管理、行政法与行政诉讼法、现代企业管理学、人力资源开发与管理、公共管理学</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="intro-unit">
+    <view class="title">
+      <text>工作经历</text>
+      <text class="iconfont icon-jingyan"></text>
+    </view>
+
+    <view class="info-item">
+      <view class="head-row">
+        <text>2018-2019</text>
+        <text>成都金网安泰信息技术有限公司</text>
+      </view>
+      <view class="description">
+        <text class="serial">负责与协议酒店、旅行社、航空及火车售票机构联络协调，为公司出差人员安排旅行和住宿 </text>
+        <text class="serial">负责会议室的预定及使用安排 </text>
+        <text class="serial">处理办公室邮件及报纸的传递及分发</text>
+      </view>
+    </view>
+    <view class="info-item">
+      <view class="head-row">
+        <text>2018-2019</text>
+        <text>成都金网安泰信息技术有限公司</text>
+      </view>
+      <view class="description">
+        <text class="serial">负责与协议酒店、旅行社、航空及火车售票机构联络协调，为公司出差人员安排旅行和住宿 </text>
+        <text class="serial">负责会议室的预定及使用安排 </text>
+        <text class="serial">处理办公室邮件及报纸的传递及分发</text>
+      </view>
+    </view>
+    <view class="info-item">
+      <view class="head-row">
+        <text>2018-2019</text>
+        <text>成都金网安泰信息技术有限公司</text>
+      </view>
+      <view class="description">
+        <text class="serial">负责与协议酒店、旅行社、航空及火车售票机构联络协调，为公司出差人员安排旅行和住宿 </text>
+        <text class="serial">负责会议室的预定及使用安排 </text>
+        <text class="serial">处理办公室邮件及报纸的传递及分发</text>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+
+
+<modal-box class="{{sendMailDialog?'show':''}}">
+  <dialog>
+    <text bindtap='closeSendMail' class="close1 iconfont icon-close1"></text>
+    <view class='mail-dialog'>
+      <view class="row">
+        <input type='text' class="mail-input" bindinput="bindInputByKey" data-key="email" placeholder='请输入邮箱'></input>
+      </view>
+      <button class="send-btn" bindtap='sendmail'>发送邮件</button>
+    </view>
+  </dialog>
+</modal-box>

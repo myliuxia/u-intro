@@ -41,7 +41,7 @@
   content: "";
   line-height: 0;
   font-size: 0;
-  height: 35rpx;
+  height: 30rpx;
   width: 8rpx;
   background-color: #0081ff;
   margin-right: 10rpx;

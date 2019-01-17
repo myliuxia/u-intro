@@ -1,0 +1,113 @@
+/* miniprogram/pages/vipIntro/vipIntro.wxss */
+.intro-bg{
+  background: #3289cd!important;
+  color: #ffffff;
+}
+.intro-head{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+.intro-head .pic-box{
+  position: relative;
+  height: 160rpx;
+  width: 100%;
+}
+.intro-head .pic-box .box-bg{
+  height: 90rpx;
+  width: 100%;
+  background: #3289cd;
+}
+.intro-head .pic-box .pic{
+  position: absolute;
+  top: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 100%;
+  border: 6rpx solid #3289cd;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+.intro-head .pic-box .pic image{
+  height: 100%;
+  width: 100%;
+}
+.intro-head .big-text{
+  font-size: 38rpx;
+  
+}
+
+.intro-unit{
+  background: #f2f2f2;
+  color: #545454;
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+  width: 700rpx;
+  margin: 30rpx auto;
+  box-sizing: border-box;
+  box-shadow: 0 0 20rpx 0 #dddddd;
+  border-radius: 6rpx;
+}
+.intro-unit .title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.intro-unit .title .iconfont{
+  font-size: 44rpx;
+  color: #3289cd;
+}
+.intro-unit .description{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+.intro-unit .description .serial{
+  position: relative;
+  padding-left: 30rpx;
+}
+.intro-unit .description .serial::before{
+  position: absolute;
+  top: 18rpx;
+  left: 5rpx;
+  content: '';
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #3289cd;
+  border-radius: 100%;
+  overflow: hidden;
+
+}
+.intro-unit .row{
+  display: flex;
+  align-items: center;
+  height: 70rpx;
+}
+.intro-unit .row .iconfont{
+  font-size: 34rpx;
+  color: #3289cd;
+  margin-right: 10rpx;
+}
+
+.intro-unit .info-item{
+  margin-bottom: 20rpx;
+}
+.intro-unit .info-item .head-row{
+  display: flex;
+  height: 60rpx;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #3289cd;
+  
+}

@@ -72,4 +72,11 @@
   <!-- <button class="btn" bindtap='sendmail'>发送邮件</button> -->
 
 </view>
-
+<modal-box class="{{needAd?'show':''}}">
+  <dialog>
+    <text bindtap='closeAdvDialog' class="close iconfont icon-close"></text>
+    <view >
+      这是一条广告
+    </view>
+  </dialog>
+</modal-box>
