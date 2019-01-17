@@ -30,7 +30,10 @@ Page({
     gradeIndex:0,
     buyLikeNum:10,//购买的升级包个数
     email:'',// 发送简历的邮箱
-    needAd:false,// 是否弹出广告
+    needAd: false,// 是否弹出广告
+    optimalizeStatus: 1,// 获得帮助的进度 1：未申请；2：已申请处理中；3：处理完成
+    addPushStatus: 1,// 获得加推的进度 1：未申请；2：已申请处理中；3：处理完成
+    internalPushStatus: 1,// 获得内推的进度 1：未申请；2：已申请处理中；3：处理完成
   },
 
   /**
@@ -119,6 +122,9 @@ Page({
           phone: result.data.obj.phone,
           introInfo: JSON.parse(result.data.obj.introInfo),
           likeNum: result.data.obj.likeNum,
+          optimalizeStatus: result.data.obj.optimalizeStatus,
+          addPushStatus: result.data.obj.addPushStatus,
+          internalPushStatus: result.data.obj.internalPushStatus,
         })
         let grade = 0
         if (_this.data.likeNum < 1) {

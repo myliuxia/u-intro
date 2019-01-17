@@ -287,6 +287,10 @@
   line-height: 40rpx;
   color: #666666;
 }
+.grade-item .grade-explain .status-txt{
+  color:#ff9700;
+  font-size: 28rpx;
+}
 
 .grade-item .btn{
   height: 50rpx;
