@@ -41,7 +41,7 @@ Page({
       success: (result) => {
         if (result.data.obj && result.data.obj.length>0){
           let list = result.data.obj.map((item) => {
-            return { id: item.id, phone: item.phone }
+            return { id: item.id, phone: item.phone,type:item.type }
           })
           _this.setData({
             introList: list,

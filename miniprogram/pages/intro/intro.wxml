@@ -58,7 +58,7 @@
     </view>
   </view>
 
-  <view class="grade-item">
+  <view class="grade-item {{gradeIndex<0?'disabled':''}}">
     <view class="grade-name">
       <view class="name-box">
         <text class="iconfont icon-dengji color-grade-2"></text>
@@ -69,11 +69,11 @@
     </view>
     <view class="grade-explain">
       <text class="explain">输入邮箱后能再电脑上打开简历</text>
-      <button class="btn" bindtap='showSendMail' disabled='{{gradeIndex<0}}'>获得简历</button>
+      <button class="btn" bindtap='showSendMail' disabled='{{gradeIndex<1}}'>获得简历</button>
     </view>
   </view>
   
-  <view class="grade-item {{gradeIndex<0?'disabled':''}}">
+  <view class="grade-item {{gradeIndex<1?'disabled':''}}">
     <view class="grade-name">
       <view class="name-box">
         <text class="iconfont icon-dengji color-grade-3"></text>
@@ -84,11 +84,11 @@
     </view>
     <view class="grade-explain">
       <text class="explain">可以得到行业专家人工帮助优化简历</text>
-      <button class="btn" bindtap='sendmail' disabled='{{gradeIndex<1}}'>获得帮助</button>
+      <button class="btn" bindtap='getHelp' disabled='{{gradeIndex<2}}'>获得帮助</button>
     </view>
   </view>
 
-  <view class="grade-item {{gradeIndex<1?'disabled':''}}">
+  <view class="grade-item {{gradeIndex<2?'disabled':''}}">
     <view class="grade-name">
       <view class="name-box">
         <text class="iconfont icon-dengji color-grade-4"></text>
@@ -99,11 +99,11 @@
     </view>
     <view class="grade-explain">
       <text class="explain">可以得到专业人力资源渠道，加推简历给各大招聘平台</text>
-      <button class="btn" bindtap='sendmail' disabled='{{gradeIndex<2}}'>获得加推</button>
+      <button class="btn" bindtap='getAdd' disabled='{{gradeIndex<3}}'>获得加推</button>
     </view>
   </view>
 
-  <view class="grade-item {{gradeIndex<2?'disabled':''}}">
+  <view class="grade-item {{gradeIndex<3?'disabled':''}}">
     <view class="grade-name">
       <view class="name-box">
         <text class="iconfont icon-dengji color-grade-5"></text>
@@ -114,7 +114,7 @@
     </view>
     <view class="grade-explain">
       <text class="explain">可以获得直接内推top500强机会</text>
-      <button class="btn" bindtap='sendmail' disabled='{{gradeIndex<3}}'>获得内推</button>
+      <button class="btn" bindtap='getInside' disabled='{{gradeIndex<4}}'>获得内推</button>
     </view>
   </view>
 
@@ -179,6 +179,30 @@
         <input type='text' class="mail-input" bindinput="bindInputByKey" data-key="email" placeholder='请输入邮箱'></input>
       </view>
       <button class="send-btn" bindtap='sendmail'>发送邮件</button>
+    </view>
+  </dialog>
+</modal-box>
+
+<modal-box class="{{helpDialog?'show':''}}">
+  <dialog>
+    <text bindtap='closeSendMail' class="close1 iconfont icon-close1"></text>
+    <view class='mail-dialog'>
+      <view class="row">
+        <input type='text' class="mail-input" bindinput="bindInputByKey" data-key="email" placeholder='请输入邮箱'></input>
+      </view>
+      <button class="send-btn" bindtap='sendmail'>发送邮件</button>
+    </view>
+  </dialog>
+</modal-box>
+
+<modal-box class="{{alertDialog?'show':''}}">
+  <dialog>
+    <text bindtap='closeAlert' class="close iconfont icon-close"></text>
+    <view class='mail-dialog'>
+      <view class="row">
+        <view class="alert-text">{{alertMsg}}</view>
+      </view>
+      <button class="send-btn" bindtap='closeAlert'>{{alertBtnText}}</button>
     </view>
   </dialog>
 </modal-box>

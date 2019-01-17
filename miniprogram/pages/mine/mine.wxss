@@ -16,7 +16,13 @@
   box-sizing: border-box;
   padding: 20rpx;
   font-size: 34rpx;
+  color: #444444;
 }
+.list-intro .intro-item.vip{
+  background: linear-gradient(to top right, #cce6ff, #d2f1f0 );
+  color:#0081ff;
+}
+
 .list-intro .intro-item .item-star{
   color: #cccccc;
 }

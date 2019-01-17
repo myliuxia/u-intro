@@ -17,7 +17,11 @@ Page({
     showPayDialog:false,//控制付款对话框
     showShareDialog: false,//控制对话框显示的开关
     sendMailDialog: false,// 发送邮件弹框显示开关
-    grade:[
+    alertDialog:false,// alert弹框开关
+    alertMsg:'', // alert提示内容
+    alertBtnText:'', // alert按钮文字
+    grade: [
+      { name: '新人', auth: '' },
       { name: '普通', auth: '查看简历' },
       { name: '精英', auth: '一次人工帮助优化简历的服务' },
       { name: '天才', auth: '平台帮助加推简历50次' },
@@ -94,6 +98,7 @@ Page({
     }
     
   },
+
   /**
    * 根据id查询简历
    */
@@ -116,16 +121,18 @@ Page({
           likeNum: result.data.obj.likeNum,
         })
         let grade = 0
-        if (_this.data.likeNum<10){
-          grade=0
-        } else if (_this.data.likeNum >= 10 && _this.data.likeNum < 50) {
+        if (_this.data.likeNum < 1) {
+          grade = 0
+        } else if (_this.data.likeNum >= 1 && _this.data.likeNum<10){
           grade = 1
-        } else if (_this.data.likeNum >= 50 && _this.data.likeNum < 100) {
+        } else if (_this.data.likeNum >= 10 && _this.data.likeNum < 50) {
           grade = 2
-        } else if (_this.data.likeNum >= 100) {
+        } else if (_this.data.likeNum >= 50 && _this.data.likeNum < 100) {
           grade = 3
+        } else if (_this.data.likeNum >= 100) {
+          grade = 4
         }
-        if(grade<3){
+        if(grade<4){
           _this.setData({
             showShareDialog: true,
             gradeIndex: grade,
@@ -140,7 +147,6 @@ Page({
         wx.hideLoading()
       },
       fail: (err)=>{
-
         wx.showToast({
           title: '加载失败',
           icon: 'none',
@@ -175,12 +181,7 @@ Page({
       url: '../../pages/add/add?introId=' + this.data.introId,
     })
   },
-  /**
-   * 分享加速
-   */
-  shareIntro:function(){
-
-  },
+  
 
   /**
    * 关闭对话框
@@ -243,6 +244,7 @@ Page({
       buyLikeNum: this.data.buyLikeNum + 1
     })
   },
+
   /**
    * 计算距离上一级的差距
    */
@@ -296,13 +298,114 @@ Page({
       },
       fail: function () {
         wx.showToast({
-          title: '发送失败失败',
+          title: '发送失败',
           icon: 'none',
         });
 
       }
     })
   },
+
+  closeAlert:function(){
+    this.setData({
+      alertDialog: false,
+    })
+  },
+
+  /**
+   * 获得帮助
+   */
+  getHelp: function () {
+    let _this = this;
+    //this.setData({sendMailDialog: false,})
+    wx.showLoading()
+    wx.request({
+      url: 'https://www.kklei.com/intro_apply',
+      data: {
+        id: _this.data.introId,
+        type: 1,
+      },
+      header: app.globalData.header,
+      success: (result) => {
+        wx.hideLoading()
+        if (result.data && Number(result.data.errorcode)>=0){
+          _this.setData({
+            alertDialog: true,
+            alertMsg: '已提交，稍后会有专员与您联系',
+            alertBtnText: '知道了',
+          })
+        }else{
+          wx.showToast({ title: '请求失败', icon: 'none' });
+        }
+      },
+      fail: function () {
+        wx.showToast({ title: '请求失败',icon: 'none'});
+      }
+    })
+  },
+  /**
+     * 获得加推
+     */
+  getAdd: function () {
+    let _this = this;
+    //this.setData({sendMailDialog: false,})
+    wx.showLoading()
+    wx.request({
+      url: 'https://www.kklei.com/intro_apply',
+      data: {
+        id: _this.data.introId,
+        type: 2,
+      },
+      header: app.globalData.header,
+      success: (result) => {
+        wx.hideLoading()
+        if (result.data && Number(result.data.errorcode) >= 0) {
+          _this.setData({
+            alertDialog: true,
+            alertMsg: '已提交加推，稍后会有专员与您联系',
+            alertBtnText: '知道了',
+          })
+        } else {
+          wx.showToast({ title: '请求失败', icon: 'none' });
+        }
+      },
+      fail: function () {
+        wx.showToast({ title: '请求失败', icon: 'none' });
+      }
+    })
+  },
+  /**
+   * 获得内推
+   */
+  getInside: function () {
+    let _this = this;
+    //this.setData({sendMailDialog: false,})
+    wx.showLoading()
+    wx.request({
+      url: 'https://www.kklei.com/intro_apply',
+      data: {
+        id: _this.data.introId,
+        type: 3,
+      },
+      header: app.globalData.header,
+      success: (result) => {
+        wx.hideLoading()
+        if (result.data && Number(result.data.errorcode) >= 0) {
+          _this.setData({
+            alertDialog: true,
+            alertMsg: '已提交内推，稍后会有专员与您联系',
+            alertBtnText: '知道了',
+          })
+        } else {
+          wx.showToast({ title: '请求失败', icon: 'none' });
+        }
+      },
+      fail: function () {
+        wx.showToast({ title: '请求失败', icon: 'none' });
+      }
+    })
+  },
+
 
   /** 绑定输入的信息 */
   bindInputByKey: function (e) {

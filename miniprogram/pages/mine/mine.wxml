@@ -11,8 +11,8 @@
     <view class="list-intro">
       <navigator 
       url="{{item.type==1?'../../pages/intro/intro?introId='+item.id:'../../pages/vipIntro/vipIntro?introId='+item.id}}" 
-      class="intro-item" wx:key="{{index}}" wx:for="{{introList}}">
-        <view class="item-name">第{{index==0?'一':index==1?'二':'三'}}份简历</view>
+      class="intro-item {{item.type==2?'vip':''}}" wx:key="{{index}}" wx:for="{{introList}}">
+        <view class="item-name">{{item.type==1?'我的简历':'精修简历'}}</view>
         <view class="item-star">
           <text class="iconfont icon-star-fill active"></text>
           <text class="iconfont icon-star-fill active"></text>
@@ -22,7 +22,7 @@
         </view>
       </navigator>
     </view>
-    <navigator wx:if="{{introList.length<3}}" url="../../pages/add/add" class="add-intro-ntn" >添加简历</navigator>
+    <!-- <navigator wx:if="{{introList.length<3}}" url="../../pages/add/add" class="add-intro-ntn" >添加简历</navigator> -->
   </view>
 </view>
 

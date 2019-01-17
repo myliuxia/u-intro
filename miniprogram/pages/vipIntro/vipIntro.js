@@ -106,4 +106,12 @@ Page({
     })
   },
 
+  /** 绑定输入的信息 */
+  bindInputByKey: function (e) {
+    let key = e.currentTarget.dataset.key // 对应字段
+    this.setData({
+      [key]: e.detail.value,
+    })
+  },
+
 })

@@ -317,6 +317,11 @@
   margin: 60rpx auto;
   padding: 0 30rpx;
 }
+.mail-dialog .alert-text{
+  font-size: 34rpx;
+  padding: 0 30rpx; 
+  overflow: hidden;
+}
 .mail-dialog .mail-input{
   height: 70rpx;
   line-height: 70rpx;

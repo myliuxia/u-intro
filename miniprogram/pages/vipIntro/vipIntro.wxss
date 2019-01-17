@@ -111,3 +111,51 @@
   color: #3289cd;
   
 }
+.btn-box{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 40rpx 0;
+}
+.btn-box .btn{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  background-color: #ff9700;
+  color:#ffffff;
+  padding: 0 10rpx;
+  min-width: 180rpx;
+  
+}
+
+/*发送邮件弹框*/
+
+.mail-dialog{
+  font-size: 28rpx;
+}
+.mail-dialog .row{
+  margin: 60rpx auto;
+  padding: 0 30rpx;
+}
+.mail-dialog .mail-input{
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1rpx solid #cccccc;
+  text-align: center;
+  padding: 0 10rpx;
+} 
+.mail-dialog .send-btn{
+  height: 60rpx;
+  width: 350rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #ffffff;
+  background-color: #1cbbb4;
+  box-sizing: border-box;
+  border: 1px solid #1cbbb4;
+  border-radius: 500px;
+  margin: 30rpx auto;
+}
