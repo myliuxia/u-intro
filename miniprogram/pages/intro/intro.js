@@ -339,6 +339,7 @@ Page({
             alertDialog: true,
             alertMsg: '已提交，稍后会有专员与您联系',
             alertBtnText: '知道了',
+            optimalizeStatus:2,
           })
         }else{
           wx.showToast({ title: '请求失败', icon: 'none' });
@@ -370,6 +371,7 @@ Page({
             alertDialog: true,
             alertMsg: '已提交加推，稍后会有专员与您联系',
             alertBtnText: '知道了',
+            addPushStatus:2,
           })
         } else {
           wx.showToast({ title: '请求失败', icon: 'none' });
@@ -401,6 +403,7 @@ Page({
             alertDialog: true,
             alertMsg: '已提交内推，稍后会有专员与您联系',
             alertBtnText: '知道了',
+            internalPushStatus: 2,
           })
         } else {
           wx.showToast({ title: '请求失败', icon: 'none' });
