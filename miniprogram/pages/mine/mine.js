@@ -6,13 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    introList:[]
+    introList:[],
+    redirec_url:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    /**接收参数 */
+    this.setData({
+      redirec_url: options.redirec_url ? options.redirec_url:''
+    })
     if (app.globalData.header.Cookie){
       this.getIntroList()
     }else{
@@ -47,9 +52,11 @@ Page({
             introList: list,
           })
         }else{
-          // wx/wx.redirectTo({
-          //   url: '../../pages/add/add',
-          // })
+          if (!_this.data.redirec_url){
+            wx / wx.redirectTo({
+              url: '../../pages/add/add',
+            })
+          }
         }
 
         wx.hideLoading()
