@@ -62,6 +62,17 @@
     </view>
   </view>
 
+  <view class="intro-unit" wx:if="{{introInfo.otherAward&&introInfo.otherAward.length>0}}">
+    <view class="title">荣誉奖励</view>
+    <view class="unit-con" wx:for="{{introInfo.otherAward}}" wx:key="{{index}}">
+      <view class="row"> 
+        <text class="mar-col">{{item.awardDate}}</text>
+        <text class="col">{{item.awardName}}</text>
+      </view>
+    </view>
+  </view>
+
+
   <view class="intro-unit">
     <view class="title">座右铭</view>
     <view class="unit-con">
@@ -69,6 +80,7 @@
     </view>
   </view>
   
+
   <!-- <button class="btn" bindtap='sendmail'>发送邮件</button> -->
 
 </view>

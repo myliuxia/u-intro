@@ -151,7 +151,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <image src='../../images/icon.gif'></image>
+          <image src='../../images/icon01.gif'></image>
         </view>
       </view>
       <view class="step-form">
@@ -186,7 +186,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <image src='../../images/icon.gif'></image>
+          <image src='../../images/icon02.jpg'></image>
         </view>
       </view>
       <view class="step-form">
@@ -219,7 +219,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <image src='../../images/icon.gif'></image>
+          <image src='../../images/icon03.gif'></image>
         </view>
       </view>
       <view class="step-form">
@@ -253,7 +253,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <image src='../../images/icon.gif'></image>
+          <image src='../../images/icon04.gif'></image>
         </view>
       </view>
       <view class="step-form">
@@ -297,7 +297,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <image src='../../images/icon.gif'></image>
+          <image src='../../images/icon05.gif'></image>
         </view>
       </view>
       <view class="step-form">
