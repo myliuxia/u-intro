@@ -59,7 +59,7 @@
   box-sizing: border-box;
 }
 .notice-box .notice-left{
-  font-size: 34rpx;
+  font-size: 36rpx;
   color: #ff9700;
   font-weight: bold;
   margin-right: 20rpx;
@@ -107,6 +107,9 @@
 }
 .recruit-item .row.gray{
   color: #888888;
+}
+.recruit-item .row .big-size{
+  font-size: 30rpx;
 }
 
 .recruit-item .title-box{

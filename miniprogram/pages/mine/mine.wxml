@@ -41,7 +41,7 @@
         <text>{{item.companyName}}</text>
       </view>
       <view>
-        <text class="color-orange">{{item.minSalary}}</text>~<text class="color-orange">{{item.maxSalary}}</text>元/月
+        <text class="color-orange big-size">{{item.minSalary}}</text> ~ <text class="color-orange big-size">{{item.maxSalary}}</text>元/月
       </view>
     </view>
     
