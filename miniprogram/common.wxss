@@ -1,12 +1,25 @@
 /* ==================
          页面公共样式
  ==================== */
+.color-orange{
+  color: #ff9700;
+}
+.color-yellow{
+  color: #fbed18;
+}
+.color-green{
+  color: #1cbbb4;
+}
+.color-blue{
+  color: #0081ff;
+}
 .tab-placeholder{
   height: 400rpx;
   width: 100%;
 }
 .tab-box{
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
   height: 400rpx;

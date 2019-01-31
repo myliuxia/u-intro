@@ -7,22 +7,42 @@ Page({
    */
   data: {
     introList:[],
-    redirec_url:''
+    redirec_url:'',
+    noticeList:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],//公告内容
+    noticeHeight:0,
+    noticeIndex:0,
+    recruitList:[],//招聘信息
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    //创建节点选择器
+    var query = wx.createSelectorQuery();
+    //选择id
+    query.select('#noticeBox').boundingClientRect();
+    query.exec((nodeRes) => {
+      this.setData({
+        noticeHeight: nodeRes[0].height
+      })
+    })
+
+
     /**接收参数 */
     this.setData({
       redirec_url: options.redirec_url ? options.redirec_url:''
     })
     if (app.globalData.header.Cookie){
       this.getIntroList()
+      this.getRecruit()
+      this.getNotice()
     }else{
       app.userInfoReadyCallback = () => {
         this.getIntroList()
+        this.getRecruit()
+        this.getNotice()
       };
     }
 
@@ -82,5 +102,59 @@ Page({
         wx.hideLoading()
       }
     })
+  },
+  /**
+   * 获得招聘信息
+   */
+  getRecruit:function(){
+    let _this = this
+    wx.request({
+      url: 'https://www.kklei.com/recruit/suggest?size=5',
+      header: app.globalData.header,
+      success: (result) => {
+        if (result.data.obj && result.data.obj.length > 0) {
+          _this.setData({
+            recruitList: result.data.obj,
+          })
+        } 
+
+      }
+    })
+  },
+  /**
+   * 获得公告
+   */
+  getNotice:function(){
+    let _this = this
+    wx.request({
+      url: 'https://www.kklei.com/notice/last?size=10',
+      header: app.globalData.header,
+      success: (result) => {
+        if (result.data.obj && result.data.obj.length > 0) {
+          _this.setData({
+            noticeList: result.data.obj,
+          })
+          _this.setIntervalScroll()
+        }
+      }
+    })
+  },
+  /**
+   * 开启定时任务
+   */
+  setIntervalScroll:function(){
+    let _this = this;
+    setInterval(function () {
+      let nextIndex = _this.data.noticeIndex
+      if (_this.data.noticeIndex < _this.data.noticeList.length - 1) {
+        nextIndex = nextIndex + 1
+      } else {
+        nextIndex = 0
+      }
+      _this.setData({
+        noticeIndex: nextIndex
+      })
+    }, 3000) //循环时间 这里是1秒  
   }
+  
 })

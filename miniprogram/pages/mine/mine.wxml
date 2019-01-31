@@ -1,28 +1,61 @@
 <!--miniprogram/pages/mine/mine.wxml-->
-<view class="container">
-  <view class="tab-placeholder">
-    <view class="tab-box"> 
-      <text class="tab-title">优简历</text>
-      <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+
+<view class="tab-placeholder">
+  <view class="tab-box"> 
+    <text class="tab-title">优简历</text>
+    <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+  </view>
+</view>
+<view class="mine-content"> 
+  <!-- <view>我的简历</view> -->
+  <view class="list-intro">
+    <navigator 
+    url="{{item.type==1?'../../pages/intro/intro?introId='+item.id:'../../pages/vipIntro/vipIntro?introId='+item.id}}" 
+    class="intro-item {{item.type==2?'vip':''}}" wx:key="{{index}}" wx:for="{{introList}}">
+      <view class="item-name">{{item.type==1?'我的简历':'精修简历'}}</view>
+      <view class="item-star">
+        <text class="iconfont icon-star-fill active"></text>
+        <text class="iconfont icon-star-fill active"></text>
+        <text class="iconfont icon-star-fill active"></text>
+        <text class="iconfont icon-star-fill active"></text>
+        <text class="iconfont icon-star-fill"></text>
+      </view>
+    </navigator>
+  </view>
+  <!-- <navigator wx:if="{{introList.length<3}}" url="../../pages/add/add" class="add-intro-ntn" >添加简历</navigator> -->
+</view>
+<view class="notice-box">
+  <view class="notice-left">公告</view>
+  <view class="notice-right" id="noticeBox">
+    <view class="notice-list" style="transform: translateY({{-1*noticeHeight*noticeIndex}}px);">
+      <view class="notice-item" wx:for="{{noticeList}}" wx:key="index">{{item.content}}</view>
     </view>
   </view>
-  <view class="mine-content"> 
-    <!-- <view>我的简历</view> -->
-    <view class="list-intro">
-      <navigator 
-      url="{{item.type==1?'../../pages/intro/intro?introId='+item.id:'../../pages/vipIntro/vipIntro?introId='+item.id}}" 
-      class="intro-item {{item.type==2?'vip':''}}" wx:key="{{index}}" wx:for="{{introList}}">
-        <view class="item-name">{{item.type==1?'我的简历':'精修简历'}}</view>
-        <view class="item-star">
-          <text class="iconfont icon-star-fill active"></text>
-          <text class="iconfont icon-star-fill active"></text>
-          <text class="iconfont icon-star-fill active"></text>
-          <text class="iconfont icon-star-fill active"></text>
-          <text class="iconfont icon-star-fill"></text>
-        </view>
-      </navigator>
+</view>
+
+<view class="recruit-list">
+  <view class="recruit-item" wx:for="{{recruitList}}" wx:key="index">
+    <view class="row">
+      <view class="title-box">
+        <image  class="logo" src="https://www.kklei.com{{item.logo}}"></image>
+        <text>{{item.companyName}}</text>
+      </view>
+      <view>
+        <text class="color-orange">{{item.minSalary}}</text>~<text class="color-orange">{{item.maxSalary}}</text>元/月
+      </view>
     </view>
-    <!-- <navigator wx:if="{{introList.length<3}}" url="../../pages/add/add" class="add-intro-ntn" >添加简历</navigator> -->
+    
+    <view class="row gray">
+      <view>
+        <text>{{item.scale}}</text>人/ 
+        <text>{{item.companyType==1?'民营':'国营'}}</text>/ 
+        <text>{{item.industry}}</text>
+      </view>
+    </view>
+    <view class="row gray">
+      <view>招聘职位<text class="color-orange">{{item.positionNum}}</text>种</view>
+      <view>招收人数<text class="color-orange">{{item.needNum}}</text>人</view>
+    </view>
   </view>
 </view>
 

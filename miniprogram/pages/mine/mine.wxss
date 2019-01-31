@@ -45,3 +45,83 @@
   padding: 20rpx;
   font-size: 34rpx;
 }
+
+
+/*---- 公告样式 -----*/
+.notice-box{
+  display: flex;
+  width: 100%;
+  padding: 20rpx 30rpx;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow:0 0 10rpx 0 #eeeeee;
+  margin: 30rpx auto;
+  box-sizing: border-box;
+}
+.notice-box .notice-left{
+  font-size: 34rpx;
+  color: #ff9700;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+.notice-box .notice-right{
+  flex: 1;
+  height: 60rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #444444;
+}
+.notice-right .notice-list{
+  transition:  all .6s;
+  transform: translateX(0);
+}
+.notice-right .notice-list .notice-item{
+  height: 60rpx;
+  line-height: 60rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/*---- 招聘信息样式 -----*/
+.recruit-item{
+  width:700rpx;
+  background-color:#ffffff;
+  border:1rpx solid #eeeeee;
+  box-shadow:0 0 10rpx 0 #eeeeee;
+  border-radius:10rpx;
+  margin:20rpx auto;
+  box-sizing:border-box;
+  padding:20rpx;
+  font-size:34rpx;
+  color:#444444;
+
+}
+.recruit-item .row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+.recruit-item .row.gray{
+  color: #888888;
+}
+
+.recruit-item .title-box{
+  display: flex;
+  flex: 1;
+  height: 80rpx;
+  align-items: center;
+  font-size: 34rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recruit-item .title-box .logo{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 70rpx;
+  margin-right: 10rpx;
+}
