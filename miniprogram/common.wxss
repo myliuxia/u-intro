@@ -169,6 +169,10 @@
   border-bottom: 1rpx solid #dddddd;
   margin-top: 10rpx;
 }
+.step-form .form-row.bycol{
+  flex-direction: column;
+}
+
 .step-form .form-row.start{
   align-items: flex-start;
 }

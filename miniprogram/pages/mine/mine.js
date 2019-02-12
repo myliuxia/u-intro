@@ -93,12 +93,11 @@ Page({
           })
         }else{
           if (!_this.data.redirec_url){
-            wx / wx.redirectTo({
+            wx.redirectTo({
               url: '../../pages/add/add',
             })
           }
         }
-
         wx.hideLoading()
       }
     })

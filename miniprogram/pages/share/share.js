@@ -76,24 +76,28 @@ Page({
       header: app.globalData.header,
       success: (result) => {
         //console.log(result)
-        _this.setData({
-          likeNum: result.data.obj.likeNum,
-        })
-        let grade = 0
-        if (_this.data.likeNum < 10) {
-          grade = 0
-        } else if (_this.data.likeNum >= 10 && _this.data.likeNum < 50) {
-          grade = 1
-        } else if (_this.data.likeNum >= 50 && _this.data.likeNum < 100) {
-          grade = 2
-        } else if (_this.data.likeNum >= 100) {
-          grade = 3
+        if (result.data.obj){
+          _this.setData({
+            likeNum: result.data.obj.likeNum,
+          })
+          let grade = 0
+          if (_this.data.likeNum < 10) {
+            grade = 0
+          } else if (_this.data.likeNum >= 10 && _this.data.likeNum < 50) {
+            grade = 1
+          } else if (_this.data.likeNum >= 50 && _this.data.likeNum < 100) {
+            grade = 2
+          } else if (_this.data.likeNum >= 100) {
+            grade = 3
+          }
+          _this.setData({
+            showShareDialog: false,
+            gradeIndex: grade,
+          })
+          _this.countGap();
+        }else{
+          wx.showToast({ title: '数据请求失败！', icon: 'none', });
         }
-        _this.setData({
-          showShareDialog: false,
-          gradeIndex: grade,
-        })
-        _this.countGap();
         wx.hideLoading()
       }
     })

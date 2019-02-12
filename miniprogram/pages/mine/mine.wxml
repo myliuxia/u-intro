@@ -28,7 +28,9 @@
   <view class="notice-left">公告</view>
   <view class="notice-right" id="noticeBox">
     <view class="notice-list" style="transform: translateY({{-1*noticeHeight*noticeIndex}}px);">
-      <view class="notice-item" wx:for="{{noticeList}}" wx:key="index">{{item.content}}</view>
+      <view class="notice-item" wx:for="{{noticeList}}" wx:key="index">
+        <text>{{item.content}}</text>
+      </view>
     </view>
   </view>
 </view>
@@ -38,7 +40,7 @@
     <view class="row">
       <view class="title-box">
         <image  class="logo" src="https://www.kklei.com{{item.logo}}"></image>
-        <text>{{item.companyName}}</text>
+        <text class="title-name">{{item.companyName}}</text>
       </view>
       <view>
         <text class="color-orange big-size">{{item.minSalary}}</text> ~ <text class="color-orange big-size">{{item.maxSalary}}</text>元/月

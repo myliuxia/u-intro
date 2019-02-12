@@ -37,13 +37,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "分享进入",
 					"pathName": "pages/mine/mine",
-					"query": "introId=32&redirec_url=/pages/share/share",
+					"query": "introId=63&redirec_url=/pages/share/share",
 					"scene": "1001"
 				},
 				{
