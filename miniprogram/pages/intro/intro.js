@@ -34,6 +34,9 @@ Page({
     optimalizeStatus: 1,// 获得帮助的进度 1：未申请；2：已申请处理中；3：处理完成
     addPushStatus: 1,// 获得加推的进度 1：未申请；2：已申请处理中；3：处理完成
     internalPushStatus: 1,// 获得内推的进度 1：未申请；2：已申请处理中；3：处理完成
+
+    showAuth:false, // 是否显示授权提示
+    isAuth:false, // 是否已经授权
   },
 
   /**
@@ -55,6 +58,34 @@ Page({
       introId: options.introId
     })
 
+    /**判断是否已经授权 */
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          //已经授权
+          _this.setData({
+            isAuth: true,
+          })
+          wx.getUserInfo({
+            success: res => {
+              app.globalData.userInfo = res.userInfo;
+            }
+          })
+        }else{
+          // 未授权或拒接授权
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+
+          // _this.setData({
+          //   showAuth: true
+          // })
+          
+        }
+      }
+    })
+
+
     try {
       const phone = wx.getStorageSync('phone')
       const otherInfo = wx.getStorageSync('introInfo')
@@ -67,6 +98,7 @@ Page({
     } catch (e) {
       // Do something when catch error
     }
+    
   },
 
   /**
@@ -129,13 +161,13 @@ Page({
         let grade = 0
         if (_this.data.likeNum < 1) {
           grade = 0
-        } else if (_this.data.likeNum >= 1 && _this.data.likeNum<10){
+        } else if (_this.data.likeNum >= 1 && _this.data.likeNum<3){
           grade = 1
-        } else if (_this.data.likeNum >= 10 && _this.data.likeNum < 50) {
+        } else if (_this.data.likeNum >= 3 && _this.data.likeNum < 20) {
           grade = 2
-        } else if (_this.data.likeNum >= 50 && _this.data.likeNum < 100) {
+        } else if (_this.data.likeNum >= 20 && _this.data.likeNum < 50) {
           grade = 3
-        } else if (_this.data.likeNum >= 100) {
+        } else if (_this.data.likeNum >= 50) {
           grade = 4
         }
         if(grade<4){
@@ -256,12 +288,12 @@ Page({
    */
   countGap:function(){
     let gap = 0;
-    if (this.data.likeNum<10){
-      gap = 10 - this.data.likeNum
-    } else if (this.data.likeNum < 50){
+    if (this.data.likeNum<3){
+      gap = 3 - this.data.likeNum
+    } else if (this.data.likeNum < 20){
+      gap = 20 - this.data.likeNum
+    } else if (this.data.likeNum < 50) {
       gap = 50 - this.data.likeNum
-    } else if (this.data.likeNum < 100) {
-      gap = 100 - this.data.likeNum
     }
     this.setData({
       gapNum:gap,

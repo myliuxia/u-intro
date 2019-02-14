@@ -18,19 +18,36 @@ Page({
   },
   login:function(e){
     let that = this;
-    if (e.detail.userInfo){
-      
-      wx.navigateTo({
-        url: '/'+that.data.redirect_url,
+    //console.log(e.detail.userInfo)
+
+    let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+
+    //prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
+    let prevPage = pages[pages.length - 2];
+
+    if (e.detail.userInfo) {
+      prevPage.setData({
+        isAuth: true,
+      })
+      wx.navigateBack({
+        delta: 1 
       })
     }else{
       //用户拒绝了授权
+      prevPage.setData({
+        isAuth: false,
+      })
+      wx.navigateBack({
+        delta: 2 
+      })
     }
+
   },
   getUserInfo:function(e){
     wx.getUserInfo({
       success(res) {
-        console.log(res.userInfo)
+        //console.log(res.userInfo)
+        app.globalData.userInfo = res.userInfo;
       }
     })
   },

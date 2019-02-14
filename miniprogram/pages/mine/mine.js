@@ -7,6 +7,7 @@ Page({
    */
   data: {
     introList:[],
+    load:false,
     redirec_url:'',
     noticeList:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],//公告内容
     noticeHeight:0,
@@ -90,14 +91,12 @@ Page({
           })
           _this.setData({
             introList: list,
+            load:true,
           })
-        }else{
-          if (!_this.data.redirec_url){
-            wx.redirectTo({
-              url: '../../pages/add/add',
-            })
-          }
         }
+        _this.setData({
+          load: true,
+        })
         wx.hideLoading()
       }
     })
@@ -154,6 +153,19 @@ Page({
         noticeIndex: nextIndex
       })
     }, 3000) //循环时间 这里是1秒  
+  },
+
+  notVip:function(){
+    wx.showModal({
+      title: '提示',
+      content: '达到天才级别，获得精修简历机会，加油扩散吧！',
+      showCancel: false,//是否显示取消按钮
+      confirmColor: '#0081ff',//确定文字的颜色
+      success: function (res) {},
+      fail: function (res) { },//接口调用失败的回调函数
+      complete: function (res) { },//接口调用结束的回调函数（调用成功、失败都会执行）
+    })
+    
   }
   
 })

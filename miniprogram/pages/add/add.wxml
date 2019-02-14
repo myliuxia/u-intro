@@ -22,17 +22,17 @@
         <template is="swiperUpdateImg" data="{{height:swiperHeight,introImage:introImage}}"></template>
       </swiper-item>
       
-      <swiper-item  catchtouchmove="stopSwiper">
+      <!-- <swiper-item  catchtouchmove="stopSwiper">
         <template is="swiper3" data="{{height:swiperHeight,myName:myName}}"></template>
       </swiper-item>
       <swiper-item  catchtouchmove="stopSwiper">
         <template is="swiper4" data="{{height:swiperHeight,myBirthday:myBirthday}}"></template>
-      </swiper-item>
+      </swiper-item> -->
       <swiper-item  catchtouchmove="stopSwiper">
         <template is="swiper5" data="{{height:swiperHeight,myAddress:myAddress}}"></template>
       </swiper-item>
       <!-- 高中信息 -->
-      <swiper-item  catchtouchmove="stopSwiper">
+      <!-- <swiper-item  catchtouchmove="stopSwiper">
         <template is="swiper6" 
           data="{{height:swiperHeight,beginDate:seniorHighSchool.beginDate,endDate:seniorHighSchool.endDate}}"></template>
       </swiper-item>
@@ -41,10 +41,10 @@
       </swiper-item>
       <swiper-item wx:if="{{seniorHighSchool.beginDate}}" catchtouchmove="stopSwiper">
         <template is="swiper8" data="{{height:swiperHeight,award:seniorHighSchool.award}}"></template>
-      </swiper-item>
+      </swiper-item> -->
 
       <!-- 大学信息 -->
-      <block wx:if="{{seniorHighSchool.beginDate}}">
+      <!-- <block wx:if="{{seniorHighSchool.beginDate}}">
         <swiper-item  catchtouchmove="stopSwiper">
           <template is="swiper9" 
             data="{{height:swiperHeight,beginDate:university.beginDate,endDate:university.endDate}}"></template>
@@ -56,10 +56,10 @@
         <swiper-item wx:if="{{university.beginDate}}" catchtouchmove="stopSwiper">
           <template is="swiper11"data="{{height:swiperHeight,award:university.award}}"></template>
         </swiper-item>
-      </block>
+      </block> -->
 
       <!-- 研究生信息 -->
-      <block wx:if="{{university.beginDate}}">
+      <!-- <block wx:if="{{university.beginDate}}">
         <swiper-item  catchtouchmove="stopSwiper">
           <template is="swiper12" 
             data="{{height:swiperHeight,beginDate:graduate.beginDate}}"></template>
@@ -71,12 +71,12 @@
         <swiper-item wx:if="{{graduate.beginDate}}" catchtouchmove="stopSwiper">
           <template is="swiper14"data="{{height:swiperHeight,award:graduate.award}}"></template>
         </swiper-item>
-      </block>
+      </block> -->
       
-      <swiper-item catchtouchmove="stopSwiper">
+      <!-- <swiper-item catchtouchmove="stopSwiper">
         <template is="swiper15" 
         data="{{height:swiperHeight,index:0,awardDate:otherAward[0].awardDate,awardName:otherAward[0].awardName}}"></template>
-      </swiper-item>
+      </swiper-item> -->
 
       <swiper-item  catchtouchmove="stopSwiper">
         <template is="swiper16" data="{{height:swiperHeight,hasWork:hasWork}}"></template>
@@ -143,7 +143,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <text>少年，让我们先来确认你的手机号码！</text>
+          <text>少年，让我们先来确认你的姓名、手机号码和性别！</text>
         </view>
       </view>
       <view class="step-item">
@@ -155,6 +155,10 @@
         </view>
       </view>
       <view class="step-form">
+        <view class="form-row">
+          <view class="row-label">姓名</view>
+          <input type="text" value="{{myName}}" bindinput="bindInputByKey" data-key="myName" placeholder='请输入姓名'></input>
+        </view>
         <view class="form-row">
           <view class="row-label">手机号码</view>
           <input type="number" bindinput='bindInputByKey' value='{{myPhone}}' data-key="myPhone" placeholder='请输入手机号'></input>
@@ -942,7 +946,7 @@
           <image src='../../images/v-icon.jpg'></image>
         </view>
         <view class="step-con">
-          <text>少年，你的座右铭是什么？</text>
+          <text>少年，你的求职意向是什么？</text>
         </view>
       </view>
       <view class="step-item">
@@ -954,14 +958,23 @@
         </view>
       </view>
       <view class="step-form">
-        <view class="form-row">
+        <!-- <view class="form-row">
           <view class="row-label">座右铭：</view>
           <input type="text" 
             value='{{motto}}'
             data-key="motto"
             bindinput="bindInputByKey" 
             placeholder='请输入你的座右铭'></input>
+        </view> -->
+        <view class="form-row">
+          <view class="row-label">求职意向：</view>
+          <input type="text" 
+            value='{{targetPost}}'
+            data-key="targetPost"
+            bindinput="bindInputByKey" 
+            placeholder='请输入求职意向'></input>
         </view>
+        
       </view>
         
     </scroll-view>

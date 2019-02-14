@@ -8,6 +8,7 @@ Page({
     myName:'',
     myBirthday:'',
     myAddress: ['','',''],
+    targetPost:'',// 求职意向
     seniorHighSchool: {//高中信息
       beginDate:'',
       schoolName:'',

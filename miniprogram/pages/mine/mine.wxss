@@ -23,12 +23,18 @@
   color:#0081ff;
 }
 
+.list-intro .intro-item.disabled{
+  background: linear-gradient(to top right, #cccccc, #dddddd );
+  color:#444444;
+}
+
 .list-intro .intro-item .item-star{
   color: #cccccc;
 }
 .list-intro .intro-item .item-star .active{
   color: #ff9700;
 }
+
 .add-intro-ntn{
   display: flex;
   justify-content: center;
@@ -45,7 +51,10 @@
   padding: 20rpx;
   font-size: 34rpx;
 }
-
+.add-intro-ntn .iconfont{
+  font-size: 46rpx;
+  margin: 0 20rpx;
+}
 
 /*---- 公告样式 -----*/
 .notice-box{

@@ -9,18 +9,52 @@
 <view class="mine-content"> 
   <!-- <view>我的简历</view> -->
   <view class="list-intro">
-    <navigator 
-    url="{{item.type==1?'../../pages/intro/intro?introId='+item.id:'../../pages/vipIntro/vipIntro?introId='+item.id}}" 
-    class="intro-item {{item.type==2?'vip':''}}" wx:key="{{index}}" wx:for="{{introList}}">
-      <view class="item-name">{{item.type==1?'我的简历':'精修简历'}}</view>
-      <view class="item-star">
-        <text class="iconfont icon-star-fill active"></text>
-        <text class="iconfont icon-star-fill active"></text>
-        <text class="iconfont icon-star-fill active"></text>
-        <text class="iconfont icon-star-fill active"></text>
-        <text class="iconfont icon-star-fill"></text>
-      </view>
+    <navigator wx:if="{{load && introList.length==0}}" url="../../pages/add/add" class="add-intro-ntn" >
+      <text class="item-name">还没有简历，立即创建</text>
+      <text class="iconfont icon-add add"></text>
     </navigator>
+
+    <block wx:if="{{introList.length==1}}">
+      <navigator 
+      url="{{'../../pages/intro/intro?introId='+introList[0].id}}" 
+      class="intro-item" >
+        <view class="item-name">我的简历</view>
+        <view class="item-star">
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill"></text>
+        </view>
+      </navigator>
+      <view class="intro-item disabled" bindtap='notVip'>
+        <view class="item-name">精修简历</view>
+        <view class="item-star">
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill"></text>
+        </view>
+      </view>
+    </block>
+
+    <block wx:if="{{introList.length==2}}">
+      <navigator 
+      url="{{item.type==1?'../../pages/intro/intro?introId='+item.id:'../../pages/vipIntro/vipIntro?introId='+item.id}}" 
+      class="intro-item {{item.type==2?'vip':''}}" wx:key="{{index}}" wx:for="{{introList}}">
+        <view class="item-name">{{item.type==1?'我的简历':'精修简历'}}</view>
+        <view class="item-star">
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill active"></text>
+          <text class="iconfont icon-star-fill"></text>
+        </view>
+      </navigator>
+    </block>
+    
+    
   </view>
   <!-- <navigator wx:if="{{introList.length<3}}" url="../../pages/add/add" class="add-intro-ntn" >添加简历</navigator> -->
 </view>
