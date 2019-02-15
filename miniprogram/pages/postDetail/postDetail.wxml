@@ -30,7 +30,7 @@
 </view>
 
 <view class="comment-list">
-  <view class="comment-item">
+  <view class="comment-item" wx:for="{{6}}" wx:key="{{index}}">
     <view class="comment-head">
       <view class="user-box">
         <image src="https://www.kklei.com/images/ff.png"></image>
@@ -50,16 +50,18 @@
   </view>
 </view>
 
-<view class="footer-fixed">
-  <view class="footer-left">
-    <view class="comment-input">写评论...</view>
-    <view class="zan">
-      <text class="iconfont icon-zan"></text>
-      <text>129</text>
+<view class="footer-box">
+  <view class="footer-fixed">
+    <view class="footer-left">
+      <view class="comment-input">写评论...</view>
+      <view class="zan">
+        <text class="iconfont icon-zan"></text>
+        <text>129</text>
+      </view>
     </view>
+    <button class="share-btn" open-type="share" data-id="{{postId}}">
+      <text class="iconfont icon-fenxiang"></text>
+      <text>分享</text>
+    </button>
   </view>
-  <button class="share-btn" open-type="share" data-id="{{postId}}">
-    <text class="iconfont icon-fenxiang"></text>
-    <text>分享</text>
-  </button>
 </view>

@@ -97,31 +97,31 @@
 
 
 <view class="post-list">
-  <view class="post-item">
+  <view class="post-item" wx:for="{{postList}}" wx:key="{{index}}">
     <view class="post-user">
-      <image class="post-logo" src='https://www.kklei.com/images/ff.png'></image>
-      <text class="user-name">匿名用户</text>
+      <image class="post-logo" src="{{item.user.avatarUrl}}"></image>
+      <text class="user-name">{{item.user.nickName}}</text>
     </view>
     <navigator class="post-content" url="{{'../../pages/postDetail/postDetail?postId='+item.id}}">
       <view class="content-text">
-        <text>找工作找工作找工作，重要的事情说三遍。文员，销售，客服都可以</text>
+        <text>{{item.content}}</text>
       </view>
       <view class="content-image">
-        <image src="https://www.kklei.com/logo.jpg"></image>
+        <image wx:for="{{item.imgs}}" wx:for-item="itemimg" wx:key="{{index}}"  src="https://www.kklei.com{{itemimg.imgUrl}}"></image>
       </view>
     </navigator>
     <view class="post-count">
       <view class="count-item">
         <text class="iconfont icon-liulan"></text>
-        <text class="number">78945</text>
+        <text class="number">{{item.watchNum}}</text>
       </view>
       <view class="count-item">
         <text class="iconfont icon-pinglun"></text>
-        <text class="number">98</text>
+        <text class="number">{{item.replyNum}}</text>
       </view>
       <view class="count-item">
         <text class="iconfont icon-zan"></text>
-        <text class="number">55</text>
+        <text class="number">{{item.likeNum}}</text>
       </view>
     </view>
   </view>

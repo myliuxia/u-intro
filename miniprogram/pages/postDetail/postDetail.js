@@ -92,4 +92,18 @@ Page({
     }
 
   }, 
+  /**
+   * 根据id获得详情
+   */
+  getPostById:function(){
+
+    let _this = this
+    wx.request({
+      url: 'https://www.kklei.com/post/'+this.data.postId,
+      header: app.globalData.header,
+      success: (result) => {
+
+      }
+    })
+  }
 })

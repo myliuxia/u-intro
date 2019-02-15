@@ -114,6 +114,10 @@
   line-height: 60rpx;
 }
 
+
+.footer-box{
+  height: 105rpx;
+}
 .footer-fixed{
   display: flex;
   justify-content: space-between;

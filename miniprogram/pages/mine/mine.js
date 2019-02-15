@@ -13,6 +13,11 @@ Page({
     noticeHeight:0,
     noticeIndex:0,
     recruitList:[],//招聘信息
+    postPage:{
+      page:0,
+      size:4,
+    },
+    postList:[],
   },
 
   /**
@@ -39,11 +44,13 @@ Page({
       this.getIntroList()
       this.getRecruit()
       this.getNotice()
+      this.getPost()
     }else{
       app.userInfoReadyCallback = () => {
         this.getIntroList()
         this.getRecruit()
         this.getNotice()
+        this.getPost()
       };
     }
 
@@ -178,6 +185,23 @@ Page({
       success: function (res) { },
       fail: function (res) { },//接口调用失败的回调函数
       complete: function (res) { },//接口调用结束的回调函数（调用成功、失败都会执行）
+    })
+  },
+
+  getPost:function(){
+    let _this = this
+    wx.request({
+      url: 'https://www.kklei.com/post/find',
+      data: this.data.postPage,
+      header: app.globalData.header,
+      success: (result) => {
+        console.log(result.data.obj.empty)
+        if (!result.data.obj.empty){
+          _this.setData({
+            postList: [...this.data.postList, ...result.data.obj.content]
+          })
+        }
+      }
     })
   }
   
