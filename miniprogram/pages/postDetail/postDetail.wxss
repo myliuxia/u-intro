@@ -1,0 +1,170 @@
+/* miniprogram/pages/post/postDetail.wxss */
+
+.post-detail{
+  width: 100%;
+  padding: 0 30rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+.post-user{
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  width: 100%;
+  color: #30457a;
+  font-size: 22rpx;
+}
+.post-user .post-logo{
+  width: 55rpx;
+  height: 55rpx;
+  border-radius: 55rpx;
+  overflow: hidden;
+  margin-right: 15rpx;
+}
+.post-content{
+  font-size: 28rpx;
+  color: #222222;
+}
+.post-content .content-text{
+  line-height: 40rpx;
+  overflow:hidden;
+}
+.post-content .content-image{
+  margin-top: 20rpx;
+  padding: 10rpx 0;
+}
+.post-content .content-image image{
+  width: 215rpx;
+  height: 155rpx;
+}
+
+.post-detail .post-time{
+  font-size: 22rpx;
+  color:#818181;
+  height: 50rpx;
+}
+
+/*---- 评论样式 ----*/
+.comment-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90rpx;
+  margin-top: 30rpx;
+  font-size: 26rpx;
+  color: #98989a;
+}
+.comment-title::after,.comment-title::before{
+  display: block;
+  content: "";
+  width: 55rpx;
+  height: 3rpx;
+  background-color: #98989a;
+  margin: auto 10rpx;
+}
+.comment-list{
+  background: #ffffff;
+}
+.comment-item{
+  margin: 20rpx auto;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.comment-item .comment-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-head .user-box{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #173a5d;
+  height: 90rpx;
+}
+.comment-head .user-box image{
+  height: 40rpx;
+  width: 40rpx;
+  border-radius: 40rpx;
+  overflow: hidden;
+  margin-right: 10rpx;
+}
+.comment-head .zan{
+  color: #797979;
+  font-size: 26rpx;
+}
+.comment-head .zan .iconfont{
+  font-size: 36rpx;
+  margin-right: 10rpx;
+}
+.comment-item .comment-con{
+  min-height: 70rpx;
+  color: #666666;
+  font-size: 28rpx;
+  padding-left: 50rpx;
+}
+.comment-time{
+  padding-left: 50rpx;
+  font-size: 22rpx;
+  color: #797979;
+  line-height: 60rpx;
+}
+
+.footer-fixed{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 105rpx;
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 2prx solid #f1f1f1;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  color: #8c8c8c;
+  font-size: 26rpx;
+}
+.footer-fixed .footer-left{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+ .footer-left .comment-input{
+   height: 60rpx;
+   line-height: 60rpx;
+   width: 240rpx;
+   background: #f0f1f5;
+   padding: 0 30rpx;
+   color: #96979b;
+   box-sizing: border-box;
+   border-radius: 60rpx;
+   margin-right: 30rpx;
+ }
+ .footer-left .zan{
+   display: flex;
+   align-items: center;
+ }
+.footer-left .zan .icon-zan{
+  margin-right: 5rpx;
+  font-size: 34rpx;
+}
+.footer-fixed .share-btn{
+  width: auto;
+  background-color: transparent;
+  margin: 0;
+  color: #8c8c8c;
+  font-size: 26rpx;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.footer-fixed .share-btn .iconfont{
+  margin: 0 10rpx;
+  font-size: 34rpx;
+}

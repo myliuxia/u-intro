@@ -166,6 +166,19 @@ Page({
       complete: function (res) { },//接口调用结束的回调函数（调用成功、失败都会执行）
     })
     
+  },
+
+  /** 点击招聘信息 */
+  recruitClick:function(){
+    wx.showModal({
+      title: '提示',
+      content: '精修简历可以提高内推机会哦！',
+      showCancel: false,//是否显示取消按钮
+      confirmColor: '#0081ff',//确定文字的颜色
+      success: function (res) { },
+      fail: function (res) { },//接口调用失败的回调函数
+      complete: function (res) { },//接口调用结束的回调函数（调用成功、失败都会执行）
+    })
   }
   
 })

@@ -70,7 +70,7 @@
 </view>
 
 <view class="recruit-list">
-  <view class="recruit-item" wx:for="{{recruitList}}" wx:key="index">
+  <view class="recruit-item" bindtap='recruitClick' wx:for="{{recruitList}}" wx:key="index">
     <view class="row">
       <view class="title-box">
         <image  class="logo" src="https://www.kklei.com{{item.logo}}"></image>
@@ -93,6 +93,39 @@
       <view>招收人数<text class="color-orange">{{item.needNum}}</text>人</view>
     </view>
   </view>
+</view>
+
+
+<view class="post-list">
+  <view class="post-item">
+    <view class="post-user">
+      <image class="post-logo" src='https://www.kklei.com/images/ff.png'></image>
+      <text class="user-name">匿名用户</text>
+    </view>
+    <navigator class="post-content" url="{{'../../pages/postDetail/postDetail?postId='+item.id}}">
+      <view class="content-text">
+        <text>找工作找工作找工作，重要的事情说三遍。文员，销售，客服都可以</text>
+      </view>
+      <view class="content-image">
+        <image src="https://www.kklei.com/logo.jpg"></image>
+      </view>
+    </navigator>
+    <view class="post-count">
+      <view class="count-item">
+        <text class="iconfont icon-liulan"></text>
+        <text class="number">78945</text>
+      </view>
+      <view class="count-item">
+        <text class="iconfont icon-pinglun"></text>
+        <text class="number">98</text>
+      </view>
+      <view class="count-item">
+        <text class="iconfont icon-zan"></text>
+        <text class="number">55</text>
+      </view>
+    </view>
+  </view>
+
 </view>
 
 

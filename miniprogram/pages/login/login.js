@@ -26,12 +26,17 @@ Page({
     let prevPage = pages[pages.length - 2];
 
     if (e.detail.userInfo) {
+
+      app.globalData.userInfo = e.detail.userInfo;
+      that.addUserInfo()
+
       prevPage.setData({
         isAuth: true,
       })
       wx.navigateBack({
         delta: 1 
       })
+
     }else{
       //用户拒绝了授权
       prevPage.setData({
@@ -44,10 +49,12 @@ Page({
 
   },
   getUserInfo:function(e){
+    let _this = this;
     wx.getUserInfo({
       success(res) {
         //console.log(res.userInfo)
         app.globalData.userInfo = res.userInfo;
+        _this.addUserInfo()
       }
     })
   },
@@ -104,5 +111,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+ * 添加用户数据
+ */
+  addUserInfo: function () {
+    wx.request({
+      url: 'https://www.kklei.com/add_user_info',
+      data: app.globalData.userInfo,
+      header: app.globalData.header,
+      success: (result) => {
+        console.log(result)
+      }
+    })
   }
 })

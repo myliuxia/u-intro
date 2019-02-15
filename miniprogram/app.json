@@ -7,7 +7,8 @@
     "pages/success/success",
     "pages/share/share",
     "pages/introDetail/introDetail",
-    "pages/vipIntro/vipIntro"
+    "pages/vipIntro/vipIntro",
+    "pages/postDetail/postDetail"
   ],
   "window": {
     "navigationStyle": "custom",

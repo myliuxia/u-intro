@@ -34,7 +34,6 @@ Page({
     optimalizeStatus: 1,// 获得帮助的进度 1：未申请；2：已申请处理中；3：处理完成
     addPushStatus: 1,// 获得加推的进度 1：未申请；2：已申请处理中；3：处理完成
     internalPushStatus: 1,// 获得内推的进度 1：未申请；2：已申请处理中；3：处理完成
-
     showAuth:false, // 是否显示授权提示
     isAuth:false, // 是否已经授权
   },
@@ -69,6 +68,7 @@ Page({
           wx.getUserInfo({
             success: res => {
               app.globalData.userInfo = res.userInfo;
+              _this.addUserInfo()
             }
           })
         }else{
@@ -455,5 +455,20 @@ Page({
       [key]: e.detail.value,
     })
   },
+
+  /**
+   * 添加用户数据
+   */
+  addUserInfo:function(){
+    wx.request({
+      url: 'https://www.kklei.com/add_user_info',
+      data: app.globalData.userInfo,
+      header: app.globalData.header,
+      success: (result) => {
+        console.log(result)
+      }
+    })
+  }
+  
  
 })
