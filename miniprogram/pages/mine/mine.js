@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    CustomBar: app.globalData.CustomBar,
     introList:[],
     load:false,
     redirec_url:'',
@@ -18,6 +19,8 @@ Page({
       size:4,
     },
     postList:[],
+    recruitIndex:0,
+    showMb:false,
   },
 
   /**
@@ -45,12 +48,14 @@ Page({
       this.getRecruit()
       this.getNotice()
       this.getPost()
+      this.getCourse()
     }else{
       app.userInfoReadyCallback = () => {
         this.getIntroList()
         this.getRecruit()
         this.getNotice()
         this.getPost()
+        this.getCourse()
       };
     }
 
@@ -114,14 +119,15 @@ Page({
   getRecruit:function(){
     let _this = this
     wx.request({
-      url: 'https://www.kklei.com/recruit/suggest?size=5',
+      url: 'https://www.kklei.com/recruit/suggest?size=100',
       header: app.globalData.header,
       success: (result) => {
         if (result.data.obj && result.data.obj.length > 0) {
           _this.setData({
             recruitList: result.data.obj,
           })
-        } 
+          //_this.listAnimation()
+        }
 
       }
     })
@@ -203,6 +209,76 @@ Page({
         }
       }
     })
-  }
+  },
   
+  listAnimation:function(){
+    if (this.data.recruitList.length>3){
+      setInterval(() => {
+        this.setData({
+          recruitIndex: this.data.recruitList.length-1 > this.data.recruitIndex ? this.data.recruitIndex + 1 : 0,
+        })
+
+      }, 3000)
+    }
+  },
+
+  stopTouchMove: function () {
+    return false;
+  },
+  /**
+   * 影藏分享提示
+   */
+  hideMb:function(){
+    this.setData({
+      showMb:false,
+    })
+  },
+
+  /**
+   * 判断是否是初次打开小程序
+   */
+  getCourse:function(){
+    wx.request({
+      url: 'https://www.kklei.com/usercourse/current',
+      header: app.globalData.header,
+      success: (result) => {
+        this.setData({
+          showMb: !result.data.obj,
+        })
+        
+      }
+    })
+  },
+  /**
+   * 判断是否是初次打开小程序
+   */
+  addCourse: function () {
+    this.setData({
+      showMb: false,
+    })
+    wx.request({
+      url: 'https://www.kklei.com/usercourse/add',
+      header: app.globalData.header,
+      success: (result) => {
+        console.log(result)
+      }
+    })
+  },
+
+  formSubmit(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    console.log(e)
+    let _this = this
+    wx.request({
+      url: 'https://www.kklei.com/sendMessage',
+      data: { formId: e.detail.formId},
+      header: app.globalData.header,
+      success: (result) => {
+        console.log(result)
+      }
+    })
+  },
+  formReset() {
+    console.log('form发生了reset事件')
+  }
 })

@@ -9,6 +9,7 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     postId:'',
+    postDetail:{},
 
   },
 
@@ -20,6 +21,7 @@ Page({
     this.setData({
       postId: options.postId
     })
+    this.getPostById();
   },
 
   /**
@@ -102,7 +104,9 @@ Page({
       url: 'https://www.kklei.com/post/'+this.data.postId,
       header: app.globalData.header,
       success: (result) => {
-
+        _this.setData({
+          postDetail: result.data.obj
+        })
       }
     })
   }

@@ -75,7 +75,7 @@ App({
         }
       }
     })
-
+    
   },
 
   globalData: {

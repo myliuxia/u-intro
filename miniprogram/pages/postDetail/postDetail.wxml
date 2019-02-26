@@ -9,54 +9,54 @@
 </custom>
 <view class="post-detail">
   <view class="post-user">
-      <image class="post-logo" src='https://www.kklei.com/images/ff.png'></image>
-      <text class="user-name">匿名用户</text>
+      <image class="post-logo" src="{{postDetail.headImg}}"></image>
+      <text class="user-name">{{postDetail.nickName}}</text>
     </view>
     <view class="post-content" >
       <view class="content-text">
-        <text>找工作找工作找工作，重要的事情说三遍。文员，销售，客服都可以</text>
+        <text>{{postDetail.content}}</text>
       </view>
       <view class="content-image">
-        <image src="https://www.kklei.com/logo.jpg"></image>
+        <image wx:for="{{postDetail.imgs}}" wx:key="{{index}}" src="{{item.imgUrl}}"></image>
       </view>
     </view>
     <view class="post-time">
-      <text>创建于02-11 7.13w浏览</text>
+      <text>创建于{{postDetail.editTime}} {{postDetail.watchNum}}浏览</text>
     </view>
 </view>
 
 <view class="comment-title">
-  <text>全部评论(91)</text>
+  <text>全部评论({{postDetail.replys.length}})</text>
 </view>
 
 <view class="comment-list">
-  <view class="comment-item" wx:for="{{6}}" wx:key="{{index}}">
+  <view class="comment-item" wx:for="{{postDetail.replys}}" wx:key="{{index}}">
     <view class="comment-head">
       <view class="user-box">
-        <image src="https://www.kklei.com/images/ff.png"></image>
-        <text>张先生</text>
+        <image src="{{item.headImg}}"></image>
+        <text>{{item.nickName}}</text>
       </view>
       <view class="zan">
         <text class="iconfont icon-zan"></text>
-        <text>0</text>
+        <text>{{item.likeNum}}</text>
       </view>
     </view>
     <view class="comment-con">
-      <text>可以来我们公司</text>
+      <text>{{item.content}}</text>
     </view>
     <view class="comment-time">
-      <text>创建于6分钟前</text>
+      <text>{{item.addTime}}</text>
     </view>
   </view>
 </view>
 
-<view class="footer-box">
+<!-- <view class="footer-box">
   <view class="footer-fixed">
     <view class="footer-left">
       <view class="comment-input">写评论...</view>
       <view class="zan">
         <text class="iconfont icon-zan"></text>
-        <text>129</text>
+        <text>{{postDetail.likeNum}}</text>
       </view>
     </view>
     <button class="share-btn" open-type="share" data-id="{{postId}}">
@@ -64,4 +64,4 @@
       <text>分享</text>
     </button>
   </view>
-</view>
+</view> -->

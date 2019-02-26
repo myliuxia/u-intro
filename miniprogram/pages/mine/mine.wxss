@@ -98,17 +98,41 @@
 
 
 /*---- 招聘信息样式 -----*/
-.recruit-list{
-  
+.stop-scroll{
+  position: relative;
 }
 
+.stop-scroll .stop-bg{
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.recruit-list{
+  height: 430rpx;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+.recruit-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+}
 .recruit-item{
   width:700rpx;
   background-color:#ffffff;
   border:1rpx solid #eeeeee;
   box-shadow:0 0 10rpx 0 #eeeeee;
   border-radius:10rpx;
-  margin:20rpx auto;
   box-sizing:border-box;
   padding:20rpx;
   font-size:34rpx;
@@ -220,4 +244,29 @@
 .post-count .count-item .iconfont{
   margin-right: 5rpx;
   font-size: 34rpx;
+}
+
+
+/*--- 提示 ---*/
+.mb{
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mb .mb-image{
+  width: 544rpx;
+  height: 238rpx;
+}
+
+.mb .mb-btn{
+  width: 272rpx;
+  height: 108rpx;
+  margin-top: 40rpx;
 }
