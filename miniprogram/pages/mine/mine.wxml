@@ -2,14 +2,14 @@
 
 <view class="tab-placeholder">
   <view class="tab-box">
-    <text class="tab-title">优简历</text>
-    <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+    <text class="tab-title">有简历</text>
+    <text class="tab-des">让大神免费来帮你写简历的小程序</text>
   </view>
 </view>
 <view class="mine-content">
   <!-- <view>我的简历</view> -->
   <view class="list-intro">
-    <navigator wx:if="{{load && introList.length==0}}" url="../../pages/addintro/addintro" class="add-intro-ntn" style="position:relative;z-index:{{showMb&&(mBStep==2)?999:1}};">
+    <navigator wx:if="{{load && introList.length==0}}" url="../../pages/add/add" class="add-intro-ntn">
       <text class="item-name">还没有简历，立即创建</text>
       <text class="iconfont icon-add add"></text>
     </navigator>
@@ -133,27 +133,10 @@
   </view>
 
 </view>
-<!-- <modal-box class="{{!isAuth?'show':''}}">
-  <dialog>
-    <view style="display:flex;flex-direction:column; align-items:center;">
-      <text bindtap='closeAdvDialog' class="close iconfont icon-close"></text>
-      <text style="font-size:36rpx;font-weight:500;margin:20rpx 0 10rpx 0;">需要您的授权</text>
-      <text style="font-size:30rpx;color:#999;margin:20rpx 0 0rpx 0;">为了提供更好的服务</text>
-      <text style="font-size:30rpx;color:#999;">请稍后在提示框上点击"允许"。</text>
-      <image class="" style='width:90%;' src="../../images/authinfo.png"></image>
-      <button class="auth" type="primary" style="margin-top:10rpx;width: 100%;" open-type='getUserInfo' bindgetuserinfo='login'>授权登录       </button>
-    </view>
-  </dialog>
-</modal-box> -->
+
 <view class="mb" wx:if="{{showMb}}">
-  <view class="caontainer" wx:if="{{mBStep==1}}">
-    <image class="mb-image" style='margin-top:{{CustomBar}}px' src="../../images/mb1.png"></image>
-    <image class="mb-btn" bindtap='nextStep' src="../../images/mb2.png"></image>
-  </view>
-  <view class="caontainer" wx:if="{{mBStep==2}}">
-    <image class="image2" style='margin-top:{{CustomBar+320}}rpx' src="../../images/mb3.png"></image>
-    <image class="mb-btn" bindtap='addCourse' src="../../images/mb2.png"></image>
-  </view>
+  <image class="mb-image" style='margin-top:{{CustomBar}}px' src="../../images/mb1.png"></image>
+  <image class="mb-btn" bindtap='addCourse' src="../../images/mb2.png"></image>
 </view>
 <!-- 
 <form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">

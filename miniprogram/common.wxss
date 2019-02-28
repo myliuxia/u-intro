@@ -22,7 +22,7 @@
   z-index: 100;
   top: 0;
   left: 0;
-  height: 300rpx;
+  height: 260rpx;
   width: 100%;
   background: linear-gradient(to top right, #0081ff , #1cbbb4);
   display: flex;
@@ -31,15 +31,15 @@
   align-items: center;
 }
 .tab-box .tab-title{
-  color: #ffffff;
-  font-size:60rpx;
-  font-family:'幼圆';
-
+  color: #e1f0de;
+  font-size:80rpx;
+  font-family:'微软雅黑';
+  font-stretch: expanded;
 }
 .tab-box .tab-des{
-  color: #ffffff;
-  font-size: 28rpx;
-  margin-top: 20rpx;
+  color: #e1f0de;
+  font-size: 30rpx;
+  margin-top: 30rpx;
 }
 .tab-box .back-btn{
   position: absolute;
@@ -49,11 +49,11 @@
   line-height: 70rpx;
   display: flex;
   align-items: center;
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: #ffffff;
 }
 .tab-box .back-btn .iconfont{
-  font-size: 34rpx;
+  font-size: 40rpx;
 }
 /* 对话样式 */
 .step-box{
@@ -62,7 +62,6 @@
   padding: 20rpx;
   position: relative;
   padding-bottom: 100rpx;
-
 }
 .step-item{
   display: flex;
@@ -111,7 +110,6 @@
 .swiper-box{
   width: 100%;
 }
-
 /* 底部按钮样式 */
 .fixed-box{
   position: absolute;
@@ -125,7 +123,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .fixed-box .btn{
   flex:1;
   margin:0 10px;
@@ -148,8 +145,6 @@
 .fixed-box .btn.button-hover{
   transform:translate(1px, 1px);
 }
-
-
 /* 输入信息栏样式 */
 .step-form{
   background-color: #ffffff;
@@ -172,14 +167,12 @@
 .step-form .form-row.bycol{
   flex-direction: column;
 }
-
 .step-form .form-row.start{
   align-items: flex-start;
 }
 .step-form .form-row.start .row-label{
   line-height: 70rpx;
 }
-
 .step-form .form-row:last-child{
   border: none;
 }
@@ -197,7 +190,6 @@
 .step-form .form-row image{
   max-width:50%;
 }
-
 .step-form .form-row .input{
   flex: 1;
   height: 50rpx;
@@ -237,7 +229,6 @@
   color: #999999;
   min-width:400rpx;
 }
-
 /* 等级条样式 */
 .grade-bar{
  padding: 0 30rpx 20rpx; 
@@ -264,16 +255,12 @@
   top: 5rpx;
   color: #888888;
 }
-
-
-
 /* ==================
          头部样式
  ==================== */
 custom{
   display:block;
   position:relative;
-
 }
 custom bar{
   padding-right:110px;
@@ -302,25 +289,18 @@ custom bar{
 .action .iconfont{
   font-size: 34rpx;
 }
-
-
-
-
 /* ==================
          外边距
  ==================== */
 .mar-l-2{
   margin-left: 20rpx;
 }
-
 /* ==================
          开关
  ==================== */
-
 switch, checkbox, radio {
   position: relative;
 }
-
 switch::after {
   font-family: "iconfont" !important;
   content: "\e645";
@@ -335,11 +315,9 @@ switch::after {
   transform: scale(0, 0);
   transition: all 0.3s ease-in-out 0s;
 }
-
 switch[checked]::after {
   transform: scale(1, 1);
 }
-
 switch::before {
   font-family: "iconfont" !important;
   content: "\e646";
@@ -355,7 +333,6 @@ switch::before {
   transition: all 0.3s ease-in-out 0s;
   z-index: 9;
 }
-
 radio::before, checkbox::before {
   font-family: "iconfont" !important;
   content: "\e645";
@@ -371,47 +348,38 @@ radio::before, checkbox::before {
   transition: all 0.3s ease-in-out 0s;
   z-index: 9;
 }
-
 switch[checked]::before {
   transform: scale(0, 0);
 }
-
 switch .wx-switch-input {
   background: #aaa !important;
   border-color: #aaa;
   padding: 0 30px;
   margin: 0;
 }
-
 radio-group {
   display: inline-block;
 }
-
 radio .wx-radio-input, checkbox .wx-checkbox-input {
   margin: 0;
   width: 24px;
   height: 24px;
 }
-
 checkbox.round .wx-checkbox-input {
   border-radius: 50px;
 }
-
 switch .wx-switch-input-checked::after {
   margin-left: 10px;
   box-shadow: none;
 }
-
 switch.radius .wx-switch-input::after, switch.radius .wx-switch-input,
 switch.radius .wx-switch-input::before {
   border-radius: 5px;
 }
-
 switch .wx-switch-input::before, radio.radio::before,
 checkbox .wx-checkbox-input::before, radio .wx-radio-input::before {
   display: none;
 }
-
 radio.radio[checked]::after {
   content: "";
   background: transparent;
@@ -428,34 +396,26 @@ radio.radio[checked]::after {
   border-radius: 100px;
   border: 8px solid #fff;
 }
-
 switch.sm, checkbox.sm, radio.sm {
   transform: scale(0.8);
 }
-
 .switch-sex::after {
   content: "\e71c";
 }
-
 .switch-sex::before {
   content: "\e71a";
 }
-
 .switch-sex .wx-switch-input {
   background: #e54d42 !important;
   border-color: #e54d42;
 }
-
 .switch-sex[checked] .wx-switch-input {
   background: #0081ff !important;
   border-color: #0081ff !important;
 }
-
-
 /* ==================
          模态窗口
  ==================== */
-
 modal-box {
   position: fixed;
   top: 0;
@@ -474,14 +434,12 @@ modal-box {
   transition: all 0.6s ease-in-out 0;
   pointer-events: none;
 }
-
 modal-box::before {
   content: "\200B";
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
-
 modal-box.show {
   opacity: 1;
   transition-duration: 0.3s;
@@ -491,7 +449,6 @@ modal-box.show {
   overflow-y: auto;
   pointer-events: auto;
 }
-
 dialog {
   position: relative;
   display: inline-block;
@@ -510,7 +467,6 @@ dialog .close{
   color: #ffffff;
   font-size: 40rpx;
 }
-
 dialog .close1{
   position: absolute;
   top: 10rpx;
@@ -521,16 +477,13 @@ dialog .close1{
 modal-box.bottom-modal::before {
   vertical-align: bottom;
 }
-
 modal-box.bottom-modal dialog {
   width: 100%;
   border-radius: 0;
 }
-
 modal-box.bottom-modal {
   margin-bottom: -500px;
 }
-
 modal-box.bottom-modal.show {
   margin-bottom: 0;
 }
