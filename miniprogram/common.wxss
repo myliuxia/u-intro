@@ -14,7 +14,7 @@
   color: #0081ff;
 }
 .tab-placeholder{
-  height: 400rpx;
+  height: 300rpx;
   width: 100%;
 }
 .tab-box{
@@ -22,7 +22,7 @@
   z-index: 100;
   top: 0;
   left: 0;
-  height: 400rpx;
+  height: 260rpx;
   width: 100%;
   background: linear-gradient(to top right, #0081ff , #1cbbb4);
   display: flex;
@@ -31,15 +31,15 @@
   align-items: center;
 }
 .tab-box .tab-title{
-  color: #ffffff;
-  font-size:60rpx;
-  font-family:'幼圆';
-
+  color: #e1f0de;
+  font-size:80rpx;
+  font-family:'微软雅黑';
+  font-stretch: expanded;
 }
 .tab-box .tab-des{
-  color: #ffffff;
-  font-size: 28rpx;
-  margin-top: 20rpx;
+  color: #e1f0de;
+  font-size: 30rpx;
+  margin-top: 30rpx;
 }
 .tab-box .back-btn{
   position: absolute;
@@ -49,11 +49,11 @@
   line-height: 70rpx;
   display: flex;
   align-items: center;
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: #ffffff;
 }
 .tab-box .back-btn .iconfont{
-  font-size: 34rpx;
+  font-size: 40rpx;
 }
 /* 对话样式 */
 .step-box{
