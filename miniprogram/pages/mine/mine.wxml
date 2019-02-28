@@ -2,8 +2,8 @@
 
 <view class="tab-placeholder">
   <view class="tab-box">
-    <text class="tab-title">优简历</text>
-    <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+    <text class="tab-title">有简历</text>
+    <text class="tab-des">让大神免费来帮你写简历的小程序</text>
   </view>
 </view>
 <view class="mine-content">
