@@ -14,7 +14,7 @@
   color: #0081ff;
 }
 .tab-placeholder{
-  height: 400rpx;
+  height: 300rpx;
   width: 100%;
 }
 .tab-box{
@@ -22,7 +22,7 @@
   z-index: 100;
   top: 0;
   left: 0;
-  height: 400rpx;
+  height: 300rpx;
   width: 100%;
   background: linear-gradient(to top right, #0081ff , #1cbbb4);
   display: flex;

@@ -8,12 +8,13 @@
     "pages/share/share",
     "pages/introDetail/introDetail",
     "pages/vipIntro/vipIntro",
-    "pages/postDetail/postDetail"
+    "pages/postDetail/postDetail",
+    "pages/addintro/addintro"
   ],
   "window": {
     "navigationStyle": "custom",
     "navigationBarBackgroundColor": "#f5f5f5",
-    "navigationBarTextStyle": "#ffffff",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "小程序",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",

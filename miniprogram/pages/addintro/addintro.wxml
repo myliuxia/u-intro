@@ -1,0 +1,107 @@
+<view class="tab-placeholder">
+  <view class="tab-box">
+    <text class="tab-title">有简历</text>
+    <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+  </view>
+</view>
+<view class="container">
+    <view class="field">
+      <text class="placeholder">头像</text>
+      <view class="chooseimage grow" bindtap="chooseImage">请上传头像</view>
+      <view class="headimage_container">
+        <image src='{{introImage}}'></image>
+      </view>
+    </view>
+    <view class="field">
+      <text class="placeholder">姓名</text>
+      <view class="grow"><input></input></view>
+    </view>
+    <view class="field">
+      <text class="placeholder">性别</text>
+      <view class="grow"></view>
+      <view class="">
+        <radio-group>
+          <radio value="1" class="radio sm" checked="{{hasWork==1}}" /><text class="mar-l-2">男</text>
+          <radio value="0" class="radio sm" checked="{{hasWork==0}}" /><text class="mar-l-2">女</text>
+        </radio-group>
+      </view>
+    </view>
+    <view class="field">
+      <text class="placeholder">联系方式</text>
+      <view class="grow"><input></input></view>
+    </view>
+    <view class="field">
+      <text class="placeholder">出生日期</text>
+      <view class="grow">
+        <picker
+          mode="date"
+          value="{{birthDay}}"
+          start="2015-09-01"
+          end="2017-09-01"
+          bindchange="birthDayChange"
+        >
+        <view class="picker">
+          {{birthDay}}
+        </view>
+        </picker>
+      </view>
+    </view>
+    <view class="field">
+      <text class="placeholder">地址</text>
+      <view class="grow">
+          <picker
+          mode="region"
+          bindchange="bindRegionChange"
+          value="{{region}}"
+          custom-item="{{customItem}}"
+        >
+          <view class="picker">
+            {{region[0]}}，{{region[1]}}，{{region[2]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="field">
+      <text class="placeholder">座右铭</text>
+      <view class="grow"><input></input></view>
+    </view>
+    <view class="field">
+      <text class="placeholder">座右铭</text>
+      <view class="grow"><input></input></view>
+    </view>
+    <button
+      type="primary"
+      size=""
+      bindtap="primary"
+    >
+      primary
+    </button>
+</view>
+<view>
+  <button class="code-btn" bindtap="chooseImage" >修改图片</button>
+</view>
+<view class="section">
+  <view class="section__title">省市区选择器</view>
+  <picker
+    mode="region"
+    bindchange="bindRegionChange"
+    value="{{region}}"
+    custom-item="{{customItem}}"
+  >
+    <view class="picker">
+      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker>
+</view>
+
+<modal-box class="{{!isAuth?'show':''}}">
+  <dialog>
+    <view style="display:flex;flex-direction:column; align-items:center;">
+      <text style="font-size:36rpx;font-weight:500;margin:20rpx 0 10rpx 0;">需要您的授权</text>
+      <text style="font-size:30rpx;color:#999;margin:20rpx 0 0rpx 0;">为了提供更好的服务</text>
+      <text style="font-size:30rpx;color:#999;">请稍后在提示框上点击"允许"。</text>
+      <image class="" style='width:90%;' src="../../images/authinfo.png"></image>
+      <button class="auth" type="primary" style="margin-top:10rpx;width: 100%;" open-type='getUserInfo' bindgetuserinfo='login'>授权登录       </button>
+    </view>
+  </dialog>
+</modal-box>

@@ -21,13 +21,15 @@ Page({
     postList:[],
     recruitIndex:0,
     showMb:false,
+    mBStep:1,
+    isAuth:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let _this = this;
     //创建节点选择器
     var query = wx.createSelectorQuery();
     //选择id
@@ -37,7 +39,27 @@ Page({
         noticeHeight: nodeRes[0].height
       })
     })
-
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          //已经授权
+          _this.setData({
+            isAuth: true,
+          })
+          wx.getUserInfo({
+            success: res => {
+              app.globalData.userInfo = res.userInfo;
+              _this.addUserInfo()
+            }
+          })
+        } else {
+          // 未授权或拒接授权
+          _this.setData({
+            isAuth: false,
+          })
+        }
+      }
+    })
 
     /**接收参数 */
     this.setData({
@@ -280,5 +302,23 @@ Page({
   },
   formReset() {
     console.log('form发生了reset事件')
+  },
+  /**
+   * 添加用户数据
+   */
+  addUserInfo: function () {
+    wx.request({
+      url: 'https://www.kklei.com/add_user_info',
+      data: app.globalData.userInfo,
+      header: app.globalData.header,
+      success: (result) => {
+        console.log(result)
+      }
+    })
+  },
+  nextStep:function(e){
+    this.setData({
+      mBStep:2
+    })
   }
 })
