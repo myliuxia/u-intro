@@ -69,11 +69,7 @@
       <text class="placeholder">座右铭</text>
       <view class="grow"><input></input></view>
     </view>
-    <button
-      type="primary"
-      size=""
-      bindtap="primary"
-    >
+    <button type="primary" bindtap="primary">
       primary
     </button>
 </view>
