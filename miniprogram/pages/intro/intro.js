@@ -73,9 +73,9 @@ Page({
           })
         }else{
           // 未授权或拒接授权
-          wx.navigateTo({
-            url: '/pages/login/login',
-          })
+          // wx.navigateTo({
+          //   url: '/pages/login/login',
+          // })
 
           // _this.setData({
           //   showAuth: true

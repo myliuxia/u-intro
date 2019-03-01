@@ -1,5 +1,3 @@
-<!--miniprogram/pages/mine/mine.wxml-->
-
 <view class="tab-placeholder">
   <view class="tab-box">
     <text class="tab-title">有简历</text>

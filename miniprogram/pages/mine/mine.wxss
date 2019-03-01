@@ -260,9 +260,24 @@
   flex-direction: column;
   align-items: center;
 }
+.mb .caontainer{
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .mb .mb-image{
   width: 544rpx;
   height: 238rpx;
+}
+.mb .mb-image2{
+  width: 519rpx;
+  height: 319rpx;
 }
 
 .mb .mb-btn{
