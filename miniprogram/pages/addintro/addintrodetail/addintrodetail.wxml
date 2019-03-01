@@ -1,0 +1,193 @@
+<view class="tab-placeholder">
+  <view class="tab-box">
+    <text class="tab-title">有简历</text>
+    <text class="tab-des">让大神免费来帮你写简历的小程序</text>
+  </view>
+</view>
+<view>
+  <view>
+    <view class="title">
+      <view class="title_left">教育经历</view>
+      <view class="title_right" bindtap='showEducation'>{{currentTab=='education'?'收起':'展开'}}
+        <i class='iconfont {{currentTab=="education"?"icon-up":"icon-down1"}}'></i>
+      </view>
+    </view>
+    <view class="detail_form" wx:if="{{currentTab=='education'}}">
+      <view class="field">
+        <text class="placeholder">高中</text>
+        <view class="grow">
+          <input bindinput="seniorHighSchoolNameChange"></input>
+        </view>
+      </view>
+      <view class="field">
+        <text class="placeholder">入学时间</text>
+          <view class="grow">
+            <picker
+            mode="date"
+            value="{{seniorHighSchool.beginDate}}"
+            start="2015-09-01"
+            end="2017-09-01"
+            bindchange="seniorHighSchoolDateChange"
+            >
+            <view class="picker">
+              {{seniorHighSchool.beginDate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="field">
+        <text class="placeholder">奖励</text>
+        <view class="grow">
+          <input bindinput="seniorHighSchoolRewardChange"></input>
+        </view>
+      </view>
+      <view class="field">
+        <text class="placeholder">大学</text>
+        <view class="grow">
+          <input bindinput="universityNameChange"></input>
+        </view>
+      </view>
+      <view class="field">
+        <text class="placeholder">入学时间</text>
+          <view class="grow">
+            <picker
+            mode="date"
+            value="{{university.beginDate}}"
+            start="2015-09-01"
+            end="2017-09-01"
+            bindchange="universitylDateChange"
+            >
+            <view class="picker">
+              {{university.beginDate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="field">
+        <text class="placeholder">奖励</text>
+        <view class="grow">
+          <input bindinput="universityRewardChange"></input>
+        </view>
+      </view>
+      <view class="field">
+        <text class="placeholder">研究生</text>
+        <view class="grow">
+          <input bindinput="graduateNameChange"></input>
+        </view>
+      </view>
+      <view class="field">
+        <text class="placeholder">入学时间</text>
+          <view class="grow">
+            <picker
+            mode="date"
+            value="{{graduate.beginDate}}"
+            start="2015-09-01"
+            end="2017-09-01"
+            bindchange="graduateDateChange"
+            >
+            <view class="picker">
+              {{graduate.beginDate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="field">
+        <text class="placeholder">奖励</text>
+        <view class="grow">
+          <input bindinput="graduateRewardChange"></input>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="title">
+      <view class="title_left">工作经验</view>
+      <view class="title_right" bindtap='showWork'>{{currentTab=='work'?'收起':'展开'}}
+        <i class='iconfont {{currentTab=="work"?"icon-up":"icon-down1"}}'></i>
+      </view>
+  </view>
+  <view class="detail_form" wx:if="{{currentTab=='work'}}">
+      <view class='work_detail' wx:for="{{work}}" wx:if="{{!addWork}}">
+        <view class="left">
+          <view>
+            <text style="font-size:36rpx;">{{item.companyName}}</text>
+          </view>
+          <view style="font-size:28rpx;color:#888;word-wrap:break-word;">
+            <text>{{item.beginDate}}-{{item.endDate}}</text>
+          </view>
+          <view style="font-size:28rpx;color:#888;word-wrap:break-word;">
+            {{item.post}}
+          </view>
+        </view>
+        <view class="right">
+          <text bindtap='editWork' data-index='{{index}}'>编辑</text>
+        </view>
+      </view>
+      <view class='add_work' wx:if="{{!addWork}}" bindtap='addWork'>
+        <text>添加一条</text>
+      </view>
+      <view wx:if="{{addWork}}">
+         <view class="field">
+            <text class="placeholder">公司</text>
+            <view class="grow">
+              <input bindinput="companycompanyNameChange" value='{{tempWork.companyName}}'></input>
+            </view>
+          </view>
+          <view class="field">
+            <text class="placeholder">入职时间</text>
+              <view class="grow">
+                <picker
+                mode="date"
+                value="{{seniorHighSchool.beginDate}}"
+                start="2015-09-01"
+                end="2017-09-01"
+                bindchange="companyBeginDateChange"
+                >
+                <view class="picker">
+                  {{tempWork.beginDate}}
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="field">
+            <text class="placeholder">离职时间</text>
+              <view class="grow">
+                <picker
+                mode="date"
+                value="{{seniorHighSchool.beginDate}}"
+                start="2015-09-01"
+                end="2017-09-01"
+                bindchange="companyEndDateChange"
+                >
+                <view class="picker">
+                  {{tempWork.endDate}}
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="field">
+            <text class="placeholder">职位</text>
+            <view class="grow">
+              <input bindinput="companyPostChange" value='{{tempWork.post}}'></input>
+            </view>
+          </view>
+          <view class="field">
+            <text class="placeholder">工作内容</text>
+            <view class="grow">
+              <input bindinput="companyworkContentChange" value='{{tempWork.workContent}}'></input>
+            </view>
+          </view>
+          <view class="add_operation">
+              <view class="sure" bindtap='sureAddwork'>
+                <text data-index='{{index}}'>确定</text>
+              </view>
+              <view class="cancle" bindtap='cancelAddwork'>
+                <text data-index='{{index}}'>取消</text>
+              </view>
+          </view>
+      </view>
+  </view>
+  <view style="height:46px;"></view>
+  <view class="submit">
+    <button bindtap='saveIntro'>保存</button>
+  </view>
+</view>

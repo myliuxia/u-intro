@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isGotoDetailPage:true,
     isAuth: true,
     region: ['广东省', '广州市', '海珠区'],
     customItem: '全部',
@@ -14,9 +15,13 @@ Page({
       { name: '1', value: '男', checked: 'true' },
       { name: '2', value: '女' },
     ],
+    needUploadHeadImage:"请上传头像",
     introImage:"../../images/v-icon.jpg",
     birthDay: '2016-09-01',
     region: ['广东省', '广州市', '海珠区'],
+    detailAddress:"",
+    myPhone: '',
+    motto: '',
   },
 
   /**
@@ -137,7 +142,8 @@ Page({
             console.log(result)
             let resData = JSON.parse(result.data)
             this.setData({
-              introImage: 'https://www.kklei.com/' + resData.obj
+              introImage: 'https://www.kklei.com/' + resData.obj,
+              needUploadHeadImage:''
             })
           }
         })
@@ -150,6 +156,57 @@ Page({
   birthDayChange:function(e){
     this.setData({
       birthDay: e.detail.value
+    })
+  },
+  phoneInput:function(e){
+    this.setData({
+      myPhone: e.detail.value
+    })
+  },
+  nameInput:function(e){
+    this.setData({
+      username: e.detail.value
+    })
+  },
+  detailAddressInput(e){
+    this.setData({
+      detailAddress: e.detail.value
+    })
+  },
+  detailMottoInput(e) {
+    this.setData({
+      motto: e.detail.value
+    })
+  },
+  notgotoDetailPage: function () {
+    this.setData({
+      isGotoDetailPage: true,
+    })
+  },
+  gotoDetailPage:function(){
+    wx.navigateTo({
+      url: '../../pages/addintro/addintrodetail/addintrodetail'
+    })
+  },
+  save:function(){
+    let introInfo = {
+      name: this.data.username,
+      birthday: this.data.birthDay,
+      address: this.data.region.join(' '),
+      motto: this.data.motto,
+      introImage: this.data.introImage,
+      myPhone: this.data.myPhone
+    }
+    app.globalData.intro = introInfo;
+    console.log(app.globalData.intro)
+    this.setData({
+      isGotoDetailPage: false,
+    })
+  },
+  bindRegionChange(e){
+    console.log(e)
+    this.setData({
+      region: e.detail.value
     })
   }
 })

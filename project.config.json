@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -70,6 +70,13 @@
 					"id": -1,
 					"name": "添加简历",
 					"pathName": "pages/addintro/addintro",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加简历详情",
+					"pathName": "pages/addintro/addintrodetail/addintrodetail",
 					"scene": null
 				}
 			]

@@ -1,0 +1,95 @@
+/* miniprogram/pages/addintro/addintrodetail/addintrodetail.wxss */
+@import "../addintro.wxss"
+.title{
+  background-color: #fff;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  margin: 10rpx 0 0 0 ;
+}
+.title_left{
+  border-left: 20rpx solid #FF4040;
+  padding-left:10rpx;
+  color:#333;
+}
+.title_right{
+  color: #aaa;
+  display: flex;
+  flex-direction:row;
+  padding-right:10rpx;
+}
+.title_right i{
+  font-size:50rpx;
+}
+page{
+  background-color: #eee;
+}
+.detail_form{
+  background-color: #fff;
+  padding: 0 0rpx 0 30rpx;
+}
+.work_detail{
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  padding-right: 20rpx;
+  margin: 0 10rpx 10rpx 0;
+  border-bottom: 1px dashed #999;
+  padding: 0 10rpx 10rpx 0;
+}
+.work_detail .left{
+  display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+  width: 80%;
+}
+.work_detail .right{
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  margin-right: 10rpx;
+}
+.right text{
+  font-size: 26rpx;
+  color: #666;
+  background-color: rgb(192, 192, 192);
+  padding: 10rpx 10rpx 10rpx 10rpx;
+  border-radius: 3rpx;
+}
+.add_work{
+  margin: 20rpx 0 20rpx 0;
+  padding-bottom: 20rpx;
+  display: flex;
+  justify-content:center;
+  color: rgb(255, 92, 92);
+}
+.add_work text{
+  width: 100%;
+  text-align: center;
+}
+.add_operation{
+  margin: 20rpx 0 20rpx 0;
+  padding-bottom: 20rpx;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-around;
+}
+.add_operation view{
+  width: 40%;
+  height: 60rpx;
+  background-color: rgb(192, 192, 192);
+  text-align: center;
+}
+.add_operation view text{
+  font-size: 36rpx;
+  color: #666;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+  border-radius: 3rpx;
+}
+.submit{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

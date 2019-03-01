@@ -82,6 +82,7 @@ App({
     userInfo: null,
     header:{
       Cookie: ''
-    }
+    },
+    intro:{}
   }
 })

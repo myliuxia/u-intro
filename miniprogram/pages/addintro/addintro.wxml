@@ -1,22 +1,24 @@
 <view class="tab-placeholder">
   <view class="tab-box">
     <text class="tab-title">有简历</text>
-    <text class="tab-des">如何轻松得到一份漂亮的简历</text>
+    <text class="tab-des">让大神免费来帮你写简历的小程序</text>
   </view>
 </view>
 <view class="container">
     <view class="field">
       <text class="placeholder">头像</text>
-      <view class="chooseimage grow" bindtap="chooseImage">请上传头像</view>
+      <view class="chooseimage grow" bindtap="chooseImage">{{needUploadHeadImage}}</view>
       <view class="headimage_container">
         <image src='{{introImage}}'></image>
       </view>
     </view>
     <view class="field">
       <text class="placeholder">姓名</text>
-      <view class="grow"><input></input></view>
+      <view class="grow">
+        <input bindinput="nameInput"></input>
+      </view>
     </view>
-    <view class="field">
+    <!-- <view class="field">
       <text class="placeholder">性别</text>
       <view class="grow"></view>
       <view class="">
@@ -25,10 +27,12 @@
           <radio value="0" class="radio sm" checked="{{hasWork==0}}" /><text class="mar-l-2">女</text>
         </radio-group>
       </view>
-    </view>
+    </view> -->
     <view class="field">
       <text class="placeholder">联系方式</text>
-      <view class="grow"><input></input></view>
+      <view class="grow">
+        <input bindinput="phoneInput"></input>
+      </view>
     </view>
     <view class="field">
       <text class="placeholder">出生日期</text>
@@ -62,35 +66,25 @@
       </view>
     </view>
     <view class="field">
-      <text class="placeholder">座右铭</text>
-      <view class="grow"><input></input></view>
+      <text class="placeholder">详细地址</text>
+      <view class="grow">
+        <input bindinput="detailAddressInput"></input>
+      </view>
     </view>
     <view class="field">
       <text class="placeholder">座右铭</text>
-      <view class="grow"><input></input></view>
+      <view class="grow">
+        <input bindinput="detailMottoInput"></input>
+      </view>
     </view>
-    <button type="primary" bindtap="primary">
-      primary
+    <button type="primary" style="width:100%;margin-top:20rpx;width:95%;" bindtap="save">
+      保存
     </button>
 </view>
-<view>
-  <button class="code-btn" bindtap="chooseImage" >修改图片</button>
-</view>
-<view class="section">
-  <view class="section__title">省市区选择器</view>
-  <picker
-    mode="region"
-    bindchange="bindRegionChange"
-    value="{{region}}"
-    custom-item="{{customItem}}"
-  >
-    <view class="picker">
-      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
-    </view>
-  </picker>
-</view>
-
-<modal-box class="{{!isAuth?'show':''}}">
+<modal hidden="{{isGotoDetailPage}}" title="提示" confirm-text="确定" cancel-text="取消" bindcancel="notgotoDetailPage" bindconfirm="gotoDetailPage" no-cancel="{{nocancel}}">
+    已保存,进一步完善资料
+</modal>
+<modal-box wx-if="!isAuth" class="{{!isAuth?'show':''}}">
   <dialog>
     <view style="display:flex;flex-direction:column; align-items:center;">
       <text style="font-size:36rpx;font-weight:500;margin:20rpx 0 10rpx 0;">需要您的授权</text>

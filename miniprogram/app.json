@@ -9,7 +9,8 @@
     "pages/introDetail/introDetail",
     "pages/vipIntro/vipIntro",
     "pages/postDetail/postDetail",
-    "pages/addintro/addintro"
+    "pages/addintro/addintro",
+    "pages/addintro/addintrodetail/addintrodetail"
   ],
   "window": {
     "navigationStyle": "custom",
